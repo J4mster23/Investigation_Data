@@ -1,0 +1,1958 @@
+{
+  "total": 150,
+  "success_count": 150,
+  "failure_count": 0,
+  "elapsed_seconds": 56.3,
+  "results": [
+    {
+      "track_id": "1194720",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1440705,
+      "wav_size_bytes": 3844110,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "1681077",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "1178656",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1440705,
+      "wav_size_bytes": 3843944,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "1149778",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1440705,
+      "wav_size_bytes": 3844398,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.01
+      }
+    },
+    {
+      "track_id": "1161234",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1440705,
+      "wav_size_bytes": 3843942,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "1017921",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "1690921",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "1792100",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "1880732",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "1771577",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "1757071",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "1950170",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "2048054",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "1978917",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "2083393",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "2434664",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "2436729",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "2435861",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3088145",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "2667501",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "2680040",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3093661",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3297802",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3302451",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3313070",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3336126",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3367553",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3443052",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3467773",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3533956",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3949799",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3757006",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3964688",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4018083",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4018084",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4062807",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4191993",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4293025",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4166222",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4060751",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4485436",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4372309",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4611640",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4424988",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4693039",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4850346",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4846004",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "781995",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "1389887",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1440705,
+      "wav_size_bytes": 3844026,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "1424458",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1440705,
+      "wav_size_bytes": 3844410,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.01
+      }
+    },
+    {
+      "track_id": "5117279",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "5085261",
+      "genre": "house",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "1791554",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "1678455",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "1905591",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "1939732",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "1918704",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "1964905",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "2677224",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "2071203",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "2726353",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3003894",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3339291",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3368053",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3368055",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3443201",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3450181",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3530058",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3692859",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3602280",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3776015",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1474835,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3826491",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3807114",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3787878",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 2232989,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3883902",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4117487",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4166612",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4207348",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4300617",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4328155",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4264210",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4494659",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4353566",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4743012",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4810810",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "5157605",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "5204781",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4981541",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "5214265",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "5417860",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "5237462",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4969415",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "611797",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "633082",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "796860",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "822664",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "877345",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "903963",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "975138",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "956606",
+      "genre": "techno",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "1240672",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1440704,
+      "wav_size_bytes": 3843874,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 119.99
+      }
+    },
+    {
+      "track_id": "1068430",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "1817444",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "2088281",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "1929611",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3013772",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3190084",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3130573",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3213176",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3312045",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3370500",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3343760",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3460094",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3467867",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3564559",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3509304",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3568438",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3482733",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3593643",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3630279",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3630280",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3649559",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442052,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3873575",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3790342",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3886124",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4360483",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4360488",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4192452",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "3939148",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4409752",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4411925",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4418582",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4474029",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4486124",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4678080",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4696505",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4767260",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4996031",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "5073839",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "4884993",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "5068771",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "5078640",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "5103693",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "5162042",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "5431709",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "906680",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "907836",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "906681",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "672064",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    },
+    {
+      "track_id": "94350",
+      "genre": "dnb",
+      "status": "success",
+      "mp3_size_bytes": 1442068,
+      "wav_size_bytes": 3844096,
+      "wav_metadata": {
+        "channels": 1,
+        "bit_depth": 16,
+        "sample_rate": 16000,
+        "duration_sec": 120.0
+      }
+    }
+  ]
+}

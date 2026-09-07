@@ -1,0 +1,14 @@
+# OS files
+.DS_Store
+
+# Python artifacts
+__pycache__/
+*.pyc
+
+# Raw and converted large audio datasets
+dataset/raw_mp3/
+dataset/wav_16k/
+
+# Keep metadata and test stimuli
+!dataset/metadata/
+!dataset/test_stimuli/

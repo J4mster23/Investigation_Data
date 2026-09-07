@@ -1,0 +1,1661 @@
+{
+  "description": "50 representative tracks per genre for speech enhancement filter design",
+  "genres": {
+    "house": [
+      {
+        "track_id": "1017921",
+        "subgenre": "progressive_house",
+        "source_dataset": "key",
+        "filename_mp3": "1017921.LOFI.mp3",
+        "filename_wav": "house_1017921.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/1017921.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/1017921.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "1149778",
+        "subgenre": "tech_house",
+        "source_dataset": "key",
+        "filename_mp3": "1149778.LOFI.mp3",
+        "filename_wav": "house_1149778.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/1149778.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/1149778.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "1161234",
+        "subgenre": "tech_house",
+        "source_dataset": "key",
+        "filename_mp3": "1161234.LOFI.mp3",
+        "filename_wav": "house_1161234.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/1161234.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/1161234.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "1178656",
+        "subgenre": "tech_house",
+        "source_dataset": "key",
+        "filename_mp3": "1178656.LOFI.mp3",
+        "filename_wav": "house_1178656.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/1178656.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/1178656.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "1194720",
+        "subgenre": "tech_house",
+        "source_dataset": "key",
+        "filename_mp3": "1194720.LOFI.mp3",
+        "filename_wav": "house_1194720.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/1194720.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/1194720.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "1681077",
+        "subgenre": "tech_house",
+        "source_dataset": "key",
+        "filename_mp3": "1681077.LOFI.mp3",
+        "filename_wav": "house_1681077.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/1681077.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/1681077.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "1690921",
+        "subgenre": "tech_house",
+        "source_dataset": "key",
+        "filename_mp3": "1690921.LOFI.mp3",
+        "filename_wav": "house_1690921.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/1690921.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/1690921.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "1757071",
+        "subgenre": "house_pure",
+        "source_dataset": "key",
+        "filename_mp3": "1757071.LOFI.mp3",
+        "filename_wav": "house_1757071.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/1757071.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/1757071.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "1771577",
+        "subgenre": "tech_house",
+        "source_dataset": "key",
+        "filename_mp3": "1771577.LOFI.mp3",
+        "filename_wav": "house_1771577.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/1771577.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/1771577.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "1792100",
+        "subgenre": "tech_house",
+        "source_dataset": "key",
+        "filename_mp3": "1792100.LOFI.mp3",
+        "filename_wav": "house_1792100.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/1792100.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/1792100.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "1880732",
+        "subgenre": "tech_house",
+        "source_dataset": "key",
+        "filename_mp3": "1880732.LOFI.mp3",
+        "filename_wav": "house_1880732.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/1880732.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/1880732.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "1950170",
+        "subgenre": "deep_house",
+        "source_dataset": "key",
+        "filename_mp3": "1950170.LOFI.mp3",
+        "filename_wav": "house_1950170.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/1950170.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/1950170.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "1978917",
+        "subgenre": "tech_house",
+        "source_dataset": "key",
+        "filename_mp3": "1978917.LOFI.mp3",
+        "filename_wav": "house_1978917.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/1978917.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/1978917.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "2048054",
+        "subgenre": "house_pure",
+        "source_dataset": "key",
+        "filename_mp3": "2048054.LOFI.mp3",
+        "filename_wav": "house_2048054.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/2048054.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/2048054.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "2083393",
+        "subgenre": "deep_house",
+        "source_dataset": "tempo",
+        "filename_mp3": "2083393.LOFI.mp3",
+        "filename_wav": "house_2083393.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/2083393.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/2083393.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "2434664",
+        "subgenre": "progressive_house",
+        "source_dataset": "key",
+        "filename_mp3": "2434664.LOFI.mp3",
+        "filename_wav": "house_2434664.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/2434664.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/2434664.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "2435861",
+        "subgenre": "tech_house",
+        "source_dataset": "key",
+        "filename_mp3": "2435861.LOFI.mp3",
+        "filename_wav": "house_2435861.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/2435861.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/2435861.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "2436729",
+        "subgenre": "electro_house",
+        "source_dataset": "key",
+        "filename_mp3": "2436729.LOFI.mp3",
+        "filename_wav": "house_2436729.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/2436729.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/2436729.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "2667501",
+        "subgenre": "deep_house",
+        "source_dataset": "key",
+        "filename_mp3": "2667501.LOFI.mp3",
+        "filename_wav": "house_2667501.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/2667501.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/2667501.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "2680040",
+        "subgenre": "progressive_house",
+        "source_dataset": "key",
+        "filename_mp3": "2680040.LOFI.mp3",
+        "filename_wav": "house_2680040.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/2680040.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/2680040.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3088145",
+        "subgenre": "electro_house",
+        "source_dataset": "tempo",
+        "filename_mp3": "3088145.LOFI.mp3",
+        "filename_wav": "house_3088145.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3088145.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3088145.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3093661",
+        "subgenre": "electro_house",
+        "source_dataset": "key",
+        "filename_mp3": "3093661.LOFI.mp3",
+        "filename_wav": "house_3093661.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3093661.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3093661.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3297802",
+        "subgenre": "house_pure",
+        "source_dataset": "tempo",
+        "filename_mp3": "3297802.LOFI.mp3",
+        "filename_wav": "house_3297802.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3297802.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3297802.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3302451",
+        "subgenre": "progressive_house",
+        "source_dataset": "key",
+        "filename_mp3": "3302451.LOFI.mp3",
+        "filename_wav": "house_3302451.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3302451.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3302451.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3313070",
+        "subgenre": "progressive_house",
+        "source_dataset": "key",
+        "filename_mp3": "3313070.LOFI.mp3",
+        "filename_wav": "house_3313070.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3313070.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3313070.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3336126",
+        "subgenre": "progressive_house",
+        "source_dataset": "tempo",
+        "filename_mp3": "3336126.LOFI.mp3",
+        "filename_wav": "house_3336126.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3336126.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3336126.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3367553",
+        "subgenre": "progressive_house",
+        "source_dataset": "key",
+        "filename_mp3": "3367553.LOFI.mp3",
+        "filename_wav": "house_3367553.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3367553.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3367553.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3443052",
+        "subgenre": "house_pure",
+        "source_dataset": "key",
+        "filename_mp3": "3443052.LOFI.mp3",
+        "filename_wav": "house_3443052.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3443052.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3443052.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3467773",
+        "subgenre": "progressive_house",
+        "source_dataset": "key",
+        "filename_mp3": "3467773.LOFI.mp3",
+        "filename_wav": "house_3467773.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3467773.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3467773.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3533956",
+        "subgenre": "deep_house",
+        "source_dataset": "key",
+        "filename_mp3": "3533956.LOFI.mp3",
+        "filename_wav": "house_3533956.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3533956.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3533956.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3757006",
+        "subgenre": "house_pure",
+        "source_dataset": "key",
+        "filename_mp3": "3757006.LOFI.mp3",
+        "filename_wav": "house_3757006.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3757006.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3757006.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3949799",
+        "subgenre": "progressive_house",
+        "source_dataset": "key",
+        "filename_mp3": "3949799.LOFI.mp3",
+        "filename_wav": "house_3949799.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3949799.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3949799.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3964688",
+        "subgenre": "deep_house",
+        "source_dataset": "tempo",
+        "filename_mp3": "3964688.LOFI.mp3",
+        "filename_wav": "house_3964688.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3964688.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3964688.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4018083",
+        "subgenre": "deep_house",
+        "source_dataset": "tempo",
+        "filename_mp3": "4018083.LOFI.mp3",
+        "filename_wav": "house_4018083.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4018083.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4018083.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4018084",
+        "subgenre": "deep_house",
+        "source_dataset": "tempo",
+        "filename_mp3": "4018084.LOFI.mp3",
+        "filename_wav": "house_4018084.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4018084.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4018084.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4060751",
+        "subgenre": "progressive_house",
+        "source_dataset": "key",
+        "filename_mp3": "4060751.LOFI.mp3",
+        "filename_wav": "house_4060751.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4060751.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4060751.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4062807",
+        "subgenre": "deep_house",
+        "source_dataset": "key",
+        "filename_mp3": "4062807.LOFI.mp3",
+        "filename_wav": "house_4062807.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4062807.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4062807.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4166222",
+        "subgenre": "deep_house",
+        "source_dataset": "tempo",
+        "filename_mp3": "4166222.LOFI.mp3",
+        "filename_wav": "house_4166222.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4166222.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4166222.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4191993",
+        "subgenre": "progressive_house",
+        "source_dataset": "key",
+        "filename_mp3": "4191993.LOFI.mp3",
+        "filename_wav": "house_4191993.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4191993.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4191993.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4293025",
+        "subgenre": "electro_house",
+        "source_dataset": "key",
+        "filename_mp3": "4293025.LOFI.mp3",
+        "filename_wav": "house_4293025.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4293025.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4293025.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4372309",
+        "subgenre": "deep_house",
+        "source_dataset": "tempo",
+        "filename_mp3": "4372309.LOFI.mp3",
+        "filename_wav": "house_4372309.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4372309.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4372309.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4424988",
+        "subgenre": "progressive_house",
+        "source_dataset": "key",
+        "filename_mp3": "4424988.LOFI.mp3",
+        "filename_wav": "house_4424988.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4424988.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4424988.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4485436",
+        "subgenre": "electro_house",
+        "source_dataset": "key",
+        "filename_mp3": "4485436.LOFI.mp3",
+        "filename_wav": "house_4485436.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4485436.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4485436.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4611640",
+        "subgenre": "electro_house",
+        "source_dataset": "tempo",
+        "filename_mp3": "4611640.LOFI.mp3",
+        "filename_wav": "house_4611640.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4611640.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4611640.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4693039",
+        "subgenre": "progressive_house",
+        "source_dataset": "tempo",
+        "filename_mp3": "4693039.LOFI.mp3",
+        "filename_wav": "house_4693039.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4693039.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4693039.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4846004",
+        "subgenre": "deep_house",
+        "source_dataset": "key",
+        "filename_mp3": "4846004.LOFI.mp3",
+        "filename_wav": "house_4846004.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4846004.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4846004.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4850346",
+        "subgenre": "deep_house",
+        "source_dataset": "tempo",
+        "filename_mp3": "4850346.LOFI.mp3",
+        "filename_wav": "house_4850346.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4850346.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4850346.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "5085261",
+        "subgenre": "deep_house",
+        "source_dataset": "key",
+        "filename_mp3": "5085261.LOFI.mp3",
+        "filename_wav": "house_5085261.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/5085261.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/5085261.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "5117279",
+        "subgenre": "tech_house",
+        "source_dataset": "tempo",
+        "filename_mp3": "5117279.LOFI.mp3",
+        "filename_wav": "house_5117279.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/5117279.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/5117279.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "781995",
+        "subgenre": "progressive_house",
+        "source_dataset": "key",
+        "filename_mp3": "781995.LOFI.mp3",
+        "filename_wav": "house_781995.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/781995.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/781995.LOFI.mp3"
+        ]
+      }
+    ],
+    "techno": [
+      {
+        "track_id": "1389887",
+        "subgenre": "techno",
+        "source_dataset": "key",
+        "filename_mp3": "1389887.LOFI.mp3",
+        "filename_wav": "techno_1389887.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/1389887.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/1389887.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "1424458",
+        "subgenre": "techno",
+        "source_dataset": "tempo",
+        "filename_mp3": "1424458.LOFI.mp3",
+        "filename_wav": "techno_1424458.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/1424458.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/1424458.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "1678455",
+        "subgenre": "techno",
+        "source_dataset": "key",
+        "filename_mp3": "1678455.LOFI.mp3",
+        "filename_wav": "techno_1678455.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/1678455.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/1678455.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "1791554",
+        "subgenre": "techno",
+        "source_dataset": "tempo",
+        "filename_mp3": "1791554.LOFI.mp3",
+        "filename_wav": "techno_1791554.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/1791554.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/1791554.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "1905591",
+        "subgenre": "techno",
+        "source_dataset": "tempo",
+        "filename_mp3": "1905591.LOFI.mp3",
+        "filename_wav": "techno_1905591.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/1905591.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/1905591.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "1918704",
+        "subgenre": "techno",
+        "source_dataset": "tempo",
+        "filename_mp3": "1918704.LOFI.mp3",
+        "filename_wav": "techno_1918704.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/1918704.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/1918704.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "1939732",
+        "subgenre": "techno",
+        "source_dataset": "key",
+        "filename_mp3": "1939732.LOFI.mp3",
+        "filename_wav": "techno_1939732.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/1939732.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/1939732.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "1964905",
+        "subgenre": "techno",
+        "source_dataset": "key",
+        "filename_mp3": "1964905.LOFI.mp3",
+        "filename_wav": "techno_1964905.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/1964905.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/1964905.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "2071203",
+        "subgenre": "techno",
+        "source_dataset": "tempo",
+        "filename_mp3": "2071203.LOFI.mp3",
+        "filename_wav": "techno_2071203.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/2071203.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/2071203.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "2677224",
+        "subgenre": "techno",
+        "source_dataset": "tempo",
+        "filename_mp3": "2677224.LOFI.mp3",
+        "filename_wav": "techno_2677224.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/2677224.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/2677224.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "2726353",
+        "subgenre": "techno",
+        "source_dataset": "tempo",
+        "filename_mp3": "2726353.LOFI.mp3",
+        "filename_wav": "techno_2726353.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/2726353.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/2726353.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3003894",
+        "subgenre": "techno",
+        "source_dataset": "key",
+        "filename_mp3": "3003894.LOFI.mp3",
+        "filename_wav": "techno_3003894.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3003894.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3003894.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3339291",
+        "subgenre": "techno",
+        "source_dataset": "key",
+        "filename_mp3": "3339291.LOFI.mp3",
+        "filename_wav": "techno_3339291.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3339291.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3339291.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3368053",
+        "subgenre": "techno",
+        "source_dataset": "tempo",
+        "filename_mp3": "3368053.LOFI.mp3",
+        "filename_wav": "techno_3368053.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3368053.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3368053.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3368055",
+        "subgenre": "techno",
+        "source_dataset": "tempo",
+        "filename_mp3": "3368055.LOFI.mp3",
+        "filename_wav": "techno_3368055.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3368055.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3368055.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3443201",
+        "subgenre": "techno",
+        "source_dataset": "tempo",
+        "filename_mp3": "3443201.LOFI.mp3",
+        "filename_wav": "techno_3443201.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3443201.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3443201.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3450181",
+        "subgenre": "techno",
+        "source_dataset": "key",
+        "filename_mp3": "3450181.LOFI.mp3",
+        "filename_wav": "techno_3450181.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3450181.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3450181.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3530058",
+        "subgenre": "techno",
+        "source_dataset": "tempo",
+        "filename_mp3": "3530058.LOFI.mp3",
+        "filename_wav": "techno_3530058.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3530058.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3530058.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3602280",
+        "subgenre": "techno",
+        "source_dataset": "key",
+        "filename_mp3": "3602280.LOFI.mp3",
+        "filename_wav": "techno_3602280.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3602280.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3602280.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3692859",
+        "subgenre": "techno",
+        "source_dataset": "tempo",
+        "filename_mp3": "3692859.LOFI.mp3",
+        "filename_wav": "techno_3692859.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3692859.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3692859.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3776015",
+        "subgenre": "techno",
+        "source_dataset": "key",
+        "filename_mp3": "3776015.LOFI.mp3",
+        "filename_wav": "techno_3776015.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3776015.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3776015.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3787878",
+        "subgenre": "techno",
+        "source_dataset": "tempo",
+        "filename_mp3": "3787878.LOFI.mp3",
+        "filename_wav": "techno_3787878.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3787878.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3787878.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3807114",
+        "subgenre": "techno",
+        "source_dataset": "tempo",
+        "filename_mp3": "3807114.LOFI.mp3",
+        "filename_wav": "techno_3807114.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3807114.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3807114.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3826491",
+        "subgenre": "techno",
+        "source_dataset": "key",
+        "filename_mp3": "3826491.LOFI.mp3",
+        "filename_wav": "techno_3826491.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3826491.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3826491.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3883902",
+        "subgenre": "techno",
+        "source_dataset": "tempo",
+        "filename_mp3": "3883902.LOFI.mp3",
+        "filename_wav": "techno_3883902.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3883902.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3883902.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4117487",
+        "subgenre": "techno",
+        "source_dataset": "tempo",
+        "filename_mp3": "4117487.LOFI.mp3",
+        "filename_wav": "techno_4117487.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4117487.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4117487.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4166612",
+        "subgenre": "techno",
+        "source_dataset": "tempo",
+        "filename_mp3": "4166612.LOFI.mp3",
+        "filename_wav": "techno_4166612.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4166612.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4166612.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4207348",
+        "subgenre": "techno",
+        "source_dataset": "tempo",
+        "filename_mp3": "4207348.LOFI.mp3",
+        "filename_wav": "techno_4207348.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4207348.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4207348.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4264210",
+        "subgenre": "techno",
+        "source_dataset": "tempo",
+        "filename_mp3": "4264210.LOFI.mp3",
+        "filename_wav": "techno_4264210.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4264210.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4264210.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4300617",
+        "subgenre": "techno",
+        "source_dataset": "tempo",
+        "filename_mp3": "4300617.LOFI.mp3",
+        "filename_wav": "techno_4300617.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4300617.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4300617.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4328155",
+        "subgenre": "techno",
+        "source_dataset": "key",
+        "filename_mp3": "4328155.LOFI.mp3",
+        "filename_wav": "techno_4328155.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4328155.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4328155.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4353566",
+        "subgenre": "techno",
+        "source_dataset": "tempo",
+        "filename_mp3": "4353566.LOFI.mp3",
+        "filename_wav": "techno_4353566.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4353566.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4353566.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4494659",
+        "subgenre": "techno",
+        "source_dataset": "tempo",
+        "filename_mp3": "4494659.LOFI.mp3",
+        "filename_wav": "techno_4494659.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4494659.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4494659.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4743012",
+        "subgenre": "techno",
+        "source_dataset": "tempo",
+        "filename_mp3": "4743012.LOFI.mp3",
+        "filename_wav": "techno_4743012.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4743012.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4743012.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4810810",
+        "subgenre": "techno",
+        "source_dataset": "tempo",
+        "filename_mp3": "4810810.LOFI.mp3",
+        "filename_wav": "techno_4810810.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4810810.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4810810.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4969415",
+        "subgenre": "techno",
+        "source_dataset": "tempo",
+        "filename_mp3": "4969415.LOFI.mp3",
+        "filename_wav": "techno_4969415.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4969415.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4969415.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4981541",
+        "subgenre": "techno",
+        "source_dataset": "key",
+        "filename_mp3": "4981541.LOFI.mp3",
+        "filename_wav": "techno_4981541.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4981541.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4981541.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "5157605",
+        "subgenre": "techno",
+        "source_dataset": "tempo",
+        "filename_mp3": "5157605.LOFI.mp3",
+        "filename_wav": "techno_5157605.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/5157605.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/5157605.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "5204781",
+        "subgenre": "techno",
+        "source_dataset": "tempo",
+        "filename_mp3": "5204781.LOFI.mp3",
+        "filename_wav": "techno_5204781.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/5204781.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/5204781.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "5214265",
+        "subgenre": "techno",
+        "source_dataset": "tempo",
+        "filename_mp3": "5214265.LOFI.mp3",
+        "filename_wav": "techno_5214265.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/5214265.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/5214265.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "5237462",
+        "subgenre": "techno",
+        "source_dataset": "tempo",
+        "filename_mp3": "5237462.LOFI.mp3",
+        "filename_wav": "techno_5237462.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/5237462.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/5237462.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "5417860",
+        "subgenre": "techno",
+        "source_dataset": "key",
+        "filename_mp3": "5417860.LOFI.mp3",
+        "filename_wav": "techno_5417860.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/5417860.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/5417860.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "611797",
+        "subgenre": "techno",
+        "source_dataset": "key",
+        "filename_mp3": "611797.LOFI.mp3",
+        "filename_wav": "techno_611797.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/611797.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/611797.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "633082",
+        "subgenre": "techno",
+        "source_dataset": "tempo",
+        "filename_mp3": "633082.LOFI.mp3",
+        "filename_wav": "techno_633082.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/633082.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/633082.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "796860",
+        "subgenre": "techno",
+        "source_dataset": "key",
+        "filename_mp3": "796860.LOFI.mp3",
+        "filename_wav": "techno_796860.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/796860.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/796860.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "822664",
+        "subgenre": "techno",
+        "source_dataset": "key",
+        "filename_mp3": "822664.LOFI.mp3",
+        "filename_wav": "techno_822664.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/822664.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/822664.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "877345",
+        "subgenre": "techno",
+        "source_dataset": "key",
+        "filename_mp3": "877345.LOFI.mp3",
+        "filename_wav": "techno_877345.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/877345.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/877345.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "903963",
+        "subgenre": "techno",
+        "source_dataset": "key",
+        "filename_mp3": "903963.LOFI.mp3",
+        "filename_wav": "techno_903963.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/903963.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/903963.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "956606",
+        "subgenre": "techno",
+        "source_dataset": "tempo",
+        "filename_mp3": "956606.LOFI.mp3",
+        "filename_wav": "techno_956606.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/956606.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/956606.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "975138",
+        "subgenre": "techno",
+        "source_dataset": "key",
+        "filename_mp3": "975138.LOFI.mp3",
+        "filename_wav": "techno_975138.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/975138.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/975138.LOFI.mp3"
+        ]
+      }
+    ],
+    "dnb": [
+      {
+        "track_id": "1068430",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "1068430.LOFI.mp3",
+        "filename_wav": "dnb_1068430.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/1068430.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/1068430.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "1240672",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "1240672.LOFI.mp3",
+        "filename_wav": "dnb_1240672.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/1240672.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/1240672.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "1817444",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "1817444.LOFI.mp3",
+        "filename_wav": "dnb_1817444.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/1817444.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/1817444.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "1929611",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "1929611.LOFI.mp3",
+        "filename_wav": "dnb_1929611.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/1929611.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/1929611.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "2088281",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "2088281.LOFI.mp3",
+        "filename_wav": "dnb_2088281.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/2088281.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/2088281.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3013772",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "3013772.LOFI.mp3",
+        "filename_wav": "dnb_3013772.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3013772.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3013772.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3130573",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "3130573.LOFI.mp3",
+        "filename_wav": "dnb_3130573.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3130573.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3130573.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3190084",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "3190084.LOFI.mp3",
+        "filename_wav": "dnb_3190084.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3190084.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3190084.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3213176",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "3213176.LOFI.mp3",
+        "filename_wav": "dnb_3213176.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3213176.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3213176.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3312045",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "3312045.LOFI.mp3",
+        "filename_wav": "dnb_3312045.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3312045.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3312045.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3343760",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "3343760.LOFI.mp3",
+        "filename_wav": "dnb_3343760.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3343760.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3343760.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3370500",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "3370500.LOFI.mp3",
+        "filename_wav": "dnb_3370500.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3370500.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3370500.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3460094",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "3460094.LOFI.mp3",
+        "filename_wav": "dnb_3460094.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3460094.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3460094.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3467867",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "3467867.LOFI.mp3",
+        "filename_wav": "dnb_3467867.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3467867.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3467867.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3482733",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "3482733.LOFI.mp3",
+        "filename_wav": "dnb_3482733.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3482733.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3482733.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3509304",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "3509304.LOFI.mp3",
+        "filename_wav": "dnb_3509304.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3509304.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3509304.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3564559",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "3564559.LOFI.mp3",
+        "filename_wav": "dnb_3564559.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3564559.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3564559.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3568438",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "key",
+        "filename_mp3": "3568438.LOFI.mp3",
+        "filename_wav": "dnb_3568438.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3568438.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3568438.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3593643",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "3593643.LOFI.mp3",
+        "filename_wav": "dnb_3593643.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3593643.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3593643.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3630279",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "3630279.LOFI.mp3",
+        "filename_wav": "dnb_3630279.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3630279.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3630279.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3630280",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "3630280.LOFI.mp3",
+        "filename_wav": "dnb_3630280.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3630280.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3630280.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3649559",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "3649559.LOFI.mp3",
+        "filename_wav": "dnb_3649559.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3649559.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3649559.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3790342",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "3790342.LOFI.mp3",
+        "filename_wav": "dnb_3790342.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3790342.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3790342.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3873575",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "3873575.LOFI.mp3",
+        "filename_wav": "dnb_3873575.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3873575.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3873575.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3886124",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "3886124.LOFI.mp3",
+        "filename_wav": "dnb_3886124.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3886124.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3886124.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "3939148",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "key",
+        "filename_mp3": "3939148.LOFI.mp3",
+        "filename_wav": "dnb_3939148.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/3939148.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/3939148.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4192452",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "4192452.LOFI.mp3",
+        "filename_wav": "dnb_4192452.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4192452.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4192452.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4360483",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "4360483.LOFI.mp3",
+        "filename_wav": "dnb_4360483.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4360483.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4360483.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4360488",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "4360488.LOFI.mp3",
+        "filename_wav": "dnb_4360488.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4360488.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4360488.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4409752",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "4409752.LOFI.mp3",
+        "filename_wav": "dnb_4409752.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4409752.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4409752.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4411925",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "4411925.LOFI.mp3",
+        "filename_wav": "dnb_4411925.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4411925.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4411925.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4418582",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "4418582.LOFI.mp3",
+        "filename_wav": "dnb_4418582.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4418582.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4418582.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4474029",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "4474029.LOFI.mp3",
+        "filename_wav": "dnb_4474029.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4474029.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4474029.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4486124",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "4486124.LOFI.mp3",
+        "filename_wav": "dnb_4486124.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4486124.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4486124.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4678080",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "4678080.LOFI.mp3",
+        "filename_wav": "dnb_4678080.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4678080.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4678080.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4696505",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "4696505.LOFI.mp3",
+        "filename_wav": "dnb_4696505.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4696505.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4696505.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4767260",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "4767260.LOFI.mp3",
+        "filename_wav": "dnb_4767260.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4767260.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4767260.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4884993",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "4884993.LOFI.mp3",
+        "filename_wav": "dnb_4884993.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4884993.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4884993.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "4996031",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "key",
+        "filename_mp3": "4996031.LOFI.mp3",
+        "filename_wav": "dnb_4996031.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/4996031.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/4996031.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "5068771",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "5068771.LOFI.mp3",
+        "filename_wav": "dnb_5068771.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/5068771.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/5068771.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "5073839",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "5073839.LOFI.mp3",
+        "filename_wav": "dnb_5073839.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/5073839.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/5073839.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "5078640",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "5078640.LOFI.mp3",
+        "filename_wav": "dnb_5078640.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/5078640.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/5078640.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "5103693",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "key",
+        "filename_mp3": "5103693.LOFI.mp3",
+        "filename_wav": "dnb_5103693.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/5103693.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/5103693.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "5162042",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "5162042.LOFI.mp3",
+        "filename_wav": "dnb_5162042.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/5162042.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/5162042.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "5431709",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "5431709.LOFI.mp3",
+        "filename_wav": "dnb_5431709.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/5431709.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/5431709.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "672064",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "672064.LOFI.mp3",
+        "filename_wav": "dnb_672064.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/672064.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/672064.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "906680",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "906680.LOFI.mp3",
+        "filename_wav": "dnb_906680.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/906680.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/906680.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "906681",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "906681.LOFI.mp3",
+        "filename_wav": "dnb_906681.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/906681.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/906681.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "907836",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "907836.LOFI.mp3",
+        "filename_wav": "dnb_907836.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/907836.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/907836.LOFI.mp3"
+        ]
+      },
+      {
+        "track_id": "94350",
+        "subgenre": "drum-and-bass",
+        "source_dataset": "tempo",
+        "filename_mp3": "94350.LOFI.mp3",
+        "filename_wav": "dnb_94350.wav",
+        "urls": [
+          "https://www.cp.jku.at/datasets/giantsteps/backup/94350.LOFI.mp3",
+          "http://geo-samples.beatport.com/lofi/94350.LOFI.mp3"
+        ]
+      }
+    ]
+  }
+}

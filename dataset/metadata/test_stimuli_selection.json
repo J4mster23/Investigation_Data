@@ -1,0 +1,35 @@
+{
+  "house": {
+    "source_track": "house_3336126.wav",
+    "slice_range_sec": [
+      30.0,
+      90.0
+    ],
+    "destination": "/Users/macairm1/Documents/antigravity/blissful-bose/dataset/test_stimuli/music_noise_60s/house_noise_60s.wav",
+    "sample_rate": 16000,
+    "bit_depth": 16,
+    "channels": 1
+  },
+  "techno": {
+    "source_track": "techno_4117487.wav",
+    "slice_range_sec": [
+      30.0,
+      90.0
+    ],
+    "destination": "/Users/macairm1/Documents/antigravity/blissful-bose/dataset/test_stimuli/music_noise_60s/techno_noise_60s.wav",
+    "sample_rate": 16000,
+    "bit_depth": 16,
+    "channels": 1
+  },
+  "dnb": {
+    "source_track": "dnb_3939148.wav",
+    "slice_range_sec": [
+      30.0,
+      90.0
+    ],
+    "destination": "/Users/macairm1/Documents/antigravity/blissful-bose/dataset/test_stimuli/music_noise_60s/dnb_noise_60s.wav",
+    "sample_rate": 16000,
+    "bit_depth": 16,
+    "channels": 1
+  }
+}

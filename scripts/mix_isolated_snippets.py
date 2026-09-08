@@ -138,7 +138,7 @@ def mix_audio(speech, music, output_path, target_snr_db=-5.0):
 
 def main():
     print("=" * 65)
-    print("  AUDIO ISOLATION & MIXING: COUNTRY, ROCK, TECHNO")
+    print("  AUDIO ISOLATION & MIXING: JAZZ, ROCK, TECHNO")
     print(f"  Target: {TARGET_SAMPLES} samples @ {TARGET_FS} Hz = 10.000s")
     print("=" * 65)
 
@@ -147,7 +147,7 @@ def main():
     speech_samples = generate_speech_snippet(speech_file)
     print(f"   [OK] {speech_file}")
 
-    genres = ["country", "rock", "techno"]
+    genres = ["jazz", "rock", "techno"]
     for g in genres:
         print(f"\n2. Processing Genre [{g.upper()}]:")
         src_noise = os.path.join(NOISE_DIR, f"{g}_noise_30s.wav")

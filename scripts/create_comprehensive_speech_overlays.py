@@ -91,7 +91,7 @@ def main():
     with open(TRANSCRIPTS_PATH, "r", encoding="utf-8") as f:
         transcripts = json.load(f)
 
-    genres = ["country", "rock", "techno"]
+    genres = ["jazz", "rock", "techno"]
     snr_levels = [0.0, -5.0, -10.0]
     sentence_ids = [f"sentence_{i:02d}" for i in range(1, 11)]  # Sentences 1 to 10
 

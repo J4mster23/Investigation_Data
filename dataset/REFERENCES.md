@@ -6,8 +6,8 @@ This document provides formal academic citations, data provenance, technical spe
 
 ## 1. Genre Datasets
 
-### A. Country & Rock Genres: GTZAN Genre Collection
-The 50 Country tracks and 50 Rock tracks are sourced from the landmark **GTZAN Genre Collection**, the most widely cited benchmark dataset in Music Information Retrieval (MIR) research, developed by George Tzanetakis and Perry Cook.
+### A. Jazz & Rock Genres: GTZAN Genre Collection
+The 50 Jazz tracks and 50 Rock tracks are sourced from the landmark **GTZAN Genre Collection**, the most widely cited benchmark dataset in Music Information Retrieval (MIR) research, developed by George Tzanetakis and Perry Cook.
 
 #### Primary Academic Citation
 > G. Tzanetakis and P. Cook, "Musical genre classification of audio signals," *IEEE Transactions on Speech and Audio Processing*, vol. 10, no. 5, pp. 293–302, Jul. 2002, doi: [10.1109/TSA.2002.800560](https://doi.org/10.1109/TSA.2002.800560).

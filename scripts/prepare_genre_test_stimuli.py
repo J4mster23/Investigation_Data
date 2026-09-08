@@ -36,13 +36,13 @@ def extract_30s_clip(src_path, dst_path):
             wf_out.writeframes(silence)
 
 def main():
-    print("Preparing 30-second continuous noise stimuli for Country, Rock, and Techno...")
+    print("Preparing 30-second continuous noise stimuli for Jazz, Rock, and Techno...")
 
-    # Country
-    c_src = os.path.join(WAV_DIR, "country", sorted(os.listdir(os.path.join(WAV_DIR, "country")))[0])
-    c_dst = os.path.join(OUTPUT_DIR, "country_noise_30s.wav")
-    extract_30s_clip(c_src, c_dst)
-    print(f"  [OK] Country noise: {c_dst}")
+    # Jazz
+    j_src = os.path.join(WAV_DIR, "jazz", sorted(os.listdir(os.path.join(WAV_DIR, "jazz")))[0])
+    j_dst = os.path.join(OUTPUT_DIR, "jazz_noise_30s.wav")
+    extract_30s_clip(j_src, j_dst)
+    print(f"  [OK] Jazz noise:   {j_dst}")
 
     # Rock
     r_src = os.path.join(WAV_DIR, "rock", sorted(os.listdir(os.path.join(WAV_DIR, "rock")))[0])

@@ -1,8 +1,9 @@
 /**
  * @file iir_coefficients.h
  * @brief Cascaded Second-Order Sections (SOS / Biquad) IIR filter coefficients.
- * Genres: Country, Rock, Techno, Control (fs = 16 kHz, Chebyshev Type II).
+ * Genres: Jazz, Rock, Techno, Control (fs = 16 kHz, Chebyshev Type II).
  * Structure: Direct Form II Transposed for optimal numerical stability on ESP32-S3.
+ * Also contains Phase 2 Parametric Notch Biquad coefficients.
  */
 
 #ifndef IIR_COEFFICIENTS_H
@@ -15,13 +16,18 @@ typedef struct {
     float a1, a2;
 } BiquadSection;
 
-/* COUNTRY IIR Filter: 8th Order (4 Biquad SOS), Overall Gain = 0.04175856f */
-static const float g_country_iir = 0.04175856f;
-static const BiquadSection sos_country_iir[4] = {
-    { .b0 =    1.00000000f, .b1 =    1.46601151f, .b2 =    1.00000000f, .a1 =   -0.68735139f, .a2 =    0.17837704f },
-    { .b0 =    1.00000000f, .b1 =    0.14963292f, .b2 =    1.00000000f, .a1 =   -0.89647083f, .a2 =    0.62069427f },
-    { .b0 =    1.00000000f, .b1 =   -1.99946519f, .b2 =    1.00000000f, .a1 =   -1.80907618f, .a2 =    0.82104798f },
-    { .b0 =    1.00000000f, .b1 =   -1.99701377f, .b2 =    1.00000000f, .a1 =   -1.92863125f, .a2 =    0.94030267f }
+/* JAZZ IIR Filter: 8th Order (4 Biquad SOS), Overall Gain = 0.04756331f */
+static const float g_jazz_iir = 0.04756331f;
+static const BiquadSection sos_jazz_iir[4] = {
+    { .b0 =    1.00000000f, .b1 =    1.53754412f, .b2 =    1.00000000f, .a1 =   -0.59925351f, .a2 =    0.14989479f },
+    { .b0 =    1.00000000f, .b1 =    0.30587073f, .b2 =    1.00000000f, .a1 =   -0.80411875f, .a2 =    0.60162097f },
+    { .b0 =    1.00000000f, .b1 =   -1.99953740f, .b2 =    1.00000000f, .a1 =   -1.82192736f, .a2 =    0.83219723f },
+    { .b0 =    1.00000000f, .b1 =   -1.99740156f, .b2 =    1.00000000f, .a1 =   -1.93208936f, .a2 =    0.94243026f }
+};
+
+/* JAZZ Parametric Notch Biquad (f0 = 78.1 Hz, Q = 6.0) */
+static const BiquadSection notch_jazz_biquad = {
+    .b0 =    0.99745028f, .b1 =   -1.99396180f, .b2 =    0.99745028f, .a1 =   -1.99396180f, .a2 =    0.99490057f
 };
 
 /* ROCK IIR Filter: 8th Order (4 Biquad SOS), Overall Gain = 0.03675800f */
@@ -33,6 +39,11 @@ static const BiquadSection sos_rock_iir[4] = {
     { .b0 =    1.00000000f, .b1 =   -1.99659812f, .b2 =    1.00000000f, .a1 =   -1.92550757f, .a2 =    0.93854493f }
 };
 
+/* ROCK Parametric Notch Biquad (f0 = 109.4 Hz, Q = 6.0) */
+static const BiquadSection notch_rock_biquad = {
+    .b0 =    0.99643457f, .b1 =   -1.99103117f, .b2 =    0.99643457f, .a1 =   -1.99103117f, .a2 =    0.99286914f
+};
+
 /* TECHNO IIR Filter: 8th Order (4 Biquad SOS), Overall Gain = 0.04000891f */
 static const float g_techno_iir = 0.04000891f;
 static const BiquadSection sos_techno_iir[4] = {
@@ -42,6 +53,11 @@ static const BiquadSection sos_techno_iir[4] = {
     { .b0 =    1.00000000f, .b1 =   -1.99355306f, .b2 =    1.00000000f, .a1 =   -1.89830479f, .a2 =    0.92186971f }
 };
 
+/* TECHNO Parametric Notch Biquad (f0 = 62.5 Hz, Q = 8.0) */
+static const BiquadSection notch_techno_biquad = {
+    .b0 =    0.99846852f, .b1 =   -1.99633560f, .b2 =    0.99846852f, .a1 =   -1.99633560f, .a2 =    0.99693704f
+};
+
 /* CONTROL IIR Filter: 8th Order (4 Biquad SOS), Overall Gain = 0.04050001f */
 static const float g_control_iir = 0.04050001f;
 static const BiquadSection sos_control_iir[4] = {
@@ -49,6 +65,11 @@ static const BiquadSection sos_control_iir[4] = {
     { .b0 =    1.00000000f, .b1 =    0.14691858f, .b2 =    1.00000000f, .a1 =   -0.88279730f, .a2 =    0.63424505f },
     { .b0 =    1.00000000f, .b1 =   -1.99903250f, .b2 =    1.00000000f, .a1 =   -1.74753489f, .a2 =    0.76917557f },
     { .b0 =    1.00000000f, .b1 =   -1.99467736f, .b2 =    1.00000000f, .a1 =   -1.90686527f, .a2 =    0.92668782f }
+};
+
+/* CONTROL Parametric Notch Biquad (f0 = 100.0 Hz, Q = 5.0) */
+static const BiquadSection notch_control_biquad = {
+    .b0 =    0.99608937f, .b1 =   -1.99064285f, .b2 =    0.99608937f, .a1 =   -1.99064285f, .a2 =    0.99217874f
 };
 
 /**
@@ -66,6 +87,19 @@ static inline float process_iir_biquads(const BiquadSection* restrict sos, float
         w = y;
     }
     return w;
+}
+
+/**
+ * @brief Single Parametric Notch Biquad Direct Form II Transposed filtering.
+ * Requires 2 state floats.
+ */
+static inline float process_single_biquad(const BiquadSection* restrict sec, float* restrict state, float input) {
+    float s1 = state[0];
+    float s2 = state[1];
+    float y = sec->b0 * input + s1;
+    state[0] = sec->b1 * input - sec->a1 * y + s2;
+    state[1] = sec->b2 * input - sec->a2 * y;
+    return y;
 }
 
 #endif /* IIR_COEFFICIENTS_H */

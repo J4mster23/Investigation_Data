@@ -1,4 +1,4 @@
 Genre,Peak_Hz,SubBass_pct,Kick_pct,LowBass_pct,SpeechBand_pct,HighFreq_pct,Centroid_Hz,Rolloff85_Hz
-Country,78.12,21.57,37.84,59.61,33.99,1.39,503.32,812.50
+Jazz,78.12,14.42,30.00,45.78,46.97,0.77,504.22,781.25
 Rock,109.38,13.67,33.68,60.66,31.74,1.86,557.47,984.38
 Techno,62.50,65.28,51.86,85.37,10.62,1.40,270.60,234.38

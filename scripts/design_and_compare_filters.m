@@ -1,15 +1,18 @@
 %% DESIGN_AND_COMPARE_FILTERS.M
-% Designs genre-specific FIR and IIR filters for Country, Rock, and Techno and performs
+% Designs genre-specific FIR and IIR filters for Jazz, Rock, and Techno and performs
 % a rigorous comparative evaluation across magnitude response, group delay, pole-zero stability,
 % computational complexity on ESP32-S3, and speech enhancement performance (Delta-SNR and STOI).
+%
+% Also defines the Phase 2 Parametric Notch & Multi-Band Biquad architecture.
 %
 % University of the Witwatersrand
 % School of Electrical & Information Engineering
 
 function design_and_compare_filters()
     fprintf('=========================================================================\n');
-    fprintf('  FILTER DESIGN & COMPARATIVE EVALUATION (COUNTRY, ROCK, TECHNO)\n');
+    fprintf('  FILTER DESIGN & COMPARATIVE EVALUATION (JAZZ, ROCK, TECHNO)\n');
     fprintf('  fs = 16 kHz | FIR: Parks-McClellan (128-tap) | IIR: Chebyshev II SOS\n');
+    fprintf('  + Phase 2 Parametric Notch Biquad Coefficients\n');
     fprintf('=========================================================================\n\n');
 
     % 1. Directory and Path Setup
@@ -31,44 +34,53 @@ function design_and_compare_filters()
     nyq = fs / 2;
 
     % Genres and configurations
-    filter_keys = {'country', 'rock', 'techno', 'control'};
-    filter_names = {'Country', 'Rock', 'Techno', 'Control Baseline'};
+    filter_keys = {'jazz', 'rock', 'techno', 'control'};
+    filter_names = {'Jazz', 'Rock', 'Techno', 'Control Baseline'};
 
-    % 2. Design Specifications (Derived from Country, Rock, Techno STFT Analysis)
+    % 2. Design Specifications (Derived from Jazz, Rock, Techno STFT Analysis)
     specs = struct();
     
-    % Country: Acoustic bass & kick < 150 Hz
-    specs.country.f_stop1 = 150;
-    specs.country.f_pass1 = 300;
-    specs.country.f_pass2 = 3400;
-    specs.country.f_stop2 = 4000;
+    % Jazz: Upright acoustic bass & kick < 140 Hz; brushed highs; speech band overlap = 47.0%
+    specs.jazz.f_stop1 = 140;
+    specs.jazz.f_pass1 = 300;
+    specs.jazz.f_pass2 = 3400;
+    specs.jazz.f_stop2 = 4200;
+    specs.jazz.notch_f0 = 78.125; % Resonant bass fundamental
+    specs.jazz.notch_q  = 6.0;
     
     % Rock: Heavy distorted guitars, cymbals, bass guitar (stopband 0-160 Hz & 3800-8000 Hz)
     specs.rock.f_stop1 = 160;
     specs.rock.f_pass1 = 300;
     specs.rock.f_pass2 = 3400;
     specs.rock.f_stop2 = 3800;
+    specs.rock.notch_f0 = 109.375; % Electric bass / kick resonance
+    specs.rock.notch_q  = 6.0;
     
     % Techno: Sub-bass and low-frequency percussion up to 220 Hz (85.4% energy < 250 Hz)
     specs.techno.f_stop1 = 220;
     specs.techno.f_pass1 = 300;
     specs.techno.f_pass2 = 3400;
     specs.techno.f_stop2 = 4000;
+    specs.techno.notch_f0 = 62.5; % Dominant kick drum fundamental
+    specs.techno.notch_q  = 8.0;
     
     % Control Bandpass: Standard speech band baseline
     specs.control.f_stop1 = 200;
     specs.control.f_pass1 = 300;
     specs.control.f_pass2 = 3400;
     specs.control.f_stop2 = 4000;
+    specs.control.notch_f0 = 100.0;
+    specs.control.notch_q  = 5.0;
 
     % Storage for designed filters
     filters_fir = struct();
     filters_iir = struct();
+    filters_notch = struct();
 
     N_fir = 128; % 128th order = 129 taps
     N_iir_biquads = 4; % 8th order bandpass = 4 biquad Second-Order Sections
 
-    fprintf('--> Designing FIR and IIR Filters for Country, Rock, Techno, and Control...\n');
+    fprintf('--> Designing FIR and IIR Filters for Jazz, Rock, Techno, and Control...\n');
 
     for k = 1:length(filter_keys)
         key = filter_keys{k};
@@ -98,95 +110,117 @@ function design_and_compare_filters()
         filters_iir.(key).num_biquads = N_iir_biquads;
         filters_iir.(key).z = z_iir;
         filters_iir.(key).p = p_iir;
-        filters_iir.(key).k = k_iir;
+        filters_iir.(key).max_pole_radius = max(abs(p_iir));
         
-        max_pole = max(abs(p_iir));
-        filters_iir.(key).max_pole_radius = max_pole;
-        filters_iir.(key).is_stable = (max_pole < 1.0);
+        % C. Phase 2 Parametric Notch Biquad (Digital Biquad Notch)
+        w0 = 2 * pi * sp.notch_f0 / fs;
+        alpha = sin(w0) / (2 * sp.notch_q);
+        b_notch = [1, -2*cos(w0), 1];
+        a_notch = [1 + alpha, -2*cos(w0), 1 - alpha];
+        b_notch = b_notch / a_notch(1);
+        a_notch = a_notch / a_notch(1);
+        filters_notch.(key).b = b_notch;
+        filters_notch.(key).a = a_notch;
+        filters_notch.(key).f0 = sp.notch_f0;
+        filters_notch.(key).q  = sp.notch_q;
         
-        fprintf('    [%s] FIR: 129 taps | IIR: 8th-order (4 biquads, max |p| = %.4f - %s)\n', ...
-            upper(key), max_pole, ternary(max_pole < 1.0, 'STABLE', 'UNSTABLE'));
+        fprintf('    [%s] FIR: %d taps | IIR: %dth-order (%d biquads, max |p| = %.4f - %s)\n', ...
+            upper(key), length(b_fir), filters_iir.(key).order, N_iir_biquads, ...
+            filters_iir.(key).max_pole_radius, ternary(filters_iir.(key).max_pole_radius < 1.0, 'STABLE', 'UNSTABLE'));
     end
 
-    % 3. Frequency Domain and Group Delay Analysis
+    % 3. Frequency Responses and Group Delays
     fprintf('\n--> Computing Frequency Responses and Group Delays...\n');
-    f_eval = linspace(0, nyq, 2048);
-    comp_metrics = struct();
+    n_pts = 4096;
+    [~, f_eval] = freqz(filters_fir.techno.b, 1, n_pts, fs);
 
     for k = 1:length(filter_keys)
         key = filter_keys{k};
         
-        [H_fir, ~] = freqz(filters_fir.(key).b, 1, f_eval, fs);
-        [gd_fir, ~] = grpdelay(filters_fir.(key).b, 1, f_eval, fs);
+        % FIR frequency response
+        [h_fir, ~] = freqz(filters_fir.(key).b, 1, f_eval, fs);
+        filters_fir.(key).mag_db = 20 * log10(abs(h_fir) + eps);
+        [gd_fir_samp, ~] = grpdelay(filters_fir.(key).b, 1, f_eval, fs);
+        filters_fir.(key).gd_ms = gd_fir_samp / fs * 1000;
         
-        [b_iir, a_iir] = sos2tf(filters_iir.(key).sos, filters_iir.(key).g);
-        [H_iir, ~] = freqz(b_iir, a_iir, f_eval, fs);
-        [gd_iir, ~] = grpdelay(b_iir, a_iir, f_eval, fs);
+        % IIR frequency response (via SOS)
+        [h_iir, ~] = freqz(filters_iir.(key).sos, f_eval, fs);
+        h_iir = h_iir * filters_iir.(key).g;
+        filters_iir.(key).mag_db = 20 * log10(abs(h_iir) + eps);
+        [gd_iir_samp, ~] = grpdelay(filters_iir.(key).sos, f_eval, fs);
+        filters_iir.(key).gd_ms = gd_iir_samp / fs * 1000;
         
-        mag_fir_db = 20 * log10(abs(H_fir) + eps);
-        mag_iir_db = 20 * log10(abs(H_iir) + eps);
-        
-        filters_fir.(key).mag_db = mag_fir_db;
-        filters_fir.(key).gd_ms = gd_fir / fs * 1000;
-        
-        filters_iir.(key).mag_db = mag_iir_db;
-        filters_iir.(key).gd_ms = gd_iir / fs * 1000;
-        
-        speech_idx = (f_eval >= 500 & f_eval <= 3000);
-        comp_metrics.(key).fir_passband_delay_ms = mean(filters_fir.(key).gd_ms(speech_idx));
-        comp_metrics.(key).iir_passband_delay_ms = mean(filters_iir.(key).gd_ms(speech_idx));
-        comp_metrics.(key).iir_passband_delay_std = std(filters_iir.(key).gd_ms(speech_idx));
+        % Passband delay statistics (300 to 3400 Hz)
+        pb_idx = (f_eval >= 300 & f_eval <= 3400);
+        filters_iir.(key).pb_gd_mean_ms = mean(filters_iir.(key).gd_ms(pb_idx));
+        filters_iir.(key).pb_gd_min_ms  = min(filters_iir.(key).gd_ms(pb_idx));
+        filters_iir.(key).pb_gd_max_ms  = max(filters_iir.(key).gd_ms(pb_idx));
     end
 
-    % 4. Computational Complexity Comparison
+    % 4. Computational Complexity Comparison for ESP32-S3 (240 MHz FPU)
     fprintf('\n=========================================================================\n');
     fprintf('  COMPUTATIONAL COMPLEXITY ON ESP32-S3 (240 MHz Dual-Core, 32-bit FPU)\n');
     fprintf('=========================================================================\n');
-    fprintf('%-18s | %-16s | %-16s | %-12s\n', 'Metric', '128-Tap FIR', '8th-Order IIR SOS', 'Speedup / Ratio');
+    fprintf('%-18s | %-16s | %-17s | %-16s\n', 'Metric', '128-Tap FIR', '8th-Order IIR SOS', 'Speedup / Ratio');
     fprintf('-------------------------------------------------------------------------\n');
-    fprintf('%-18s | %-16d | %-16d | %-12s\n', 'Coefficients', 129, 24, '5.4x smaller');
-    fprintf('%-18s | %-16d | %-16d | %-12s\n', 'MACs per Sample', 128, 20, '6.4x faster');
-    fprintf('%-18s | %-16.2f MFLOPS | %-16.2f MFLOPS | %-12s\n', 'Computation Rate', 128*fs/1e6, 20*fs/1e6, '6.4x less load');
-    fprintf('%-18s | %-16d bytes | %-16d bytes | %-12s\n', 'RAM Delay Buffer', 128*4, 8*4, '16.0x smaller');
-    fprintf('%-18s | %-16.2f ms | %-16.2f ms | %-12s\n', 'Core Passband Delay', 4.00, mean([comp_metrics.country.iir_passband_delay_ms, comp_metrics.rock.iir_passband_delay_ms, comp_metrics.techno.iir_passband_delay_ms]), '2.7x lower latency');
-    fprintf('-------------------------------------------------------------------------\n\n');
-
-    % 5. Speech Enhancement Simulation
-    fprintf('--> Running Speech Enhancement Simulation (Country, Rock, Techno)...\n');
-    snr_levels = [-5, -10, -15];
-    sim_genres = {'country', 'rock', 'techno'};
-    sim_results = struct();
-
-    num_test_sentences = 5;
-    speech_signals = cell(num_test_sentences, 1);
-    for s = 1:num_test_sentences
-        s_file = fullfile(speech_dir, sprintf('sentence_%02d.wav', s));
-        [sp_data, ~] = audioread(s_file);
-        speech_signals{s} = sp_data(:);
+    
+    comp_metrics = struct();
+    for k = 1:length(filter_keys)
+        key = filter_keys{k};
+        comp_metrics.(key).fir_coeffs = filters_fir.(key).num_taps;
+        comp_metrics.(key).iir_coeffs = filters_iir.(key).num_biquads * 6;
+        comp_metrics.(key).fir_macs = filters_fir.(key).num_taps - 1;
+        comp_metrics.(key).iir_ops = filters_iir.(key).num_biquads * 5;
+        comp_metrics.(key).fir_mflops = (comp_metrics.(key).fir_macs * fs) / 1e6;
+        comp_metrics.(key).iir_mflops = (comp_metrics.(key).iir_ops * fs) / 1e6;
+        comp_metrics.(key).fir_delay_bytes = filters_fir.(key).num_taps * 4;
+        comp_metrics.(key).iir_delay_bytes = filters_iir.(key).num_biquads * 2 * 4;
+        comp_metrics.(key).fir_delay_ms = filters_fir.(key).group_delay_ms;
+        comp_metrics.(key).iir_passband_delay_ms = filters_iir.(key).pb_gd_mean_ms;
     end
+    
+    cm = comp_metrics.techno;
+    fprintf('%-18s | %-16d | %-17d | %.1fx smaller\n', 'Coefficients', cm.fir_coeffs, cm.iir_coeffs, cm.fir_coeffs / cm.iir_coeffs);
+    fprintf('%-18s | %-16d | %-17d | %.1fx faster \n', 'MACs per Sample', cm.fir_macs, cm.iir_ops, cm.fir_macs / cm.iir_ops);
+    fprintf('%-18s | %-16.2f MFLOPS | %-17.2f MFLOPS | %.1fx less load\n', 'Computation Rate', cm.fir_mflops, cm.iir_mflops, cm.fir_mflops / cm.iir_mflops);
+    fprintf('%-18s | %-16d bytes | %-17d bytes | %.1fx smaller\n', 'RAM Delay Buffer', cm.fir_delay_bytes, cm.iir_delay_bytes, cm.fir_delay_bytes / cm.iir_delay_bytes);
+    fprintf('%-18s | %-16.2f ms | %-17.2f ms | %.1fx lower latency\n', 'Core Passband Delay', cm.fir_delay_ms, cm.iir_passband_delay_ms, cm.fir_delay_ms / cm.iir_passband_delay_ms);
+    fprintf('-------------------------------------------------------------------------\n');
+
+    % 5. Speech Enhancement Simulation (Section 4 Testing Methodology)
+    fprintf('\n--> Running Speech Enhancement Simulation (Jazz, Rock, Techno)...\n');
+    speech_files = dir(fullfile(speech_dir, 'sentence_*.wav'));
+    n_test_sentences = min(length(speech_files), 10);
+    snr_levels = [-5, -10, -15];
+    sim_genres = {'jazz', 'rock', 'techno'};
+    
+    sim_results = struct();
 
     for g = 1:length(sim_genres)
         gk = sim_genres{g};
         noise_file = fullfile(noise_dir, sprintf('%s_noise_30s.wav', gk));
-        [noise_data, ~] = audioread(noise_file);
         
-        sim_results.(gk) = struct();
+        if ~exist(noise_file, 'file')
+            error('Noise stimulus file not found: %s', noise_file);
+        end
+        [noise_data, ~] = audioread(noise_file);
         
         for snr_idx = 1:length(snr_levels)
             target_snr = snr_levels(snr_idx);
             snr_tag = sprintf('snr_%ddB', abs(target_snr));
             
-            delta_snr_fir_list = zeros(num_test_sentences, 1);
-            delta_snr_iir_list = zeros(num_test_sentences, 1);
-            stoi_in_list       = zeros(num_test_sentences, 1);
-            stoi_fir_list      = zeros(num_test_sentences, 1);
-            stoi_iir_list      = zeros(num_test_sentences, 1);
+            delta_snr_fir_list = zeros(n_test_sentences, 1);
+            delta_snr_iir_list = zeros(n_test_sentences, 1);
+            stoi_in_list       = zeros(n_test_sentences, 1);
+            stoi_fir_list      = zeros(n_test_sentences, 1);
+            stoi_iir_list      = zeros(n_test_sentences, 1);
             
-            for s = 1:num_test_sentences
-                clean = speech_signals{s};
+            for s = 1:n_test_sentences
+                s_file = fullfile(speech_dir, speech_files(s).name);
+                [clean, ~] = audioread(s_file);
                 L = length(clean);
                 
-                start_n = 1000 + (s - 1) * 32000;
+                start_n = mod((s-1) * 32000, length(noise_data) - L - 1) + 1;
                 if start_n + L - 1 > length(noise_data)
                     start_n = 1000;
                 end
@@ -229,7 +263,7 @@ function design_and_compare_filters()
 
     % Display Simulation Table
     fprintf('\n=========================================================================================\n');
-    fprintf('  SPEECH ENHANCEMENT PERFORMANCE: COUNTRY, ROCK, TECHNO (FIR vs. IIR)\n');
+    fprintf('  SPEECH ENHANCEMENT PERFORMANCE: JAZZ, ROCK, TECHNO (FIR vs. IIR)\n');
     fprintf('=========================================================================================\n');
     fprintf('%-12s | %-8s | %-12s | %-12s | %-10s | %-10s | %-10s\n', ...
         'Genre', 'SNR In', 'Delta-SNR FIR', 'Delta-SNR IIR', 'STOI Unproc', 'STOI FIR', 'STOI IIR');
@@ -287,10 +321,10 @@ function design_and_compare_filters()
     subplot(1, 2, 1);
     hold on; grid on; box on;
     patch([300, 3400, 3400, 300], [0, 0, 15, 15], [0.94, 0.94, 0.94], 'EdgeColor', 'none');
-    plot(f_eval, filters_fir.country.gd_ms, 'Color', c_fir, 'LineWidth', 2.0, 'DisplayName', 'FIR: Constant 4.0 ms');
-    plot(f_eval, filters_iir.country.gd_ms, 'Color', [0.85, 0.325, 0.098], 'LineWidth', 1.8, 'DisplayName', 'Country IIR');
-    plot(f_eval, filters_iir.rock.gd_ms,    'Color', [0.494, 0.184, 0.556], 'LineWidth', 1.8, 'DisplayName', 'Rock IIR');
-    plot(f_eval, filters_iir.techno.gd_ms,  'Color', [0.466, 0.674, 0.188], 'LineWidth', 1.8, 'DisplayName', 'Techno IIR');
+    plot(f_eval, filters_fir.jazz.gd_ms,   'Color', c_fir, 'LineWidth', 2.0, 'DisplayName', 'FIR: Constant 4.0 ms');
+    plot(f_eval, filters_iir.jazz.gd_ms,   'Color', [0.85, 0.55, 0.05], 'LineWidth', 1.8, 'DisplayName', 'Jazz IIR');
+    plot(f_eval, filters_iir.rock.gd_ms,   'Color', [0.65, 0.15, 0.70], 'LineWidth', 1.8, 'DisplayName', 'Rock IIR');
+    plot(f_eval, filters_iir.techno.gd_ms, 'Color', [0.00, 0.45, 0.85], 'LineWidth', 1.8, 'DisplayName', 'Techno IIR');
     xlim([100, 4000]);
     ylim([0, 12]);
     xlabel('Frequency (Hz)');
@@ -301,10 +335,10 @@ function design_and_compare_filters()
     subplot(1, 2, 2);
     hold on; grid on; box on;
     f_zoom = (f_eval >= 400 & f_eval <= 3200);
-    plot(f_eval(f_zoom), filters_fir.country.gd_ms(f_zoom), 'Color', c_fir, 'LineWidth', 2.2, 'DisplayName', 'FIR (Constant 4.0 ms)');
-    plot(f_eval(f_zoom), filters_iir.country.gd_ms(f_zoom), 'Color', [0.85, 0.325, 0.098], 'LineWidth', 1.8, 'DisplayName', 'Country IIR (0.8 - 1.8 ms)');
-    plot(f_eval(f_zoom), filters_iir.rock.gd_ms(f_zoom),    'Color', [0.494, 0.184, 0.556], 'LineWidth', 1.8, 'DisplayName', 'Rock IIR (0.8 - 1.8 ms)');
-    plot(f_eval(f_zoom), filters_iir.techno.gd_ms(f_zoom),  'Color', [0.466, 0.674, 0.188], 'LineWidth', 1.8, 'DisplayName', 'Techno IIR (0.8 - 1.8 ms)');
+    plot(f_eval(f_zoom), filters_fir.jazz.gd_ms(f_zoom),   'Color', c_fir, 'LineWidth', 2.2, 'DisplayName', 'FIR (Constant 4.0 ms)');
+    plot(f_eval(f_zoom), filters_iir.jazz.gd_ms(f_zoom),   'Color', [0.85, 0.55, 0.05], 'LineWidth', 1.8, 'DisplayName', 'Jazz IIR (0.8 - 1.8 ms)');
+    plot(f_eval(f_zoom), filters_iir.rock.gd_ms(f_zoom),   'Color', [0.65, 0.15, 0.70], 'LineWidth', 1.8, 'DisplayName', 'Rock IIR (0.8 - 1.8 ms)');
+    plot(f_eval(f_zoom), filters_iir.techno.gd_ms(f_zoom), 'Color', [0.00, 0.45, 0.85], 'LineWidth', 1.8, 'DisplayName', 'Techno IIR (0.8 - 1.8 ms)');
     yline(10, 'r--', 'LineWidth', 1.5, 'DisplayName', '10 ms Target Budget');
     xlim([400, 3200]);
     ylim([0, 6]);
@@ -321,13 +355,13 @@ function design_and_compare_filters()
     % Figure 3: Pole-Zero Maps
     fig3 = figure('Name', 'Pole Zero Maps', 'Position', [150, 150, 1000, 500], 'Visible', 'off');
     subplot(1, 2, 1);
-    zplane(filters_fir.country.b, 1);
-    title('Country FIR (N=128 Taps): All Poles at Origin');
+    zplane(filters_fir.jazz.b, 1);
+    title('Jazz FIR (N=128 Taps): All Poles at Origin');
     
     subplot(1, 2, 2);
-    [b_c_iir, a_c_iir] = sos2tf(filters_iir.country.sos, filters_iir.country.g);
-    zplane(b_c_iir, a_c_iir);
-    title(sprintf('Country IIR (8th Order): Stable (Max |p| = %.3f)', filters_iir.country.max_pole_radius));
+    [b_j_iir, a_j_iir] = sos2tf(filters_iir.jazz.sos, filters_iir.jazz.g);
+    zplane(b_j_iir, a_j_iir);
+    title(sprintf('Jazz IIR (8th Order): Stable (Max |p| = %.3f)', filters_iir.jazz.max_pole_radius));
     
     fig3_path = fullfile(figures_dir, 'filter_comparison_poles_zeros.png');
     saveas(fig3, fig3_path);
@@ -338,63 +372,66 @@ function design_and_compare_filters()
     fig4 = figure('Name', 'Performance Metrics Comparison', 'Position', [200, 200, 1100, 550], 'Visible', 'off');
     
     subplot(1, 2, 1);
-    bar_snr_data = [
-        sim_results.country.snr_5dB.delta_snr_fir, sim_results.country.snr_5dB.delta_snr_iir;
-        sim_results.country.snr_10dB.delta_snr_fir, sim_results.country.snr_10dB.delta_snr_iir;
-        sim_results.rock.snr_10dB.delta_snr_fir,    sim_results.rock.snr_10dB.delta_snr_iir;
+    bar_delta_snr = [
+        sim_results.jazz.snr_5dB.delta_snr_fir,   sim_results.jazz.snr_5dB.delta_snr_iir;
+        sim_results.jazz.snr_10dB.delta_snr_fir,  sim_results.jazz.snr_10dB.delta_snr_iir;
+        sim_results.jazz.snr_15dB.delta_snr_fir,  sim_results.jazz.snr_15dB.delta_snr_iir;
+        sim_results.rock.snr_5dB.delta_snr_fir,   sim_results.rock.snr_5dB.delta_snr_iir;
+        sim_results.rock.snr_10dB.delta_snr_fir,  sim_results.rock.snr_10dB.delta_snr_iir;
+        sim_results.rock.snr_15dB.delta_snr_fir,  sim_results.rock.snr_15dB.delta_snr_iir;
+        sim_results.techno.snr_5dB.delta_snr_fir,  sim_results.techno.snr_5dB.delta_snr_iir;
         sim_results.techno.snr_10dB.delta_snr_fir, sim_results.techno.snr_10dB.delta_snr_iir;
         sim_results.techno.snr_15dB.delta_snr_fir, sim_results.techno.snr_15dB.delta_snr_iir
     ];
-    b_snr = bar(bar_snr_data, 'grouped');
+    b_snr = bar(bar_delta_snr);
     b_snr(1).FaceColor = c_fir;
     b_snr(2).FaceColor = c_iir;
     grid on; box on;
-    set(gca, 'XTickLabel', {'Country (-5dB)', 'Country (-10dB)', 'Rock (-10dB)', 'Techno (-10dB)', 'Techno (-15dB)'});
-    xtickangle(25);
-    ylabel('Segmental SNR Improvement \DeltaSNR (dB)');
-    title('Noise Suppression (\DeltaSNR: FIR vs. IIR)');
-    legend({'128-Tap FIR', '8th-Order IIR'}, 'Location', 'northwest');
-    ylim([-2, 6]);
-
+    set(gca, 'XTickLabel', {'J -5dB', 'J -10dB', 'J -15dB', 'R -5dB', 'R -10dB', 'R -15dB', 'T -5dB', 'T -10dB', 'T -15dB'});
+    ylabel('\Delta SNR Improvement (dB)');
+    title('Noise Suppression (\Delta SNR) Across Genres & Noise Levels');
+    legend({'128-Tap FIR', '8th-Order IIR SOS'}, 'Location', 'northwest');
+    
     subplot(1, 2, 2);
-    bar_stoi_data = [
-        sim_results.country.snr_5dB.stoi_unproc,  sim_results.country.snr_5dB.stoi_fir,  sim_results.country.snr_5dB.stoi_iir;
-        sim_results.country.snr_10dB.stoi_unproc, sim_results.country.snr_10dB.stoi_fir, sim_results.country.snr_10dB.stoi_iir;
-        sim_results.rock.snr_10dB.stoi_unproc,    sim_results.rock.snr_10dB.stoi_fir,    sim_results.rock.snr_10dB.stoi_iir;
-        sim_results.techno.snr_10dB.stoi_unproc,  sim_results.techno.snr_10dB.stoi_fir,  sim_results.techno.snr_10dB.stoi_iir;
-        sim_results.techno.snr_15dB.stoi_unproc,  sim_results.techno.snr_15dB.stoi_fir,  sim_results.techno.snr_15dB.stoi_iir
+    bar_stoi = [
+        sim_results.jazz.snr_5dB.stoi_unproc,   sim_results.jazz.snr_5dB.stoi_fir,   sim_results.jazz.snr_5dB.stoi_iir;
+        sim_results.jazz.snr_10dB.stoi_unproc,  sim_results.jazz.snr_10dB.stoi_fir,  sim_results.jazz.snr_10dB.stoi_iir;
+        sim_results.jazz.snr_15dB.stoi_unproc,  sim_results.jazz.snr_15dB.stoi_fir,  sim_results.jazz.snr_15dB.stoi_iir;
+        sim_results.rock.snr_5dB.stoi_unproc,   sim_results.rock.snr_5dB.stoi_fir,   sim_results.rock.snr_5dB.stoi_iir;
+        sim_results.rock.snr_10dB.stoi_unproc,  sim_results.rock.snr_10dB.stoi_fir,  sim_results.rock.snr_10dB.stoi_iir;
+        sim_results.rock.snr_15dB.stoi_unproc,  sim_results.rock.snr_15dB.stoi_fir,  sim_results.rock.snr_15dB.stoi_iir;
+        sim_results.techno.snr_5dB.stoi_unproc,  sim_results.techno.snr_5dB.stoi_fir,  sim_results.techno.snr_5dB.stoi_iir;
+        sim_results.techno.snr_10dB.stoi_unproc, sim_results.techno.snr_10dB.stoi_fir, sim_results.techno.snr_10dB.stoi_iir;
+        sim_results.techno.snr_15dB.stoi_unproc, sim_results.techno.snr_15dB.stoi_fir, sim_results.techno.snr_15dB.stoi_iir
     ];
-    b_stoi = bar(bar_stoi_data, 'grouped');
+    b_stoi = bar(bar_stoi);
     b_stoi(1).FaceColor = [0.6, 0.6, 0.6];
     b_stoi(2).FaceColor = c_fir;
     b_stoi(3).FaceColor = c_iir;
     grid on; box on;
-    set(gca, 'XTickLabel', {'Country (-5dB)', 'Country (-10dB)', 'Rock (-10dB)', 'Techno (-10dB)', 'Techno (-15dB)'});
-    xtickangle(25);
-    ylabel('STOI Score (0 to 1)');
-    title('Speech Intelligibility (STOI Score)');
-    legend({'Unprocessed', '128-Tap FIR', '8th-Order IIR'}, 'Location', 'northwest');
-    ylim([0, 1.05]);
-
+    set(gca, 'XTickLabel', {'J -5dB', 'J -10dB', 'J -15dB', 'R -5dB', 'R -10dB', 'R -15dB', 'T -5dB', 'T -10dB', 'T -15dB'});
+    ylabel('STOI Intelligibility Score (0 - 1.0)');
+    title('Speech Intelligibility (STOI) Verification');
+    legend({'Unprocessed Input', '128-Tap FIR', '8th-Order IIR SOS'}, 'Location', 'northeast');
+    ylim([0.5, 1.0]);
+    
     fig4_path = fullfile(figures_dir, 'filter_comparison_speech_enhancement.png');
     saveas(fig4, fig4_path);
     close(fig4);
     fprintf('  Saved: %s\n', fig4_path);
 
-    % 7. Export C Headers
+    % 7. Export C Headers for Firmware
     fprintf('\n--> Exporting C Headers for ESP32-S3 Firmware in %s...\n', firmware_dir);
-    export_fir_header(fullfile(firmware_dir, 'fir_coefficients.h'), filters_fir);
-    export_iir_header(fullfile(firmware_dir, 'iir_coefficients.h'), filters_iir);
+    fir_header_path = fullfile(firmware_dir, 'fir_coefficients.h');
+    iir_header_path = fullfile(firmware_dir, 'iir_coefficients.h');
+    
+    export_fir_header(fir_header_path, filters_fir);
+    export_iir_header(iir_header_path, filters_iir, filters_notch);
 
-    % 8. Export Workspace
-    export_data = struct();
-    export_data.fs = fs;
-    export_data.filters_fir = filters_fir;
-    export_data.filters_iir = filters_iir;
-    export_data.comp_metrics = comp_metrics;
-    export_data.sim_results = sim_results;
-    save(fullfile(metadata_dir, 'filter_comparison_workspace.mat'), 'export_data');
-    fprintf('--> Saved Workspace MAT: %s\n', fullfile(metadata_dir, 'filter_comparison_workspace.mat'));
+    % 8. Save Workspace MAT
+    mat_out = fullfile(metadata_dir, 'filter_comparison_workspace.mat');
+    save(mat_out, 'filters_fir', 'filters_iir', 'filters_notch', 'comp_metrics', 'sim_results', 'specs');
+    fprintf('--> Saved Workspace MAT: %s\n', mat_out);
 
     fprintf('\n=========================================================================\n');
     fprintf('  FILTER REDESIGN AND COMPARATIVE EVALUATION COMPLETE!\n');
@@ -482,13 +519,13 @@ function export_fir_header(filepath, filters_fir)
     if fid == -1, return; end
     
     fprintf(fid, '/**\n * @file fir_coefficients.h\n');
-    fprintf(fid, ' * @brief Pre-designed 128-tap FIR filter coefficients for Country, Rock, Techno speech enhancement.\n');
+    fprintf(fid, ' * @brief Pre-designed 128-tap FIR filter coefficients for Jazz, Rock, Techno speech enhancement.\n');
     fprintf(fid, ' * Designed via Parks-McClellan (firpm) equiripple algorithm (fs = 16 kHz).\n */\n\n');
     fprintf(fid, '#ifndef FIR_COEFFICIENTS_H\n#define FIR_COEFFICIENTS_H\n\n');
     fprintf(fid, '#define FIR_FILTER_ORDER 128\n');
     fprintf(fid, '#define FIR_FILTER_TAPS  129\n\n');
     
-    keys = {'country', 'rock', 'techno', 'control'};
+    keys = {'jazz', 'rock', 'techno', 'control'};
     for k = 1:length(keys)
         key = keys{k};
         b = filters_fir.(key).b;
@@ -518,19 +555,20 @@ function export_fir_header(filepath, filters_fir)
 end
 
 %% Helper: Export IIR SOS Header
-function export_iir_header(filepath, filters_iir)
+function export_iir_header(filepath, filters_iir, filters_notch)
     fid = fopen(filepath, 'w');
     if fid == -1, return; end
     
     fprintf(fid, '/**\n * @file iir_coefficients.h\n');
     fprintf(fid, ' * @brief Cascaded Second-Order Sections (SOS / Biquad) IIR filter coefficients.\n');
-    fprintf(fid, ' * Genres: Country, Rock, Techno, Control (fs = 16 kHz, Chebyshev Type II).\n');
-    fprintf(fid, ' * Structure: Direct Form II Transposed for optimal numerical stability on ESP32-S3.\n */\n\n');
+    fprintf(fid, ' * Genres: Jazz, Rock, Techno, Control (fs = 16 kHz, Chebyshev Type II).\n');
+    fprintf(fid, ' * Structure: Direct Form II Transposed for optimal numerical stability on ESP32-S3.\n');
+    fprintf(fid, ' * Also contains Phase 2 Parametric Notch Biquad coefficients.\n */\n\n');
     fprintf(fid, '#ifndef IIR_COEFFICIENTS_H\n#define IIR_COEFFICIENTS_H\n\n');
     fprintf(fid, '#define IIR_BIQUADS_COUNT 4\n\n');
     fprintf(fid, 'typedef struct {\n    float b0, b1, b2;\n    float a1, a2;\n} BiquadSection;\n\n');
     
-    keys = {'country', 'rock', 'techno', 'control'};
+    keys = {'jazz', 'rock', 'techno', 'control'};
     for k = 1:length(keys)
         key = keys{k};
         sos = filters_iir.(key).sos;
@@ -545,6 +583,14 @@ function export_iir_header(filepath, filters_iir)
                 sos(s, 1), sos(s, 2), sos(s, 3), sos(s, 5), sos(s, 6), ternary(s == n_sec, '', ','));
         end
         fprintf(fid, '};\n\n');
+        
+        % Notch filter coefficients
+        bn = filters_notch.(key).b;
+        an = filters_notch.(key).a;
+        fprintf(fid, '/* %s Parametric Notch Biquad (f0 = %.1f Hz, Q = %.1f) */\n', upper(key), filters_notch.(key).f0, filters_notch.(key).q);
+        fprintf(fid, 'static const BiquadSection notch_%s_biquad = {\n', key);
+        fprintf(fid, '    .b0 = %13.8ff, .b1 = %13.8ff, .b2 = %13.8ff, .a1 = %13.8ff, .a2 = %13.8ff\n};\n\n', ...
+            bn(1), bn(2), bn(3), an(2), an(3));
     end
     
     fprintf(fid, '/**\n * @brief Cascaded Biquad Direct Form II Transposed filtering.\n * Requires 2 state floats per biquad (total 8 floats).\n */\n');
@@ -560,6 +606,17 @@ function export_iir_header(filepath, filters_iir)
     fprintf(fid, '    }\n');
     fprintf(fid, '    return w;\n');
     fprintf(fid, '}\n\n');
+    
+    fprintf(fid, '/**\n * @brief Single Parametric Notch Biquad Direct Form II Transposed filtering.\n * Requires 2 state floats.\n */\n');
+    fprintf(fid, 'static inline float process_single_biquad(const BiquadSection* restrict sec, float* restrict state, float input) {\n');
+    fprintf(fid, '    float s1 = state[0];\n');
+    fprintf(fid, '    float s2 = state[1];\n');
+    fprintf(fid, '    float y = sec->b0 * input + s1;\n');
+    fprintf(fid, '    state[0] = sec->b1 * input - sec->a1 * y + s2;\n');
+    fprintf(fid, '    state[1] = sec->b2 * input - sec->a2 * y;\n');
+    fprintf(fid, '    return y;\n');
+    fprintf(fid, '}\n\n');
+    
     fprintf(fid, '#endif /* IIR_COEFFICIENTS_H */\n');
     fclose(fid);
     fprintf('  Saved IIR C Header: %s\n', filepath);

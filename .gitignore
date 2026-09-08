@@ -12,3 +12,6 @@ dataset/wav_16k/
 # Keep metadata and test stimuli
 !dataset/metadata/
 !dataset/test_stimuli/
+
+# Root level raw corpus
+/Harvard_speech*.wav

@@ -99,13 +99,13 @@ The derived filter topologies target the distinct acoustic signatures of **Jazz*
 
 ### 3. FIR vs. IIR Embedded Benchmark (ESP32-S3 Target)
 
-| Dimension | 128-Tap FIR (`firpm`) | 8th-Order IIR SOS (`cheby2`) | Speedup / Advantage |
+| Dimension | 128-Tap FIR (`fir1` windowed sinc) | 8th-Order IIR SOS (`cheby2`) | Speedup / Advantage |
 | :--- | :---: | :---: | :--- |
 | **Coefficients** | $129\text{ floats}$ ($516\text{ B}$) | **$24\text{ floats}$** ($96\text{ B}$) | **$5.4\times$ less memory** |
 | **MACs per Sample** | $128\text{ MACs}$ | **$20\text{ operations}$** | **$6.4\times$ faster execution** |
 | **CPU Rate @ 16 kHz** | $2.05\text{ MFLOPS}$ | **$0.32\text{ MFLOPS}$** | **Saves $84.4\%$ CPU load** |
 | **Core Speech Delay** | Constant $4.00\text{ ms}$ | **$0.80 - 1.80\text{ ms}$** | **$2.7\times$ lower latency** |
-| **Stability** | Unconditional | Stable ($\max |p_i| = 0.9708$) | Verified inside unit circle |
+| **Stability** | Unconditional (0.03 dB max gain) | Stable ($\max |p_i| = 0.9708$) | Verified inside unit circle |
 | **Speech STOI** | Matches within $\pm 0.008$ | Matches within $\pm 0.008$ | **Zero intelligibility penalty from non-linear phase** |
 
 ### 4. Parametric Notch Filter Benchmark (Preserving Pitch Fundamental)
@@ -123,13 +123,13 @@ Cascaded Second-Order Section (SOS) notch filters target specific music resonanc
 
 ---
 
-## Controlled Speech Overlay Dataset
+## Controlled Human Speech Overlay Dataset (90 Files)
 
-Generated via Python using **ITU-T P.56 active speech power leveling** to prevent silence from skewing SNR calibration.
+Generated via Python using **authentic human Harvard sentence recordings** from the IUS corpus and **ITU-T P.56 active speech power leveling**:
 
-- **Total Samples**: **90 audio files**
-- **Genres Covered**: Jazz, Rock, Techno (30 files each)
-- **Speech Sentences**: 10 phonetically balanced Harvard Sentences
+- **Location**: `dataset/test_stimuli/speech_overlay_dataset/` (`jazz/`, `rock/`, `techno/`)
+- **Total Samples**: **90 audio files** (10 human talkers $\times$ 3 genres $\times$ 3 SNRs)
+- **Speech Sentences**: 5 Male talkers + 5 Female talkers (authentic human speech)
 - **Fixed SNR Conditions**:
   - **$0\text{ dB}$ SNR**: Balanced conversational speech condition
   - **$-5\text{ dB}$ SNR**: Loud venue condition (music $3.16\times$ speech power)
@@ -138,6 +138,16 @@ Generated via Python using **ITU-T P.56 active speech power leveling** to preven
 - **Audit Manifest**: Full ground-truth metadata in [`dataset/metadata/speech_overlay_manifest.json`](dataset/metadata/speech_overlay_manifest.json).
 
 ---
+
+## Auditing Pre- and Post-Filtered Audio
+
+Generated across all three filter topologies and genres at $-5\text{ dB}$ SNR for verification:
+
+| Genre | Pre-Filtered (Noisy Input @ -5 dB) | Post-Filtered FIR Bandpass | Post-Filtered IIR Bandpass | Post-Filtered Parametric Notch |
+| :--- | :--- | :--- | :--- | :--- |
+| **Jazz** | `dataset/test_stimuli/audit_filtered_audio/jazz_pre_filtered_snr5db.wav` | `.../jazz_post_filtered_fir_bp.wav` | `.../jazz_post_filtered_iir_bp.wav` | `.../jazz_post_filtered_notch.wav` |
+| **Rock** | `dataset/test_stimuli/audit_filtered_audio/rock_pre_filtered_snr5db.wav` | `.../rock_post_filtered_fir_bp.wav` | `.../rock_post_filtered_iir_bp.wav` | `.../rock_post_filtered_notch.wav` |
+| **Techno** | `dataset/test_stimuli/audit_filtered_audio/techno_pre_filtered_snr5db.wav` | `.../techno_post_filtered_fir_bp.wav` | `.../techno_post_filtered_iir_bp.wav` | `.../techno_post_filtered_notch.wav` |
 
 ## Getting Started & Execution
 

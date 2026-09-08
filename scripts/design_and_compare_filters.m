@@ -69,11 +69,9 @@ function design_and_compare_filters()
         key = filter_keys{k};
         sp = specs.(key);
 
-        % A. Baseline 128-Tap FIR Bandpass
-        f_edges = [0, sp.f_stop1, sp.f_pass1, sp.f_pass2, sp.f_stop2, nyq] / nyq;
-        a_desired = [0, 0, 1, 1, 0, 0];
-        weights = [15, 1, 15];
-        b_fir = firpm(N_fir, f_edges, a_desired, weights);
+        % A. Baseline 128-Tap FIR Bandpass (Windowed Sinc with Hamming Window)
+        % Eliminates Parks-McClellan +32 dB transition-band overshoot
+        b_fir = fir1(N_fir, [sp.f_pass1, sp.f_pass2] / nyq, 'bandpass', hamming(N_fir + 1));
         filters_fir.(key).b = b_fir;
         filters_fir.(key).group_delay_ms = (N_fir / 2) / fs * 1000;
 
@@ -221,23 +219,26 @@ function design_and_compare_filters()
                     noisy_input = clean + scaled_noise;
                     
                     % 1. Bandpass Filtering (Chebyshev II)
-                    out_bp = sosfilt(filters_iir.(gk).sos, noisy_input) * filters_iir.(gk).g;
-                    out_bp_aligned = out_bp(21 : end);
-                    clean_bp_aligned = clean(1 : length(out_bp_aligned));
-                    noisy_bp_aligned = noisy_input(1 : length(out_bp_aligned));
+                    clean_bp = sosfilt(filters_iir.(gk).sos, clean) * filters_iir.(gk).g;
+                    noise_bp = sosfilt(filters_iir.(gk).sos, scaled_noise) * filters_iir.(gk).g;
+                    out_bp = clean_bp + noise_bp;
                     
                     % 2. Parametric Notch Filtering
-                    out_notch = sosfilt(filters_notch.(gk).sos, noisy_input);
-                    out_notch_aligned = out_notch(5 : end);
-                    clean_notch_aligned = clean(1 : length(out_notch_aligned));
-                    noisy_notch_aligned = noisy_input(1 : length(out_notch_aligned));
+                    clean_notch = sosfilt(filters_notch.(gk).sos, clean);
+                    noise_notch = sosfilt(filters_notch.(gk).sos, scaled_noise);
+                    out_notch = clean_notch + noise_notch;
                     
-                    dsnr_bp_list(s)    = compute_delta_snr(clean_bp_aligned, noisy_bp_aligned, out_bp_aligned, fs);
-                    dsnr_notch_list(s) = compute_delta_snr(clean_notch_aligned, noisy_notch_aligned, out_notch_aligned, fs);
+                    % Physical SNR Calculation (eliminating phase delay cancellation artifact)
+                    snr_in_val    = 10 * log10(mean(clean.^2) / (mean(scaled_noise.^2) + eps));
+                    snr_bp_val    = 10 * log10(mean(clean_bp.^2) / (mean(noise_bp.^2) + eps));
+                    snr_notch_val = 10 * log10(mean(clean_notch.^2) / (mean(noise_notch.^2) + eps));
                     
-                    stoi_unproc_list(s)= compute_simplified_stoi(clean_notch_aligned, noisy_notch_aligned, fs);
-                    stoi_bp_list(s)    = compute_simplified_stoi(clean_bp_aligned, out_bp_aligned, fs);
-                    stoi_notch_list(s) = compute_simplified_stoi(clean_notch_aligned, out_notch_aligned, fs);
+                    dsnr_bp_list(s)    = snr_bp_val - snr_in_val;
+                    dsnr_notch_list(s) = snr_notch_val - snr_in_val;
+                    
+                    stoi_unproc_list(s)= compute_simplified_stoi(clean, noisy_input, fs);
+                    stoi_bp_list(s)    = compute_simplified_stoi(clean, out_bp, fs);
+                    stoi_notch_list(s) = compute_simplified_stoi(clean, out_notch, fs);
                 end
                 
                 sim_results.(sub_name).(gk).(snr_tag).delta_snr_bp    = mean(dsnr_bp_list);
@@ -364,6 +365,7 @@ function design_and_compare_filters()
     % 7. Export C Headers for Firmware
     fprintf('\n--> Exporting C Headers for ESP32-S3 Firmware in %s...\n', firmware_dir);
     export_iir_notch_header(fullfile(firmware_dir, 'iir_coefficients.h'), filters_iir, filters_notch);
+    export_fir_header(fullfile(firmware_dir, 'fir_coefficients.h'), filters_fir);
 
     % 8. Save Workspace MAT
     mat_out = fullfile(metadata_dir, 'filter_comparison_workspace.mat');
@@ -503,6 +505,41 @@ function export_iir_notch_header(filepath, filters_iir, filters_notch)
     fprintf('  Saved IIR Notch C Header: %s\n', filepath);
 end
 
+function export_fir_header(filepath, filters_fir)
+    fid = fopen(filepath, 'w');
+    if fid == -1, return; end
+    
+    fprintf(fid, '/**\n * @file fir_coefficients.h\n');
+    fprintf(fid, ' * @brief Pre-designed 128-tap FIR filter coefficients for Jazz, Rock, Techno speech enhancement.\n');
+    fprintf(fid, ' * Designed via windowed-sinc with Hamming window (fs = 16 kHz).\n */\n\n');
+    fprintf(fid, '#ifndef FIR_COEFFICIENTS_H\n#define FIR_COEFFICIENTS_H\n\n');
+    fprintf(fid, '#define FIR_FILTER_ORDER 128\n');
+    fprintf(fid, '#define FIR_FILTER_TAPS  129\n\n');
+    
+    keys = {'jazz', 'rock', 'techno'};
+    for k = 1:length(keys)
+        key = keys{k};
+        b = filters_fir.(key).b;
+        fprintf(fid, '/* %s FIR Coefficients (Taps = %d, Group Delay = %.1f ms) */\n', ...
+            upper(key), length(b), filters_fir.(key).group_delay_ms);
+        fprintf(fid, 'static const float w_%s_fir[FIR_FILTER_TAPS] = {\n', key);
+        for i = 1:length(b)
+            if mod(i-1, 4) == 0
+                fprintf(fid, '    ');
+            end
+            fprintf(fid, '%14.8ff%s', b(i), ternary(i == length(b), '', ', '));
+            if mod(i, 4) == 0 || i == length(b)
+                fprintf(fid, '\n');
+            end
+        end
+        fprintf(fid, '};\n\n');
+    end
+    fprintf(fid, '#endif /* FIR_COEFFICIENTS_H */\n');
+    fclose(fid);
+    fprintf('  Saved FIR C Header: %s\n', filepath);
+end
+
 function val = ternary(cond, a, b)
     if cond, val = a; else, val = b; end
 end
+

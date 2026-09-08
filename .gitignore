@@ -9,9 +9,12 @@ __pycache__/
 dataset/raw_mp3/
 dataset/wav_16k/
 
-# Keep metadata and test stimuli
+# Keep metadata
 !dataset/metadata/
-!dataset/test_stimuli/
+
+# Ignore all audio files and test stimuli
+dataset/test_stimuli/
+*.wav
 
 # Root level raw corpus
 /Harvard_speech*.wav

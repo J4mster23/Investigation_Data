@@ -52,34 +52,37 @@ def write_wav(file_path, float_samples, fs=TARGET_FS):
         wf.writeframes(raw_data)
 
 def generate_speech_snippet(output_path):
-    text = (
-        "The birch canoe slid on the smooth planks. "
-        "Glue the sheet to the dark blue background. "
-        "It is easy to tell the depth of a well. "
-        "Four hours of steady work faced us."
-    )
-    temp_aiff = os.path.join(SNIPPETS_DIR, "temp_speech.aiff")
-    temp_wav  = os.path.join(SNIPPETS_DIR, "temp_speech.wav")
-
-    subprocess.run(["/usr/bin/say", "-v", "Samantha", "-r", "150", "-o", temp_aiff, text], check=True)
-    subprocess.run(["/usr/bin/afconvert", "-f", "WAVE", "-d", "LEI16@16000", "-c", "1", temp_aiff, temp_wav], check=True)
-
-    samples, fs = read_wav(temp_wav)
-    if os.path.exists(temp_aiff): os.remove(temp_aiff)
-    if os.path.exists(temp_wav): os.remove(temp_wav)
-
-    if len(samples) < TARGET_SAMPLES:
-        samples = samples + [0.0] * (TARGET_SAMPLES - len(samples))
+    corpus_dir = os.path.join(BASE_DIR, "dataset", "speech_corpus", "combined")
+    
+    # Select 3 distinct human speech recordings (1 male, 2 female)
+    sample_files = [
+        "female_01_IUS-F00202.wav",
+        "male_01_IUS-M00201.wav",
+        "female_02_IUS-F02202.wav"
+    ]
+    
+    combined_samples = []
+    pause = [0.0] * int(TARGET_FS * 0.35) # 350ms natural pause between sentences
+    
+    for fname in sample_files:
+        fpath = os.path.join(corpus_dir, fname)
+        if os.path.exists(fpath):
+            s, _ = read_wav(fpath)
+            combined_samples.extend(s)
+            combined_samples.extend(pause)
+            
+    if len(combined_samples) < TARGET_SAMPLES:
+        combined_samples = combined_samples + [0.0] * (TARGET_SAMPLES - len(combined_samples))
     else:
-        samples = samples[:TARGET_SAMPLES]
-
+        combined_samples = combined_samples[:TARGET_SAMPLES]
+        
     # Peak normalize to 0.70
-    peak = max(abs(s) for s in samples)
+    peak = max(abs(s) for s in combined_samples)
     if peak > 0:
-        samples = [s / peak * 0.70 for s in samples]
-
-    write_wav(output_path, samples, fs)
-    return samples
+        combined_samples = [s / peak * 0.70 for s in combined_samples]
+        
+    write_wav(output_path, combined_samples, TARGET_FS)
+    return combined_samples
 
 def extract_music_snippet(src_path, output_path, start_sec=5.0):
     samples, fs = read_wav(src_path)

@@ -2,18 +2,18 @@
 """
 create_comprehensive_speech_overlays.py
 Generates a comprehensive, highly controlled speech-in-music overlay dataset
-across all three genres (Country, Rock, Techno) at fixed SNR levels:
+using authentic human Harvard Sentences from the Indiana University Sentence Database (IUS)
+across all three genres (Jazz, Rock, Techno) at fixed SNR levels:
 - 0 dB SNR  (Balanced conversational condition)
 - -5 dB SNR (Loud venue condition)
 - -10 dB SNR (High-noise festival condition)
 
 Methodology:
-- Uses 10 phonetically balanced Harvard Sentences (List 1).
+- Uses 10 diverse human talkers (5 Male, 5 Female) reading Harvard Sentences.
 - Implements ITU-T P.56 active speech leveling (ignoring silence frames).
 - Additive mixing with exact target SNR calibration.
 - Zero-clipping master peak scaling (0.90 / -0.9 dBFS).
-- Generates 90 total speech overlay files (10 sentences x 3 genres x 3 SNRs)
-  plus 10-second isolated snippets per genre.
+- Generates 90 total speech overlay files (10 sentences x 3 genres x 3 SNRs).
 - Outputs machine-readable audit manifest: dataset/metadata/speech_overlay_manifest.json
 """
 
@@ -28,7 +28,6 @@ SPEECH_DIR = os.path.join(BASE_DIR, "dataset", "test_stimuli", "speech_sentences
 NOISE_DIR = os.path.join(BASE_DIR, "dataset", "test_stimuli", "music_noise_30s")
 OUTPUT_BASE = os.path.join(BASE_DIR, "dataset", "test_stimuli", "speech_overlay_dataset")
 MANIFEST_PATH = os.path.join(BASE_DIR, "dataset", "metadata", "speech_overlay_manifest.json")
-TRANSCRIPTS_PATH = os.path.join(BASE_DIR, "dataset", "metadata", "harvard_transcripts.json")
 
 TARGET_FS = 16000
 
@@ -84,16 +83,26 @@ def compute_active_speech_power(samples, frame_len=320, threshold_db=-25):
 
 def main():
     print("=" * 70)
-    print("  COMPREHENSIVE SPEECH-IN-MUSIC OVERLAY GENERATOR")
-    print("  Genres: Country, Rock, Techno | Target SNRs: 0 dB, -5 dB, -10 dB")
+    print("  COMPREHENSIVE HUMAN SPEECH-IN-MUSIC OVERLAY GENERATOR (IUS CORPUS)")
+    print("  Genres: Jazz, Rock, Techno | Target SNRs: 0 dB, -5 dB, -10 dB")
     print("=" * 70)
-
-    with open(TRANSCRIPTS_PATH, "r", encoding="utf-8") as f:
-        transcripts = json.load(f)
 
     genres = ["jazz", "rock", "techno"]
     snr_levels = [0.0, -5.0, -10.0]
-    sentence_ids = [f"sentence_{i:02d}" for i in range(1, 11)]  # Sentences 1 to 10
+
+    # Select 5 male and 5 female human speech files
+    speech_files = [
+        ("female_01_IUS-F00202.wav", "female", "IUS-F00202"),
+        ("female_02_IUS-F02202.wav", "female", "IUS-F02202"),
+        ("female_03_IUS-F04202.wav", "female", "IUS-F04202"),
+        ("female_04_IUS-F06202.wav", "female", "IUS-F06202"),
+        ("female_05_IUS-F08202.wav", "female", "IUS-F08202"),
+        ("male_01_IUS-M00201.wav", "male", "IUS-M00201"),
+        ("male_02_IUS-M02201.wav", "male", "IUS-M02201"),
+        ("male_03_IUS-M04201.wav", "male", "IUS-M04201"),
+        ("male_04_IUS-M06201.wav", "male", "IUS-M06201"),
+        ("male_05_IUS-M08201.wav", "male", "IUS-M08201"),
+    ]
 
     # Load noise tracks
     noise_tracks = {}
@@ -103,20 +112,19 @@ def main():
         noise_tracks[g] = noise_samples
 
     manifest_entries = []
-    total_files = len(genres) * len(sentence_ids) * len(snr_levels)
+    total_files = len(genres) * len(speech_files) * len(snr_levels)
     processed = 0
 
-    print(f"\nGenerating {total_files} controlled overlay audio files...")
+    print(f"\nGenerating {total_files} controlled overlay audio files from authentic human speech...")
 
     for g in genres:
         noise_full = noise_tracks[g]
         g_out_dir = os.path.join(OUTPUT_BASE, g)
         
-        for s_id in sentence_ids:
-            s_path = os.path.join(SPEECH_DIR, f"{s_id}.wav")
+        for idx, (s_fname, gender, spk_id) in enumerate(speech_files, 1):
+            s_path = os.path.join(SPEECH_DIR, s_fname)
             speech_samples, _ = read_wav(s_path)
             L = len(speech_samples)
-            transcript = transcripts.get(s_id, "")
             
             p_speech_active = compute_active_speech_power(speech_samples)
 
@@ -125,7 +133,7 @@ def main():
                 if target_snr == 0: snr_tag = "0dB"
                 
                 # Pick a consistent section of the noise
-                noise_offset = (int(s_id.split("_")[1]) * 16000 * 2) % (len(noise_full) - L - 1)
+                noise_offset = (idx * 16000 * 2) % (len(noise_full) - L - 1)
                 noise_seg = noise_full[noise_offset : noise_offset + L]
                 p_noise = sum(x**2 for x in noise_seg) / len(noise_seg)
 
@@ -146,7 +154,8 @@ def main():
                 m_noise_rms  = math.sqrt(p_noise) * scale * gain
                 measured_snr = 20 * math.log10(m_speech_rms / m_noise_rms) if m_noise_rms > 0 else 99.0
 
-                out_filename = f"{s_id}_{g}_snr_{snr_tag}.wav"
+                s_prefix = f"{gender}_{idx:02d}"
+                out_filename = f"{s_prefix}_{g}_snr_{snr_tag}.wav"
                 out_filepath = os.path.join(g_out_dir, out_filename)
                 write_wav(out_filepath, mixed_norm, TARGET_FS)
 
@@ -154,8 +163,9 @@ def main():
                     "filename": out_filename,
                     "filepath": os.path.relpath(out_filepath, BASE_DIR),
                     "genre": g,
-                    "sentence_id": s_id,
-                    "transcript": transcript,
+                    "gender": gender,
+                    "speaker_id": spk_id,
+                    "speech_source_file": s_fname,
                     "target_snr_db": target_snr,
                     "measured_active_snr_db": round(measured_snr, 2),
                     "speech_active_rms": round(m_speech_rms, 4),
@@ -166,12 +176,13 @@ def main():
 
                 processed += 1
                 if processed % 15 == 0 or processed == total_files:
-                    print(f"  [{processed:02d}/{total_files}] Generated: {g.upper()} | {s_id} | SNR: {target_snr:+.0f} dB")
+                    print(f"  [{processed:02d}/{total_files}] Generated: {g.upper()} | {gender.upper()} {spk_id} | SNR: {target_snr:+.0f} dB")
 
     # Save Manifest
     with open(MANIFEST_PATH, "w", encoding="utf-8") as f:
         json.dump({
-            "dataset_description": "Comprehensive Controlled Speech-in-Music Overlay Dataset",
+            "dataset_description": "Comprehensive Controlled Human Speech-in-Music Overlay Dataset (IUS Corpus)",
+            "speech_provenance": "Indiana University Sentence Database (IUS) (Karl & Pisoni, 1994)",
             "sampling_rate_hz": TARGET_FS,
             "bit_depth": 16,
             "channels": 1,

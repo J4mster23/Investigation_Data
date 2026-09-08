@@ -1,4 +1,7 @@
-Genre,Peak_Hz,SubBass_pct,Kick_pct,LowBass_pct,SpeechBand_pct,HighFreq_pct,Centroid_Hz,Rolloff85_Hz
-Jazz,78.12,14.42,30.00,45.78,46.97,0.77,504.22,781.25
-Rock,109.38,13.67,33.68,60.66,31.74,1.86,557.47,984.38
-Techno,62.50,65.28,51.86,85.37,10.62,1.40,270.60,234.38
+Category,Source,Peak_Hz,SubBass_pct,Kick_pct,LowBass_pct,SpeechBand_pct,HighFreq_pct,Centroid_Hz,Rolloff85_Hz
+Music,Jazz,78.12,14.42,30.00,45.78,46.97,0.77,504.22,781.25
+Music,Rock,109.38,13.67,33.68,60.66,31.74,1.86,557.47,984.38
+Music,Techno,62.50,65.28,51.86,85.37,10.62,1.40,270.60,234.38
+Speech,Male,250.00,0.09,15.57,15.66,75.73,1.97,674.47,796.88
+Speech,Female,218.75,1.90,24.20,26.09,67.99,1.70,773.10,1140.62
+Speech,Combined,218.75,1.00,19.90,20.90,71.84,1.84,723.96,1000.00

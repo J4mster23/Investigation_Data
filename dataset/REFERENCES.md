@@ -77,6 +77,30 @@ The speech stimuli comprise phonetically balanced sentences from the **Harvard S
 
 ---
 
+### B. Spoken Speech Corpus: Indiana University Sentence Database (IUS)
+The multi-talker human speech recordings are sourced from the **Indiana University Sentence Database (IUS)**, a landmark multi-talker human speech database of spoken Harvard sentences recorded at the Speech Research Laboratory, Indiana University Bloomington.
+
+#### Primary Academic Citation
+> J. R. Karl and D. B. Pisoni, "Effects of stimulus variability on recall of spoken sentences: A first report," *Research on Spoken Language Processing*, Progress Report No. 19, Indiana University Bloomington, pp. 145–194, 1994.
+
+```bibtex
+@article{karl1994effects,
+  author  = {J. R. Karl and David B. Pisoni},
+  journal = {Research on Spoken Language Processing},
+  title   = {Effects of stimulus variability on recall of spoken sentences: A first report},
+  year    = {1994},
+  volume  = {19},
+  pages   = {145--194},
+  institution = {Speech Research Laboratory, Indiana University Bloomington}
+}
+```
+
+* **Funding Acknowledgement**: NIH-NIDCD Research Grant R01 DC-00111 and NIH-NIDCD Training Grant DC-00012 to Indiana University Bloomington.
+* **Corpus Composition**: 50 distinct Male speakers (`IUS-M`) and 50 distinct Female speakers (`IUS-F`) reading standardized Harvard sentences.
+* **Standardization**: Resampled from original 20.0 kHz to $16\,000\text{ Hz}$, 16-bit mono linear PCM WAV.
+
+---
+
 ## 3. Objective Speech Intelligibility & Evaluation Metrics
 
 * **STOI (Short-Time Objective Intelligibility)**:
@@ -93,5 +117,5 @@ The speech stimuli comprise phonetically balanced sentences from the **Harvard S
 | **Sampling Rate ($f_s$)** | `16 000 Hz` (16 kHz) | Matches ESP32-S3 I2S microphone hardware |
 | **Bit Depth** | `16-bit` linear PCM | `LEI16` (Little-Endian Signed 16-bit Integer) |
 | **Channels** | `1` (Mono) | Channel downmixed |
-| **Dataset Size** | `150 tracks total` | 50 Country + 50 Rock + 50 Techno |
+| **Dataset Size** | `150 tracks total` | 50 Jazz + 50 Rock + 50 Techno |
 | **Speech Overlays** | `90 audio files` | 10 sentences $\times$ 3 genres $\times$ 3 SNRs (0, -5, -10 dB) |

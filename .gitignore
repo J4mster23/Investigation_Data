@@ -15,3 +15,8 @@ dataset/wav_16k/
 
 # Root level raw corpus
 /Harvard_speech*.wav
+/OneDrive*.zip
+
+# Large speech corpora (not pushed to git)
+dataset/speech_corpus/
+dataset/raw_ius/

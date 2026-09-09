@@ -17,8 +17,7 @@ dataset/test_stimuli/
 *.wav
 
 # Root level raw corpus
-/Harvard_speech*.wav
-/OneDrive*.zip
+*.zip
 
 # Large speech corpora (not pushed to git)
 dataset/speech_corpus/

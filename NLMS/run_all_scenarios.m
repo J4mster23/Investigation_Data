@@ -1,10 +1,10 @@
 % NLMS Scenarios Consolidated Script
 % This script runs all four scenarios and saves the figures automatically
 
-fs = 16000;         
-N = 1024;            
-mu = 0.05;           
-epsilon = 1e-2;     
+fs = 16000;
+N = 256;
+mu = 0.5;
+epsilon = 1e-2;
 
 % Ensure correct paths
 script_dir = fileparts(mfilename('fullpath'));
@@ -46,7 +46,7 @@ gain = 0.90 / peak;
 clean_speech = clean_speech * gain;
 noise_source_base = noise_source_base * gain;
 
-t = (0:L-1)' / fs; 
+t = (0:L-1)' / fs;
 
 % Ensure figures directory exists
 script_dir = fileparts(mfilename('fullpath'));
@@ -65,7 +65,7 @@ h_room = exp(- (0:150)' / 30) .* randn(151, 1);
 ambient_noise_primary1 = conv(noise_source_base, h_room, 'same');
 
 d1 = clean_speech + ambient_noise_primary1;
-x1 = noise_source_base; 
+x1 = noise_source_base;
 
 [e1, ~] = nlms_filter(d1, x1, N, mu, epsilon);
 
@@ -75,7 +75,7 @@ subplot(3, 1, 2); plot(t, clean_speech); title('Original Clean Speech'); xlabel(
 subplot(3, 1, 3); plot(t, e1); title('Enhanced Speech'); xlabel('Time (s)'); grid on;
 saveas(fig_scen1, fullfile(figures_dir, 'scenario1_reverb.png'));
 
-zoom_start = min(1.5, t(end)-0.1); zoom_end = zoom_start + 0.05; 
+zoom_start = min(1.5, t(end)-0.1); zoom_end = zoom_start + 0.05;
 fig_scen1_zoom = figure('Name', 'Scenario 1: Zoomed View', 'Position', [950, 100, 800, 600]);
 subplot(3, 1, 1); plot(t, d1); title('Zoomed Primary Mic'); xlim([zoom_start, zoom_end]); grid on;
 subplot(3, 1, 2); plot(t, clean_speech); title('Zoomed Clean Speech'); xlim([zoom_start, zoom_end]); grid on;
@@ -90,7 +90,7 @@ ambient_noise_primary2 = 0.8 * [zeros(delay_samples2, 1); noise_source_base(1:en
 d2 = clean_speech + ambient_noise_primary2;
 
 % Leakage: The reference mic picks up 30% of the clean speech signal
-x2 = noise_source_base + 0.3 * clean_speech; 
+x2 = noise_source_base + 0.3 * clean_speech;
 
 [e2, ~] = nlms_filter(d2, x2, N, mu, epsilon);
 
@@ -119,7 +119,7 @@ mid_point = round(length(t)/2);
 ambient_noise_primary3 = [noise1(1:mid_point); noise2(mid_point+1:end)];
 
 d3 = clean_speech + ambient_noise_primary3;
-x3 = noise_source_base; 
+x3 = noise_source_base;
 
 [e3, ~] = nlms_filter(d3, x3, N, mu, epsilon);
 
@@ -131,7 +131,7 @@ saveas(fig_scen3, fullfile(figures_dir, 'scenario3_movement.png'));
 
 % Zoom around the transition
 t_mid = t(mid_point);
-zoom_start3 = max(0, t_mid - 0.05); zoom_end3 = min(t(end), t_mid + 0.05); 
+zoom_start3 = max(0, t_mid - 0.05); zoom_end3 = min(t(end), t_mid + 0.05);
 fig_scen3_zoom = figure('Name', 'Scenario 3: Zoomed View at Transition', 'Position', [950, 100, 800, 600]);
 subplot(3, 1, 1); plot(t, d3); title('Zoomed Primary Mic (Transition)'); xlim([zoom_start3, zoom_end3]); grid on;
 subplot(3, 1, 2); plot(t, clean_speech); title('Zoomed Clean Speech'); xlim([zoom_start3, zoom_end3]); grid on;

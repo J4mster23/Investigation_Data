@@ -3,8 +3,8 @@
 
 % Parameters
 fs = 16000;         % Sampling frequency (16 kHz)
-N = 1024;           % Filter order (number of taps)
-mu = 0.05;          % Step size
+N = 256;           % Filter order (number of taps)
+mu = 0.5;          % Step size
 epsilon = 1e-2;     % Regularisation constant
 
 % Ensure correct paths

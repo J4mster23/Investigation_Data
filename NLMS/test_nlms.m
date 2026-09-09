@@ -3,18 +3,44 @@
 
 % Parameters
 fs = 16000;         % Sampling frequency (16 kHz)
-N = 256;            % Filter order (number of taps)
-mu = 0.5;           % Step size
-epsilon = 1e-6;     % Regularisation constant
+N = 1024;           % Filter order (number of taps)
+mu = 0.05;          % Step size
+epsilon = 1e-2;     % Regularisation constant
 
-disp('Generating synthetic test signals...');
-t = (0:fs*3-1)' / fs; % 3 seconds of audio
+% Ensure correct paths
+script_dir = fileparts(mfilename('fullpath'));
+if isempty(script_dir)
+    script_dir = pwd;
+end
+dataset_dir = fullfile(script_dir, '..', 'dataset');
 
-% 1. Create a basic clean signal (a pure 1 kHz sine wave for easy validation)
-clean_speech = sin(2*pi*1000*t);
+% 1. Load actual clean speech from dataset
+speech_file = fullfile(dataset_dir, 'speech_corpus', 'combined', 'female_01_IUS-F00202.wav');
+[clean_speech, fs_speech] = audioread(speech_file);
+if fs_speech ~= fs
+    clean_speech = resample(clean_speech, fs, fs_speech);
+end
 
-% 2. Create a basic noise source (a 100 Hz sine wave + low amplitude white noise)
-noise_source = 0.5 * sin(2*pi*100*t) + 0.1 * randn(length(t), 1);
+% 2. Load actual EDM noise source
+noise_file = fullfile(dataset_dir, 'wav_16k', 'techno', 'techno_1389887.wav');
+[noise_source_full, fs_noise] = audioread(noise_file);
+if fs_noise ~= fs
+    noise_source_full = resample(noise_source_full, fs, fs_noise);
+end
+
+% Truncate noise to match speech length
+L = length(clean_speech);
+noise_source = noise_source_full(1:L);
+
+% Scale noise to target SNR (e.g., 0 dB) using active speech level
+target_snr_dB = 0;
+[asl_clean, ~] = calculate_active_speech_level(clean_speech, fs);
+p_s = 10^(asl_clean/10);
+p_n = mean(noise_source.^2);
+scale = sqrt(p_s / (p_n * 10^(target_snr_dB/10)));
+noise_source = noise_source * scale;
+
+t = (0:L-1)' / fs; % Update time vector based on real signal length
 
 % 3. Simple acoustic path to primary microphone (scaled and slightly delayed noise)
 delay_samples = 1;
@@ -25,6 +51,13 @@ d = clean_speech + ambient_noise_primary;
 
 % 4. Simple acoustic path to reference microphone (noise as is)
 x = noise_source; % Reference mic signal x(n)
+
+% 5. Peak Headroom Normalization (Target Peak = 0.90) to ensure audio is loud
+peak = max(abs(d));
+gain = 0.90 / peak;
+d = d * gain;
+x = x * gain;
+clean_speech = clean_speech * gain;
 
 disp('Starting NLMS Simulation using nlms_filter...');
 [e, w] = nlms_filter(d, x, N, mu, epsilon);
@@ -67,10 +100,10 @@ grid on;
 saveas(fig1, fullfile(figures_dir, 'test_nlms_simulation.png'));
 
 % Plot a zoomed-in section to better view the signal shapes (after convergence)
-zoom_start = 2.5;
-zoom_end = 2.52; % 20 milliseconds snippet
+zoom_start = min(1.5, t(end)-0.1);
+zoom_end = zoom_start + 0.05; % 50 milliseconds snippet
 
-fig2 = figure('Name', 'NLMS Zoomed View (2.5s - 2.52s)', 'Position', [950, 100, 800, 600]);
+fig2 = figure('Name', 'NLMS Zoomed View', 'Position', [950, 100, 800, 600]);
 
 subplot(3, 1, 1);
 plot(t, d);
@@ -97,3 +130,31 @@ xlim([zoom_start, zoom_end]);
 grid on;
 
 saveas(fig2, fullfile(figures_dir, 'test_nlms_zoomed.png'));
+
+disp('--- Metrics ---');
+% STOI
+stoi_before = calculate_stoi(clean_speech, d, fs);
+stoi_after = calculate_stoi(clean_speech, e, fs);
+fprintf('STOI Before: %.4f\n', stoi_before);
+fprintf('STOI After:  %.4f\n', stoi_after);
+
+% Active Speech Level
+[asl_clean, act_clean] = calculate_active_speech_level(clean_speech, fs);
+[asl_d, act_d] = calculate_active_speech_level(d, fs);
+[asl_e, act_e] = calculate_active_speech_level(e, fs);
+fprintf('Active Speech Level (Clean):   %.2f dB (Activity: %.2f%%)\n', asl_clean, act_clean*100);
+fprintf('Active Speech Level (Primary): %.2f dB (Activity: %.2f%%)\n', asl_d, act_d*100);
+fprintf('Active Speech Level (Enhanced):%.2f dB (Activity: %.2f%%)\n', asl_e, act_e*100);
+
+% Save audio outputs
+output_dir = fullfile(script_dir, 'output_audio', 'test_nlms');
+if ~exist(output_dir, 'dir')
+    mkdir(output_dir);
+end
+
+audiowrite(fullfile(output_dir, 'test_nlms_clean.wav'), clean_speech, fs);
+audiowrite(fullfile(output_dir, 'test_nlms_primary.wav'), d, fs);
+audiowrite(fullfile(output_dir, 'test_nlms_enhanced.wav'), e, fs);
+disp('Audio outputs saved to output_audio/ folder.');
+
+

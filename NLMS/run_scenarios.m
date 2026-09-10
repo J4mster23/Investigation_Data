@@ -120,4 +120,47 @@ saveas(fig_scen4, fullfile(figures_dir, 'scenario4_low_snr.png'));
 audiowrite(fullfile(output_dir, 'scenario4_primary.wav'), d4, fs);
 audiowrite(fullfile(output_dir, 'scenario4_enhanced.wav'), e4, fs);
 
+%% Scenario 5: Continuous Movement (Head Sweeping Left and Right)
+disp('--- Running Scenario 5: Continuous Movement ---');
+
+% 1. Create a time-varying delay to simulate head rotation at 0.5 Hz (one sweep every 2 seconds)
+f_pan = 0.5;
+base_delay = 10;     % Base delay in samples
+max_deviation = 8;   % Sweeps between 2 and 18 samples of delay
+
+ambient_noise_raw = zeros(L, 1);
+
+% Apply the continuously shifting delay sample-by-sample
+for n = 1:L
+    % Calculate the instantaneous integer delay for this exact sample
+    current_delay = round(base_delay + max_deviation * sin(2*pi*f_pan*t(n)));
+
+    % Fetch the delayed noise sample (with boundary protection)
+    if n > current_delay
+        ambient_noise_raw(n) = 0.8 * noise_source_base(n - current_delay);
+    end
+end
+
+% 2. Scale precisely to 0 dB SNR
+ambient_noise_primary5 = scale_noise_for_snr(clean_speech, ambient_noise_raw, fs, 0);
+d5 = clean_speech + ambient_noise_primary5;
+x5 = noise_source_base;
+
+% 3. Apply NLMS
+[e5, ~] = nlms_filter(d5, x5, N, mu, epsilon);
+
+% 4. Normalize for export
+[clean5, d5, e5] = normalize_for_export(0.9, clean_speech, d5, e5);
+
+% 5. Plotting
+fig_scen5 = figure('Name', 'Scenario 5: Continuous Movement', 'Position', [100, 100, 800, 600]);
+subplot(3, 1, 1); plot(t, d5); title('Primary Mic (Continuously Shifting Delay)'); xlabel('Time (s)'); grid on;
+subplot(3, 1, 2); plot(t, clean5); title('Original Clean Speech'); xlabel('Time (s)'); grid on;
+subplot(3, 1, 3); plot(t, e5); title('Enhanced Speech (Note the residual tracking error)'); xlabel('Time (s)'); grid on;
+saveas(fig_scen5, fullfile(figures_dir, 'scenario5_continuous_movement.png'));
+
+% Save Audio
+audiowrite(fullfile(output_dir, 'scenario5_primary.wav'), d5, fs);
+audiowrite(fullfile(output_dir, 'scenario5_enhanced.wav'), e5, fs);
+
 disp('--- All scenarios completed and exported successfully. ---');

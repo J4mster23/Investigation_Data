@@ -39,12 +39,18 @@ This series of progress reports documents the end-to-end research, empirical fin
         │     Synthesis (ITU-T P.56)    │                                   │     Algorithm Audits & Post-Mortems           │
         └───────────────┬───────────────┘                                   └───────────────────────┬───────────────────────┘
                         │                                                                           │
-                        └─────────────────────────────────┬─────────────────────────────────────────┘
-                                                          ▼
-                                          ┌───────────────────────────────┐
-                                          │ 07. Embedded Firmware &       │
-                                          │     ESP32-S3 Hardware Engine  │
-                                          └───────────────────────────────┘
+                         └─────────────────────────────────┬─────────────────────────────────────────┘
+                                                           ▼
+                                           ┌───────────────────────────────┐
+                                           │ 07. Embedded Firmware &       │
+                                           │     ESP32-S3 Hardware Engine  │
+                                           └───────────────┬───────────────┘
+                                                           │
+                                                           ▼
+                                           ┌───────────────────────────────┐
+                                           │ 08. Comparative Testing &     │
+                                           │     Findings: Fixed vs. NLMS  │
+                                           └───────────────────────────────┘
 ```
 
 ---
@@ -60,6 +66,7 @@ This series of progress reports documents the end-to-end research, empirical fin
 | [**Report 05**](05_controlled_overlay_synthesis_and_mixing.md) | **Audio Overlay Mixing Pipeline & Calibrated Test Stimuli** | ITU-T P.56 active speech power leveling, fixed SNR calibration ($0, -5, -10\text{ dB}$), headroom normalization, 90-file manifest, and 10s isolated/combined test snippets. |
 | [**Report 06**](06_evaluation_benchmarks_and_algorithm_audit.md) | **Objective Intelligibility Benchmarks & Algorithm Audits** | STOI metric, physical $\Delta\text{SNR}$ formulation, root-cause post-mortem of the +32 dB FIR overshoot bug and phase-subtraction error, plus pre/post audio audit catalog. |
 | [**Report 07**](07_embedded_firmware_and_hardware_deployment.md) | **Embedded Firmware Architecture & ESP32-S3 Implementation** | Transposed Direct Form II biquad engine, computational complexity analysis (MFLOPS/RAM), cycle counts, DMA buffer latency, and C header implementation. |
+| [**Report 08**](08_comparative_testing_and_findings_nlms.md) | **Comparative Testing & Findings: Fixed vs. Adaptive NLMS** | Cross-benchmark across 6 SNRs, 3 genres, and genders comparing FIR, IIR, Notch, Dual-Mic NLMS, and Hybrid Notch+NLMS; plus 5 acoustic stress scenarios. |
 
 ---
 
@@ -75,9 +82,15 @@ This series of progress reports documents the end-to-end research, empirical fin
 2. SPEECH INTELLIGIBILITY (STOI @ -10 dB SNR):
    - Traditional Bandpass: Degrades STOI by -0.015 to -0.028 across all genres (envelope distortion).
    - Parametric Notch:     Matches or exceeds unprocessed speech (0.910 Techno, 0.841 Rock, 0.810 Jazz).
+   - Dual-Microphone NLMS: Achieves 0.941 to 0.963 STOI across all genres (+0.09 to +0.16 STOI gain).
 
-3. EMBEDDED EFFICIENCY (ESP32-S3 @ 16 kHz):
-   - 128-Tap FIR:       128 MACs/sample | 2.05 MFLOPS | 4.00 ms constant group delay
-   - 8th-Order IIR SOS: 20 ops/sample   | 0.32 MFLOPS | 1.34 ms passband delay (6.4x speedup)
-   - Parametric Notch:  5-10 ops/sample | 0.08-0.16 MFLOPS | <0.15 ms vocal band latency (12-25x speedup)
+3. EXTREME HIGH-NOISE ATTENUATION (SNR @ -15 dB):
+   - Dual-Microphone NLMS: Delivers +16.0 dB to +18.4 dB true physical noise reduction.
+   - Boosts STOI from ~0.71-0.80 up to 0.90-0.93 across Jazz, Rock, and Techno.
+
+4. EMBEDDED EFFICIENCY (ESP32-S3 @ 16 kHz):
+   - 128-Tap FIR:       128 MACs/sample | 4.11 MFLOPS | 4.00 ms constant group delay (2.07% CPU)
+   - 8th-Order IIR SOS: 20 ops/sample   | 0.32 MFLOPS | 1.34 ms passband delay (0.19% CPU)
+   - Parametric Notch:  5-10 ops/sample | 0.08-0.16 MFLOPS | <0.15 ms vocal latency (0.05-0.09% CPU)
+   - Dual-Mic NLMS:     515 ops/sample  | 8.24 MFLOPS | 4.06 ms DMA roundtrip latency (4.13% CPU)
 ```

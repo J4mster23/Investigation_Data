@@ -1,0 +1,6 @@
+Scenario_ID,Scenario_Name,Target_SNR_dB,STOI_In,STOI_Out,Delta_STOI,ASL_In_dBFS,ASL_Out_dBFS
+1,Reverberation,-5,0.9509,0.9416,-0.0092,-22.31,-27.76
+2,Speech_Leakage_30pct,-5,0.9416,0.9754,0.0338,-22.37,-30.46
+3,Abrupt_Movement,-5,0.9394,0.9677,0.0283,-22.39,-29.93
+4,Extreme_Low_SNR_Bass,-15,0.9395,0.9868,0.0474,-12.99,-28.62
+5,Continuous_Rotation,0,0.9683,0.9807,0.0124,-26.09,-30.30

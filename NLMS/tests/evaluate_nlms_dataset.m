@@ -11,7 +11,8 @@ script_dir = fileparts(mfilename('fullpath'));
 if isempty(script_dir)
     script_dir = pwd;
 end
-dataset_dir = fullfile(script_dir, '..', 'dataset');
+addpath(fullfile(script_dir, '..', 'lib'));
+dataset_dir = fullfile(script_dir, '..', '..', 'dataset');
 speech_dir = fullfile(dataset_dir, 'speech_corpus', 'combined');
 
 % Load EDM noise source

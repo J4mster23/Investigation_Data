@@ -7,8 +7,11 @@ epsilon = 1e-2;
 
 % Ensure correct paths
 script_dir = fileparts(mfilename('fullpath'));
-if isempty(script_dir), script_dir = pwd; end
-dataset_dir = fullfile(script_dir, '..', 'dataset');
+if isempty(script_dir)
+    script_dir = pwd;
+end
+addpath(fullfile(script_dir, '..', 'lib'));
+dataset_dir = fullfile(script_dir, '..', '..', 'dataset');
 figures_dir = fullfile(script_dir, 'figures');
 if ~exist(figures_dir, 'dir'), mkdir(figures_dir); end
 output_dir = fullfile(script_dir, 'output_audio', 'run_all_scenarios');

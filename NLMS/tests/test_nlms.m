@@ -10,7 +10,8 @@ script_dir = fileparts(mfilename('fullpath'));
 if isempty(script_dir)
     script_dir = pwd;
 end
-dataset_dir = fullfile(script_dir, '..', 'dataset');
+addpath(fullfile(script_dir, '..', 'lib'));
+dataset_dir = fullfile(script_dir, '..', '..', 'dataset');
 
 % 1. Load clean speech
 speech_file = fullfile(dataset_dir, 'speech_corpus', 'combined', 'female_01_IUS-F00202.wav');

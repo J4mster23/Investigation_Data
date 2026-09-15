@@ -50,6 +50,12 @@ This series of progress reports documents the end-to-end research, empirical fin
                                            ┌───────────────────────────────┐
                                            │ 08. Comparative Testing &     │
                                            │     Findings: Fixed vs. NLMS  │
+                                           └───────────────┬───────────────┘
+                                                           │
+                                                           ▼
+                                           ┌───────────────────────────────┐
+                                           │ 09. Experimental Setup:       │
+                                           │     Concert Sim & ESP32-S3 HW │
                                            └───────────────────────────────┘
 ```
 
@@ -67,6 +73,7 @@ This series of progress reports documents the end-to-end research, empirical fin
 | [**Report 06**](06_evaluation_benchmarks_and_algorithm_audit.md) | **Objective Intelligibility Benchmarks & Algorithm Audits** | STOI metric, physical $\Delta\text{SNR}$ formulation, root-cause post-mortem of the +32 dB FIR overshoot bug and phase-subtraction error, plus pre/post audio audit catalog. |
 | [**Report 07**](07_embedded_firmware_and_hardware_deployment.md) | **Embedded Firmware Architecture & ESP32-S3 Implementation** | Transposed Direct Form II biquad engine, computational complexity analysis (MFLOPS/RAM), cycle counts, DMA buffer latency, and C header implementation. |
 | [**Report 08**](08_comparative_testing_and_findings_nlms.md) | **Comparative Testing & Findings: Fixed vs. Adaptive NLMS** | Cross-benchmark across 6 SNRs, 3 genres, and genders comparing FIR, IIR, Notch, Dual-Mic NLMS, and Hybrid Notch+NLMS; plus 5 acoustic stress scenarios. |
+| [**Report 09**](09_experimental_setup_simulation_and_hardware.md) | **Experimental Setup: Concert Simulation & Hardware** | Multi-venue concert simulation models (Club, Arena, Festival), ESP32-S3 hardware wiring (Adafruit MEMS, PCM5102A, NJM4556AD), and 3-stage validation protocol. |
 
 ---
 

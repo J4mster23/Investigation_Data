@@ -37,6 +37,7 @@ function benchmark_nlms_vs_all_filters()
     if ~exist(metadata_dir, 'dir'), mkdir(metadata_dir); end
 
     addpath(nlms_dir);
+    addpath(fullfile(nlms_dir, 'lib'));
 
     % 2. Load Existing Fixed Filter Designs
     ws_file = fullfile(metadata_dir, 'filter_comparison_workspace.mat');
@@ -80,7 +81,7 @@ function benchmark_nlms_vs_all_filters()
     
     csv_file = fullfile(metadata_dir, 'nlms_vs_all_filters_benchmark.csv');
     fid_csv = fopen(csv_file, 'w');
-    fprintf(fid_csv, 'Gender,Genre,SNR_dB,STOI_Unproc,STOI_FIR,STOI_IIR,STOI_Notch,STOI_NLMS,STOI_Hybrid,dSNR_FIR,dSNR_IIR,dSNR_Notch,dSNR_NLMS,dSNR_Hybrid\n');
+    fprintf(fid_csv, 'Gender,Genre,SNR_dB,STOI_Unproc,STOI_FIR,STOI_IIR,STOI_Notch,STOI_NLMS,STOI_Hybrid,visqol_Unproc,visqol_FIR,visqol_IIR,visqol_Notch,visqol_NLMS,visqol_Hybrid,dSNR_FIR,dSNR_IIR,dSNR_Notch,dSNR_NLMS,dSNR_Hybrid\n');
 
     benchmark_data = struct();
 
@@ -92,8 +93,8 @@ function benchmark_nlms_vs_all_filters()
         fprintf('\n-----------------------------------------------------------------------------------------\n');
         fprintf('  EVALUATING SPEECH GROUP: [%s] (N = %d talkers)\n', upper(grp), n_spk);
         fprintf('-----------------------------------------------------------------------------------------\n');
-        fprintf('%-7s | %-6s | %-8s | %-8s | %-8s | %-8s | %-8s | %-8s | %-9s\n', ...
-            'Genre', 'SNR', 'Unproc', 'FIR BP', 'IIR BP', 'Notch', 'NLMS', 'Hybrid', 'NLMS Gain');
+        fprintf('%-7s | %-6s | %-8s | %-8s | %-8s | %-8s | %-8s | %-8s | %-8s | %-8s | %-8s | %-8s | %-8s | %-8s | %-9s\n', ...
+            'Genre', 'SNR', 'Unproc', 'FIR BP', 'IIR BP', 'Notch', 'NLMS', 'Hybrid', 'P_Unproc', 'P_FIR BP', 'P_IIR BP', 'P_Notch', 'P_NLMS', 'P_Hybrid', 'NLMS Gain');
         fprintf('-----------------------------------------------------------------------------------------\n');
 
         for g_idx = 1:length(genres)
@@ -113,6 +114,13 @@ function benchmark_nlms_vs_all_filters()
                 m_stoi_notch  = zeros(n_spk, 1);
                 m_stoi_nlms   = zeros(n_spk, 1);
                 m_stoi_hybrid = zeros(n_spk, 1);
+
+                m_visqol_unproc = zeros(n_spk, 1);
+                m_visqol_fir    = zeros(n_spk, 1);
+                m_visqol_iir    = zeros(n_spk, 1);
+                m_visqol_notch  = zeros(n_spk, 1);
+                m_visqol_nlms   = zeros(n_spk, 1);
+                m_visqol_hybrid = zeros(n_spk, 1);
 
                 m_dsnr_fir    = zeros(n_spk, 1);
                 m_dsnr_iir    = zeros(n_spk, 1);
@@ -163,6 +171,13 @@ function benchmark_nlms_vs_all_filters()
                     m_stoi_nlms(k)   = calculate_stoi(clean, y_nlms, fs);
                     m_stoi_hybrid(k) = calculate_stoi(clean, y_hybrid, fs);
 
+                    m_visqol_unproc(k) = calculate_visqol(clean, d, fs);
+                    m_visqol_fir(k)    = calculate_visqol(clean, y_fir, fs);
+                    m_visqol_iir(k)    = calculate_visqol(clean, y_iir, fs);
+                    m_visqol_notch(k)  = calculate_visqol(clean, y_notch, fs);
+                    m_visqol_nlms(k)   = calculate_visqol(clean, y_nlms, fs);
+                    m_visqol_hybrid(k) = calculate_visqol(clean, y_hybrid, fs);
+
                     % Compute Physical Delta SNR (Linear Filter Decomposition)
                     snr_in = 10 * log10(mean(clean.^2) / (mean(scaled_primary_noise.^2) + eps));
                     
@@ -199,6 +214,13 @@ function benchmark_nlms_vs_all_filters()
                 r.stoi_nlms   = mean(m_stoi_nlms);
                 r.stoi_hybrid = mean(m_stoi_hybrid);
 
+                r.visqol_unproc = mean(m_visqol_unproc);
+                r.visqol_fir    = mean(m_visqol_fir);
+                r.visqol_iir    = mean(m_visqol_iir);
+                r.visqol_notch  = mean(m_visqol_notch);
+                r.visqol_nlms   = mean(m_visqol_nlms);
+                r.visqol_hybrid = mean(m_visqol_hybrid);
+
                 r.dsnr_fir    = mean(m_dsnr_fir);
                 r.dsnr_iir    = mean(m_dsnr_iir);
                 r.dsnr_notch  = mean(m_dsnr_notch);
@@ -209,11 +231,13 @@ function benchmark_nlms_vs_all_filters()
 
                 % Print console row
                 nlms_gain = r.stoi_nlms - r.stoi_unproc;
-                fprintf('%-7s | %3d dB | %7.3f  | %7.3f  | %7.3f  | %7.3f  | %7.3f  | %7.3f  | %+8.4f\n', ...
-                    upper(gk), snr_val, r.stoi_unproc, r.stoi_fir, r.stoi_iir, r.stoi_notch, r.stoi_nlms, r.stoi_hybrid, nlms_gain);
+                fprintf('%-7s | %3d dB | %7.3f  | %7.3f  | %7.3f  | %7.3f  | %7.3f  | %7.3f  | %7.3f  | %7.3f  | %7.3f  | %7.3f  | %7.3f  | %7.3f  | %+8.4f\n', ...
+                    upper(gk), snr_val, r.stoi_unproc, r.stoi_fir, r.stoi_iir, r.stoi_notch, r.stoi_nlms, r.stoi_hybrid, ...
+                    r.visqol_unproc, r.visqol_fir, r.visqol_iir, r.visqol_notch, r.visqol_nlms, r.visqol_hybrid, nlms_gain);
 
-                fprintf(fid_csv, '%s,%s,%d,%.4f,%.4f,%.4f,%.4f,%.4f,%.4f,%.2f,%.2f,%.2f,%.2f,%.2f\n', ...
+                fprintf(fid_csv, '%s,%s,%d,%.4f,%.4f,%.4f,%.4f,%.4f,%.4f,%.4f,%.4f,%.4f,%.4f,%.4f,%.4f,%.2f,%.2f,%.2f,%.2f,%.2f\n', ...
                     grp, gk, snr_val, r.stoi_unproc, r.stoi_fir, r.stoi_iir, r.stoi_notch, r.stoi_nlms, r.stoi_hybrid, ...
+                    r.visqol_unproc, r.visqol_fir, r.visqol_iir, r.visqol_notch, r.visqol_nlms, r.visqol_hybrid, ...
                     r.dsnr_fir, r.dsnr_iir, r.dsnr_notch, r.dsnr_nlms, r.dsnr_hybrid);
             end
         end
@@ -228,7 +252,7 @@ function benchmark_nlms_vs_all_filters()
 
     scenarios_csv = fullfile(metadata_dir, 'nlms_scenarios_summary.csv');
     fid_scen = fopen(scenarios_csv, 'w');
-    fprintf(fid_scen, 'Scenario_ID,Scenario_Name,Target_SNR_dB,STOI_In,STOI_Out,Delta_STOI,ASL_In_dBFS,ASL_Out_dBFS\n');
+    fprintf(fid_scen, 'Scenario_ID,Scenario_Name,Target_SNR_dB,STOI_In,STOI_Out,Delta_STOI,visqol_In,visqol_Out,Delta_visqol,ASL_In_dBFS,ASL_Out_dBFS\n');
 
     % Pick standard female test sentence (female_01) and Techno stem
     test_spk_file = fullfile(corpus_dir, 'female', f_files(1).name);
@@ -252,12 +276,17 @@ function benchmark_nlms_vs_all_filters()
 
     scen_results.s1.stoi_in  = calculate_stoi(clean_s, d1, fs);
     scen_results.s1.stoi_out = calculate_stoi(clean_s, e1, fs);
+    scen_results.s1.visqol_in  = calculate_visqol(clean_s, d1, fs);
+    scen_results.s1.visqol_out = calculate_visqol(clean_s, e1, fs);
     [scen_results.s1.asl_in, ~]  = calculate_active_speech_level(d1, fs);
     [scen_results.s1.asl_out, ~] = calculate_active_speech_level(e1, fs);
     fprintf('    STOI: In = %.4f | Out = %.4f | Gain = %+.4f\n', ...
         scen_results.s1.stoi_in, scen_results.s1.stoi_out, scen_results.s1.stoi_out - scen_results.s1.stoi_in);
-    fprintf(fid_scen, '1,Reverberation,-5,%.4f,%.4f,%.4f,%.2f,%.2f\n', ...
+    fprintf('    visqol: In = %.4f | Out = %.4f | Gain = %+.4f\n', ...
+        scen_results.s1.visqol_in, scen_results.s1.visqol_out, scen_results.s1.visqol_out - scen_results.s1.visqol_in);
+    fprintf(fid_scen, '1,Reverberation,-5,%.4f,%.4f,%.4f,%.4f,%.4f,%.4f,%.2f,%.2f\n', ...
         scen_results.s1.stoi_in, scen_results.s1.stoi_out, scen_results.s1.stoi_out - scen_results.s1.stoi_in, ...
+        scen_results.s1.visqol_in, scen_results.s1.visqol_out, scen_results.s1.visqol_out - scen_results.s1.visqol_in, ...
         scen_results.s1.asl_in, scen_results.s1.asl_out);
 
     % Scenario 2: Speech Leakage into Reference Mic (30% Crosstalk)
@@ -271,12 +300,17 @@ function benchmark_nlms_vs_all_filters()
 
     scen_results.s2.stoi_in  = calculate_stoi(clean_s, d2, fs);
     scen_results.s2.stoi_out = calculate_stoi(clean_s, e2, fs);
+    scen_results.s2.visqol_in  = calculate_visqol(clean_s, d2, fs);
+    scen_results.s2.visqol_out = calculate_visqol(clean_s, e2, fs);
     [scen_results.s2.asl_in, ~]  = calculate_active_speech_level(d2, fs);
     [scen_results.s2.asl_out, ~] = calculate_active_speech_level(e2, fs);
     fprintf('    STOI: In = %.4f | Out = %.4f | Gain = %+.4f (Notice Speech Cancellation!)\n', ...
         scen_results.s2.stoi_in, scen_results.s2.stoi_out, scen_results.s2.stoi_out - scen_results.s2.stoi_in);
-    fprintf(fid_scen, '2,Speech_Leakage_30pct,-5,%.4f,%.4f,%.4f,%.2f,%.2f\n', ...
+    fprintf('    visqol: In = %.4f | Out = %.4f | Gain = %+.4f\n', ...
+        scen_results.s2.visqol_in, scen_results.s2.visqol_out, scen_results.s2.visqol_out - scen_results.s2.visqol_in);
+    fprintf(fid_scen, '2,Speech_Leakage_30pct,-5,%.4f,%.4f,%.4f,%.4f,%.4f,%.4f,%.2f,%.2f\n', ...
         scen_results.s2.stoi_in, scen_results.s2.stoi_out, scen_results.s2.stoi_out - scen_results.s2.stoi_in, ...
+        scen_results.s2.visqol_in, scen_results.s2.visqol_out, scen_results.s2.visqol_out - scen_results.s2.visqol_in, ...
         scen_results.s2.asl_in, scen_results.s2.asl_out);
 
     % Scenario 3: Abrupt Head Movement (Step Delay Shift)
@@ -292,12 +326,17 @@ function benchmark_nlms_vs_all_filters()
 
     scen_results.s3.stoi_in  = calculate_stoi(clean_s, d3, fs);
     scen_results.s3.stoi_out = calculate_stoi(clean_s, e3, fs);
+    scen_results.s3.visqol_in  = calculate_visqol(clean_s, d3, fs);
+    scen_results.s3.visqol_out = calculate_visqol(clean_s, e3, fs);
     [scen_results.s3.asl_in, ~]  = calculate_active_speech_level(d3, fs);
     [scen_results.s3.asl_out, ~] = calculate_active_speech_level(e3, fs);
     fprintf('    STOI: In = %.4f | Out = %.4f | Gain = %+.4f\n', ...
         scen_results.s3.stoi_in, scen_results.s3.stoi_out, scen_results.s3.stoi_out - scen_results.s3.stoi_in);
-    fprintf(fid_scen, '3,Abrupt_Movement,-5,%.4f,%.4f,%.4f,%.2f,%.2f\n', ...
+    fprintf('    visqol: In = %.4f | Out = %.4f | Gain = %+.4f\n', ...
+        scen_results.s3.visqol_in, scen_results.s3.visqol_out, scen_results.s3.visqol_out - scen_results.s3.visqol_in);
+    fprintf(fid_scen, '3,Abrupt_Movement,-5,%.4f,%.4f,%.4f,%.4f,%.4f,%.4f,%.2f,%.2f\n', ...
         scen_results.s3.stoi_in, scen_results.s3.stoi_out, scen_results.s3.stoi_out - scen_results.s3.stoi_in, ...
+        scen_results.s3.visqol_in, scen_results.s3.visqol_out, scen_results.s3.visqol_out - scen_results.s3.visqol_in, ...
         scen_results.s3.asl_in, scen_results.s3.asl_out);
 
     % Scenario 4: Extreme Low SNR (-15 dB Sub-Bass Environment)
@@ -313,12 +352,17 @@ function benchmark_nlms_vs_all_filters()
 
     scen_results.s4.stoi_in  = calculate_stoi(clean_s, d4, fs);
     scen_results.s4.stoi_out = calculate_stoi(clean_s, e4, fs);
+    scen_results.s4.visqol_in  = calculate_visqol(clean_s, d4, fs);
+    scen_results.s4.visqol_out = calculate_visqol(clean_s, e4, fs);
     [scen_results.s4.asl_in, ~]  = calculate_active_speech_level(d4, fs);
     [scen_results.s4.asl_out, ~] = calculate_active_speech_level(e4, fs);
     fprintf('    STOI: In = %.4f | Out = %.4f | Gain = %+.4f (Massive Bass Cancellation!)\n', ...
         scen_results.s4.stoi_in, scen_results.s4.stoi_out, scen_results.s4.stoi_out - scen_results.s4.stoi_in);
-    fprintf(fid_scen, '4,Extreme_Low_SNR_Bass,-15,%.4f,%.4f,%.4f,%.2f,%.2f\n', ...
+    fprintf('    visqol: In = %.4f | Out = %.4f | Gain = %+.4f\n', ...
+        scen_results.s4.visqol_in, scen_results.s4.visqol_out, scen_results.s4.visqol_out - scen_results.s4.visqol_in);
+    fprintf(fid_scen, '4,Extreme_Low_SNR_Bass,-15,%.4f,%.4f,%.4f,%.4f,%.4f,%.4f,%.2f,%.2f\n', ...
         scen_results.s4.stoi_in, scen_results.s4.stoi_out, scen_results.s4.stoi_out - scen_results.s4.stoi_in, ...
+        scen_results.s4.visqol_in, scen_results.s4.visqol_out, scen_results.s4.visqol_out - scen_results.s4.visqol_in, ...
         scen_results.s4.asl_in, scen_results.s4.asl_out);
 
     % Scenario 5: Continuous Panning / Head Rotation (Sinusoidal Modulation)
@@ -339,12 +383,17 @@ function benchmark_nlms_vs_all_filters()
 
     scen_results.s5.stoi_in  = calculate_stoi(clean_s, d5, fs);
     scen_results.s5.stoi_out = calculate_stoi(clean_s, e5, fs);
+    scen_results.s5.visqol_in  = calculate_visqol(clean_s, d5, fs);
+    scen_results.s5.visqol_out = calculate_visqol(clean_s, e5, fs);
     [scen_results.s5.asl_in, ~]  = calculate_active_speech_level(d5, fs);
     [scen_results.s5.asl_out, ~] = calculate_active_speech_level(e5, fs);
     fprintf('    STOI: In = %.4f | Out = %.4f | Gain = %+.4f\n', ...
         scen_results.s5.stoi_in, scen_results.s5.stoi_out, scen_results.s5.stoi_out - scen_results.s5.stoi_in);
-    fprintf(fid_scen, '5,Continuous_Rotation,0,%.4f,%.4f,%.4f,%.2f,%.2f\n', ...
+    fprintf('    visqol: In = %.4f | Out = %.4f | Gain = %+.4f\n', ...
+        scen_results.s5.visqol_in, scen_results.s5.visqol_out, scen_results.s5.visqol_out - scen_results.s5.visqol_in);
+    fprintf(fid_scen, '5,Continuous_Rotation,0,%.4f,%.4f,%.4f,%.4f,%.4f,%.4f,%.2f,%.2f\n', ...
         scen_results.s5.stoi_in, scen_results.s5.stoi_out, scen_results.s5.stoi_out - scen_results.s5.stoi_in, ...
+        scen_results.s5.visqol_in, scen_results.s5.visqol_out, scen_results.s5.visqol_out - scen_results.s5.visqol_in, ...
         scen_results.s5.asl_in, scen_results.s5.asl_out);
 
     fclose(fid_scen);

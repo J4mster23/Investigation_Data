@@ -55,8 +55,13 @@ disp('Simulation Complete.');
 % Metrics
 stoi_before = calculate_stoi(clean_speech, d, fs);
 stoi_after = calculate_stoi(clean_speech, e, fs);
+visqol_before = calculate_visqol(clean_speech, d, fs);
+visqol_after = calculate_visqol(clean_speech, e, fs);
+
 fprintf('STOI Before: %.4f\n', stoi_before);
 fprintf('STOI After:  %.4f\n', stoi_after);
+fprintf('visqol Before: %.4f\n', visqol_before);
+fprintf('visqol After:  %.4f\n', visqol_after);
 
 % Ensure directories exist
 figures_dir = fullfile(script_dir, 'figures');

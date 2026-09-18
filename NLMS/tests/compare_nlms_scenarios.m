@@ -95,8 +95,18 @@ for i = 1:num_files
         stoi_hard = calculate_stoi(s_clean_norm, e_hard, fs);
         stoi_soft = calculate_stoi(s_clean_norm, e_soft, fs);
 
-        fprintf('File: %s | SNR: %2d dB | In: %.3f | Base: %.3f | BaseVAD: %.3f | Leaky: %.3f | Hard: %.3f | Soft: %.3f\n', ...
+        %% Evaluate visqol
+        visqol_in = calculate_visqol(s_clean_norm, d, fs);
+        visqol_base = calculate_visqol(s_clean_norm, e_base, fs);
+        visqol_base_vad = calculate_visqol(s_clean_norm, e_base_vad, fs);
+        visqol_leaky = calculate_visqol(s_clean_norm, e_leaky, fs);
+        visqol_hard = calculate_visqol(s_clean_norm, e_hard, fs);
+        visqol_soft = calculate_visqol(s_clean_norm, e_soft, fs);
+
+        fprintf('File: %s | SNR: %2d dB | STOI In: %.3f | Base: %.3f | BaseVAD: %.3f | Leaky: %.3f | Hard: %.3f | Soft: %.3f\n', ...
             s_name(1:15), target_snr_dB, stoi_in, stoi_base, stoi_base_vad, stoi_leaky, stoi_hard, stoi_soft);
+        fprintf('File: %s | SNR: %2d dB | visqol In: %.3f | Base: %.3f | BaseVAD: %.3f | Leaky: %.3f | Hard: %.3f | Soft: %.3f\n', ...
+            s_name(1:15), target_snr_dB, visqol_in, visqol_base, visqol_base_vad, visqol_leaky, visqol_hard, visqol_soft);
 
         %% Save Audio
         [d_exp, e_base_exp, e_base_vad_exp, e_leaky_exp, e_hard_exp, e_soft_exp] = normalize_for_export(0.9, d, e_base, e_base_vad, e_leaky, e_hard, e_soft);

@@ -42,13 +42,13 @@ fid = fopen(csv_filename, 'w');
 if fid == -1
     error('Cannot open CSV file for writing: %s', csv_filename);
 end
-fprintf(fid, 'Noise_Type,SNR_dB,Avg_STOI_In,Avg_STOI_Out,Improvement\n');
+fprintf(fid, 'Noise_Type,SNR_dB,Avg_STOI_In,Avg_STOI_Out,Improvement_STOI,Avg_visqol_In,Avg_visqol_Out,Improvement_visqol\n');
 
 fprintf('\n=== NLMS Grid Evaluation (Multi-Noise / Multi-SNR) ===\n');
 fprintf('Filter Taps (N): %d | Step Size (mu): %.3f\n', N, mu);
-fprintf('----------------------------------------------------------------------\n');
-fprintf('%-15s | %-8s | %-10s | %-10s | %-10s\n', 'Noise Type', 'SNR (dB)', 'Avg STOI In', 'Avg STOI Out', 'Improvement');
-fprintf('----------------------------------------------------------------------\n');
+fprintf('-----------------------------------------------------------------------------------------------------\n');
+fprintf('%-15s | %-8s | %-10s | %-10s | %-10s | %-11s | %-12s | %-10s\n', 'Noise Type', 'SNR (dB)', 'Avg STOI In', 'Avg STOI Out', 'Imp STOI', 'Avg visqol In', 'Avg visqol Out', 'Imp visqol');
+fprintf('-----------------------------------------------------------------------------------------------------\n');
 
 for n_idx = 1:length(noise_files)
     % Load current noise file
@@ -65,6 +65,8 @@ for n_idx = 1:length(noise_files)
 
         stoi_in_total = 0;
         stoi_out_total = 0;
+        visqol_in_total = 0;
+        visqol_out_total = 0;
 
         for s_idx = 1:num_speech_files
             % Load speech
@@ -98,22 +100,28 @@ for n_idx = 1:length(noise_files)
             % 4. Apply NLMS
             [e, ~] = nlms_filter(d, x, N, mu, epsilon);
 
-            % 5. Accumulate STOI Metrics
+            % 5. Accumulate Metrics
             stoi_in_total = stoi_in_total + calculate_stoi(clean_speech, d, fs);
             stoi_out_total = stoi_out_total + calculate_stoi(clean_speech, e, fs);
+            visqol_in_total = visqol_in_total + calculate_visqol(clean_speech, d, fs);
+            visqol_out_total = visqol_out_total + calculate_visqol(clean_speech, e, fs);
         end
 
         % Averages for this condition
         avg_stoi_in = stoi_in_total / num_speech_files;
         avg_stoi_out = stoi_out_total / num_speech_files;
-        improvement = avg_stoi_out - avg_stoi_in;
+        improvement_stoi = avg_stoi_out - avg_stoi_in;
+        
+        avg_visqol_in = visqol_in_total / num_speech_files;
+        avg_visqol_out = visqol_out_total / num_speech_files;
+        improvement_visqol = avg_visqol_out - avg_visqol_in;
 
-        fprintf('%-15s | %-8d | %.4f     | %.4f     | %+.4f\n', ...
-            noise_name(1:min(15, length(noise_name))), current_snr, avg_stoi_in, avg_stoi_out, improvement);
-        fprintf(fid, '%s,%d,%.4f,%.4f,%.4f\n', noise_name, current_snr, avg_stoi_in, avg_stoi_out, improvement);
+        fprintf('%-15s | %-8d | %.4f     | %.4f     | %+.4f     | %.4f      | %.4f       | %+.4f\n', ...
+            noise_name(1:min(15, length(noise_name))), current_snr, avg_stoi_in, avg_stoi_out, improvement_stoi, avg_visqol_in, avg_visqol_out, improvement_visqol);
+        fprintf(fid, '%s,%d,%.4f,%.4f,%.4f,%.4f,%.4f,%.4f\n', noise_name, current_snr, avg_stoi_in, avg_stoi_out, improvement_stoi, avg_visqol_in, avg_visqol_out, improvement_visqol);
     end
 end
 
 fclose(fid);
-fprintf('----------------------------------------------------------------------\n');
+fprintf('-----------------------------------------------------------------------------------------------------\n');
 disp('Grid Evaluation Complete.');

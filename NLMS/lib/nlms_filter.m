@@ -1,16 +1,22 @@
-function [e, w] = nlms_filter(d, x, N, mu, epsilon)
+function [e, w] = nlms_filter(d, x, N, mu, epsilon, vad_mask)
 % nlms_filter applies the Normalized Least Mean Squares (NLMS) algorithm
 %
 % Inputs:
-%   d       - Primary microphone signal (desired signal + noise)
-%   x       - Reference microphone signal (noise source)
-%   N       - Filter order (number of taps)
-%   mu      - Step size
-%   epsilon - Regularization constant
+%   d        - Primary microphone signal (desired signal + noise)
+%   x        - Reference microphone signal (noise source)
+%   N        - Filter order (number of taps)
+%   mu       - Step size
+%   epsilon  - Regularization constant
+%   vad_mask - Optional. Continuous mask [0, 1] indicating speech presence.
+%              If not provided, the filter acts as a normal NLMS.
 %
 % Outputs:
-%   e       - Error signal (enhanced speech estimate)
-%   w       - Final filter weights
+%   e        - Error signal (enhanced speech estimate)
+%   w        - Final filter weights
+
+    if nargin < 6
+        vad_mask = zeros(length(d), 1);
+    end
 
     % Initialize variables
     w = zeros(N, 1);
@@ -31,8 +37,11 @@ function [e, w] = nlms_filter(d, x, N, mu, epsilon)
         % Compute error signal (Enhanced speech estimate)
         e(n) = d(n) - y;
         
+        % Dynamic step size based on VAD
+        mu_eff = mu * (1 - vad_mask(n));
+        
         % Update filter weights using NLMS equation
         norm_x = x_vec' * x_vec; % ||x(n)||^2
-        w = w + (mu / (norm_x + epsilon)) * e(n) * x_vec;
+        w = w + (mu_eff / (norm_x + epsilon)) * e(n) * x_vec;
     end
 end

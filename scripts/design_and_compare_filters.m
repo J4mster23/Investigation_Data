@@ -29,6 +29,8 @@ function design_and_compare_filters()
     if ~exist(firmware_dir, 'dir'), mkdir(firmware_dir); end
     if ~exist(metadata_dir, 'dir'), mkdir(metadata_dir); end
 
+    addpath(fullfile(root_dir, 'NLMS', 'lib'));
+
     fs = 16000;
     nyq = fs / 2;
 
@@ -202,6 +204,9 @@ function design_and_compare_filters()
                 stoi_unproc_list= zeros(n_eval, 1);
                 stoi_bp_list    = zeros(n_eval, 1);
                 stoi_notch_list = zeros(n_eval, 1);
+                visqol_unproc_list= zeros(n_eval, 1);
+                visqol_bp_list    = zeros(n_eval, 1);
+                visqol_notch_list = zeros(n_eval, 1);
                 
                 for s = 1:n_eval
                     s_file = s_file_paths{s};
@@ -239,6 +244,10 @@ function design_and_compare_filters()
                     stoi_unproc_list(s)= compute_simplified_stoi(clean, noisy_input, fs);
                     stoi_bp_list(s)    = compute_simplified_stoi(clean, out_bp, fs);
                     stoi_notch_list(s) = compute_simplified_stoi(clean, out_notch, fs);
+                    
+                    visqol_unproc_list(s)= calculate_visqol(clean, noisy_input, fs);
+                    visqol_bp_list(s)    = calculate_visqol(clean, out_bp, fs);
+                    visqol_notch_list(s) = calculate_visqol(clean, out_notch, fs);
                 end
                 
                 sim_results.(sub_name).(gk).(snr_tag).delta_snr_bp    = mean(dsnr_bp_list);
@@ -246,17 +255,20 @@ function design_and_compare_filters()
                 sim_results.(sub_name).(gk).(snr_tag).stoi_unproc     = mean(stoi_unproc_list);
                 sim_results.(sub_name).(gk).(snr_tag).stoi_bp         = mean(stoi_bp_list);
                 sim_results.(sub_name).(gk).(snr_tag).stoi_notch      = mean(stoi_notch_list);
+                sim_results.(sub_name).(gk).(snr_tag).visqol_unproc     = mean(visqol_unproc_list);
+                sim_results.(sub_name).(gk).(snr_tag).visqol_bp         = mean(visqol_bp_list);
+                sim_results.(sub_name).(gk).(snr_tag).visqol_notch      = mean(visqol_notch_list);
             end
         end
     end
 
     % 5. Print Comparison Summary
-    fprintf('\n=========================================================================================\n');
+    fprintf('\n==============================================================================================================================================================\n');
     fprintf('  BENCHMARK: TRADITIONAL BANDPASS VS. PARAMETRIC NOTCH (MALE VS. FEMALE SPEECH)\n');
-    fprintf('=========================================================================================\n');
-    fprintf('%-8s | %-7s | %-6s | %-12s | %-12s | %-10s | %-10s | %-10s\n', ...
-        'Gender', 'Genre', 'SNR', 'ΔSNR Bandpass', 'ΔSNR Notch', 'STOI Unproc', 'STOI Bandpass', 'STOI Notch');
-    fprintf('-----------------------------------------------------------------------------------------\n');
+    fprintf('==============================================================================================================================================================\n');
+    fprintf('%-8s | %-7s | %-6s | %-12s | %-12s | %-10s | %-10s | %-10s | %-10s | %-10s | %-10s\n', ...
+        'Gender', 'Genre', 'SNR', 'ΔSNR Bandpass', 'ΔSNR Notch', 'STOI Unproc', 'STOI Bandpass', 'STOI Notch', 'visqol Unproc', 'visqol Bandpass', 'visqol Notch');
+    fprintf('--------------------------------------------------------------------------------------------------------------------------------------------------------------\n');
     
     for sub_idx = 1:length(speech_subsets)
         sub_name = speech_subsets{sub_idx};
@@ -266,11 +278,11 @@ function design_and_compare_filters()
                 target_snr = snr_levels(snr_idx);
                 snr_tag = sprintf('snr_%ddB', abs(target_snr));
                 r = sim_results.(sub_name).(gk).(snr_tag);
-                fprintf('%-8s | %-7s | %4d dB | %9.2f dB   | %9.2f dB   | %8.3f   | %8.3f    | %8.3f\n', ...
+                fprintf('%-8s | %-7s | %4d dB | %9.2f dB   | %9.2f dB   | %8.3f   | %8.3f    | %8.3f   | %8.3f   | %8.3f    | %8.3f\n', ...
                     upper(sub_name), upper(gk), target_snr, r.delta_snr_bp, r.delta_snr_notch, ...
-                    r.stoi_unproc, r.stoi_bp, r.stoi_notch);
+                    r.stoi_unproc, r.stoi_bp, r.stoi_notch, r.visqol_unproc, r.visqol_bp, r.visqol_notch);
             end
-            fprintf('-----------------------------------------------------------------------------------------\n');
+            fprintf('--------------------------------------------------------------------------------------------------------------------------------------------------------------\n');
         end
     end
 

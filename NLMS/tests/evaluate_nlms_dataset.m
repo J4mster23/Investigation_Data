@@ -32,9 +32,9 @@ end
 
 fprintf('\n=== NLMS Dataset Evaluation ===\n');
 fprintf('Noise Type: Techno, Target SNR: %d dB\n', target_snr_dB);
-fprintf('--------------------------------------------------------------------------------------------------\n');
-fprintf('%-25s | %-12s | %-12s | %-16s | %-16s\n', 'Speech File', 'STOI In', 'STOI Out', 'ASL Primary (dB)', 'ASL Enhanced (dB)');
-fprintf('--------------------------------------------------------------------------------------------------\n');
+fprintf('----------------------------------------------------------------------------------------------------------------------------------\n');
+fprintf('%-25s | %-12s | %-12s | %-12s | %-12s | %-16s | %-16s\n', 'Speech File', 'STOI In', 'STOI Out', 'visqol In', 'visqol Out', 'ASL Primary (dB)', 'ASL Enhanced (dB)');
+fprintf('----------------------------------------------------------------------------------------------------------------------------------\n');
 
 for i = 1:num_files
     % Load speech
@@ -63,12 +63,14 @@ for i = 1:num_files
     % 5. Calculate Metrics (Before normalization alters the raw dB level)
     stoi_in = calculate_stoi(clean_speech, d, fs);
     stoi_out = calculate_stoi(clean_speech, e, fs);
+    visqol_in = calculate_visqol(clean_speech, d, fs);
+    visqol_out = calculate_visqol(clean_speech, e, fs);
     [asl_d, ~] = calculate_active_speech_level(d, fs);
     [asl_e, ~] = calculate_active_speech_level(e, fs);
 
-    fprintf('%-25s | %.4f       | %.4f       | %-16.2f | %-16.2f\n', ...
+    fprintf('%-25s | %.4f       | %.4f       | %.4f       | %.4f       | %-16.2f | %-16.2f\n', ...
         speech_files(i).name(1:min(25, length(speech_files(i).name))), ...
-        stoi_in, stoi_out, asl_d, asl_e);
+        stoi_in, stoi_out, visqol_in, visqol_out, asl_d, asl_e);
 
     % 6. Normalize to prevent clipping on export
     [~, d_out, e_out] = normalize_for_export(0.90, clean_speech, d, e);
@@ -78,5 +80,5 @@ for i = 1:num_files
     audiowrite(fullfile(output_dir, [name '_primary.wav']), d_out, fs);
     audiowrite(fullfile(output_dir, [name '_enhanced.wav']), e_out, fs);
 end
-fprintf('--------------------------------------------------------------------------------------------------\n');
+fprintf('----------------------------------------------------------------------------------------------------------------------------------\n');
 disp('Evaluation Complete.');

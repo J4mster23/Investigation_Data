@@ -45,12 +45,12 @@ fid = fopen(csv_filename, 'w');
 if fid == -1
     error('Cannot open CSV file for writing: %s', csv_filename);
 end
-fprintf(fid, 'Noise_Type,SNR_dB,Avg_STOI_In,Avg_STOI_Base,Avg_STOI_BaseVAD,Avg_STOI_Leaky,Avg_STOI_HardVAD,Avg_STOI_SoftVAD\n');
+fprintf(fid, 'Noise_Type,SNR_dB,Avg_STOI_In,Avg_STOI_Base,Avg_STOI_BaseVAD,Avg_STOI_Leaky,Avg_STOI_HardVAD,Avg_STOI_SoftVAD,Avg_visqol_In,Avg_visqol_Base,Avg_visqol_BaseVAD,Avg_visqol_Leaky,Avg_visqol_HardVAD,Avg_visqol_SoftVAD\n');
 
 fprintf('\n=== Advanced NLMS Dataset Grid Evaluation ===\n');
-fprintf('%-15s | %-8s | %-8s | %-8s | %-8s | %-8s | %-8s | %-8s\n', ...
-    'Noise Type', 'SNR (dB)', 'STOI In', 'Baseline', 'Base-VAD', 'Leaky', 'Hard-VAD', 'Soft-VAD');
-fprintf('-------------------------------------------------------------------------------------------------\n');
+fprintf('%-15s | %-8s | %-8s | %-8s | %-8s | %-8s | %-8s | %-8s | %-8s | %-8s | %-8s | %-8s | %-8s | %-8s\n', ...
+    'Noise Type', 'SNR (dB)', 'STOI In', 'Base', 'Base-VAD', 'Leaky', 'Hard-VAD', 'Soft-VAD', 'visqol In', 'P-Base', 'P-BaseV', 'P-Leaky', 'P-HardV', 'P-SoftV');
+fprintf('------------------------------------------------------------------------------------------------------------------------------------------------------\n');
 
 for n_idx = 1:length(noise_files)
     % Load current noise file
@@ -66,6 +66,7 @@ for n_idx = 1:length(noise_files)
         target_snr_dB = snr_levels(snr_idx);
         
         avg_stoi = zeros(1, 6); % [In, Base, BaseVAD, Leaky, Hard, Soft]
+        avg_visqol = zeros(1, 6); % [In, Base, BaseVAD, Leaky, Hard, Soft]
 
         for s_idx = 1:num_speech_files
             % Load speech
@@ -124,20 +125,30 @@ for n_idx = 1:length(noise_files)
             avg_stoi(4) = avg_stoi(4) + calculate_stoi(s_clean_norm, e_leaky, fs);
             avg_stoi(5) = avg_stoi(5) + calculate_stoi(s_clean_norm, e_hard, fs);
             avg_stoi(6) = avg_stoi(6) + calculate_stoi(s_clean_norm, e_soft, fs);
+
+            avg_visqol(1) = avg_visqol(1) + calculate_visqol(s_clean_norm, d, fs);
+            avg_visqol(2) = avg_visqol(2) + calculate_visqol(s_clean_norm, e_base, fs);
+            avg_visqol(3) = avg_visqol(3) + calculate_visqol(s_clean_norm, e_base_vad, fs);
+            avg_visqol(4) = avg_visqol(4) + calculate_visqol(s_clean_norm, e_leaky, fs);
+            avg_visqol(5) = avg_visqol(5) + calculate_visqol(s_clean_norm, e_hard, fs);
+            avg_visqol(6) = avg_visqol(6) + calculate_visqol(s_clean_norm, e_soft, fs);
         end
         
         % Average across speech files
         avg_stoi = avg_stoi / num_speech_files;
+        avg_visqol = avg_visqol / num_speech_files;
         
-        fprintf('%-15s | %-8d | %.4f   | %.4f   | %.4f   | %.4f   | %.4f   | %.4f\n', ...
+        fprintf('%-15s | %-8d | %.4f   | %.4f   | %.4f   | %.4f   | %.4f   | %.4f   | %.4f   | %.4f   | %.4f   | %.4f   | %.4f   | %.4f\n', ...
             noise_name(1:min(15, length(noise_name))), target_snr_dB, ...
-            avg_stoi(1), avg_stoi(2), avg_stoi(3), avg_stoi(4), avg_stoi(5), avg_stoi(6));
+            avg_stoi(1), avg_stoi(2), avg_stoi(3), avg_stoi(4), avg_stoi(5), avg_stoi(6), ...
+            avg_visqol(1), avg_visqol(2), avg_visqol(3), avg_visqol(4), avg_visqol(5), avg_visqol(6));
             
-        fprintf(fid, '%s,%d,%.4f,%.4f,%.4f,%.4f,%.4f,%.4f\n', ...
-            noise_name, target_snr_dB, avg_stoi(1), avg_stoi(2), avg_stoi(3), avg_stoi(4), avg_stoi(5), avg_stoi(6));
+        fprintf(fid, '%s,%d,%.4f,%.4f,%.4f,%.4f,%.4f,%.4f,%.4f,%.4f,%.4f,%.4f,%.4f,%.4f\n', ...
+            noise_name, target_snr_dB, avg_stoi(1), avg_stoi(2), avg_stoi(3), avg_stoi(4), avg_stoi(5), avg_stoi(6), ...
+            avg_visqol(1), avg_visqol(2), avg_visqol(3), avg_visqol(4), avg_visqol(5), avg_visqol(6));
     end
 end
 
 fclose(fid);
-fprintf('--------------------------------------------------------------------------------------\n');
+fprintf('------------------------------------------------------------------------------------------------------------------------------------------------------\n');
 fprintf('Grid Evaluation Complete! Results saved to %s\n', csv_filename);

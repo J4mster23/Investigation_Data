@@ -1,0 +1,46 @@
+Genre,SNR_dB,Filter_Stage,Total_Correct_Words,Total_Reference_Words,Mean_Word_Recall_Pct,Mean_WER_Pct,Mean_Word_Confidence,Mean_Min_Confidence,Mean_Avg_Logprob,Speech_Detection_Rate_Pct,Sentences_Tested,Representative_Actual_Responses
+jazz,-15,primary_noisy,2,24,9.5,114.3,0.301,0.051,-1.236,100.0,3,you know what i mean every night i can move away || im gonna show you how to do it || please stay safe check in later
+jazz,-15,fir_bp,0,24,0.0,100.0,0.374,0.034,-1.381,100.0,3,i dont know what youre gonna do || thank you very much || im not going to get away with you
+jazz,-15,notch,2,24,9.5,118.5,0.315,0.052,-1.181,100.0,3,you always make every nerve that you can move away || im going to show you how to do it || please stay safe and check in later
+jazz,-15,base_nlms,12,24,54.2,48.7,0.544,0.22,-0.809,100.0,3,the bill was paid every third pay || we decided to drop my backpack || these days im chicken leg as a girl
+jazz,-15,soft_vad_leaky,6,24,27.4,73.5,0.462,0.149,-0.958,100.0,3,the bill is paying every third || im gonna show you what im gonna do || these days i checked in later
+jazz,-10,primary_noisy,9,24,41.7,79.9,0.605,0.139,-0.776,100.0,3,the bill was paying every third pay || where the shot turned out to be bad for you || these days i check in late and it doesnt hurt at all
+jazz,-10,fir_bp,6,24,28.0,84.7,0.445,0.067,-1.065,100.0,3,the film is made every third week || im gonna show you how to do that || be safe and keep in mind that its a good day
+jazz,-10,notch,9,24,41.7,75.7,0.613,0.127,-0.782,100.0,3,the bill was paying every third pay || where the shot turned out to be blackberry || these days i check in late and it doesnt hurt at all
+jazz,-10,base_nlms,20,24,90.5,8.3,0.844,0.38,-0.48,100.0,3,the bill was paid every third week || blue the shape to the dark blue background || these days a chicken leg is a rare dish
+jazz,-10,soft_vad_leaky,13,24,58.3,45.0,0.66,0.365,-0.655,100.0,3,the bill was paying every third week || the shape will darken backwards || these days a chicken leg isnt her dish
+jazz,0,primary_noisy,20,24,90.5,8.3,0.921,0.676,-0.381,100.0,3,the bill was paid every third week || blue the shape to the dark blue background || these days a chicken leg is a rare dish
+jazz,0,fir_bp,19,24,86.3,12.0,0.838,0.591,-0.433,100.0,3,the bill was paid every third week || blue the sheep to the dark blue background || these days a chicken leg is a rare day
+jazz,0,notch,22,24,100.0,0.0,0.923,0.662,-0.371,100.0,3,the bill was paid every third week || glue the sheet to the dark blue background || these days a chicken leg is a rare dish
+jazz,0,base_nlms,20,24,90.5,12.6,0.913,0.656,-0.367,100.0,3,the bill was paying every third week || glue the shape to the dark blue background || these days a chicken leg is in rare dish
+jazz,0,soft_vad_leaky,22,24,100.0,0.0,0.937,0.693,-0.367,100.0,3,the bill was paid every third week || glue the sheet to the dark blue background || these days a chicken leg is a rare dish
+rock,-15,primary_noisy,2,24,9.5,158.1,0.487,0.083,-0.899,100.0,3,thats not the way back up the pocket shoes that i dont want || thats much of the way my dog pocket sure is there || thats how you get rid of my fucking pocket shoes that i dont want to have
+rock,-15,fir_bp,1,24,4.8,173.3,0.472,0.079,-0.943,100.0,3,thats how to live my life why should i just want to live my life || that has to do it but im not making sure of that || thats how you live my life talking to each other while im at it
+rock,-15,notch,3,24,14.3,147.0,0.477,0.113,-0.888,100.0,3,thats not the way back up the pocket shoes that i dont want || thats much to the way my doctor pocket sure is there || thats how to deal with my dog and pocket shoes under one hand
+rock,-15,base_nlms,3,24,13.7,154.0,0.446,0.144,-0.995,100.0,3,thats also the way to buy the pocket shirt so i dont know why || thats the only part about the pockets || thats the end of what were about to talk about its not going to be a long time
+rock,-15,soft_vad_leaky,2,24,9.5,153.9,0.442,0.072,-1.009,100.0,3,thats also the way about that pocket shirt so i dont want it || thats especially the way my dog pockets show us that || thats what i think about that pocket shirt so im going to go to the bathroom
+rock,-10,primary_noisy,2,24,8.9,122.8,0.408,0.11,-1.106,100.0,3,thats always a way my every pocket sure started to run out || thats not something we might not apologize for || thats how you live like a populationist of their nation
+rock,-10,fir_bp,2,24,9.5,135.9,0.452,0.127,-0.95,100.0,3,that girl was with my fucking shirt under my mask || that has to do with my wifes pocket sugar || that today was not like talking to each other but it was not like that
+rock,-10,notch,3,24,14.3,129.7,0.449,0.067,-1.012,100.0,3,thats always the way my every pocket sure is worth your money || thats the issue with my dog pocket shoes || thats how you live with my dr thomas schuss the mayor of washington
+rock,-10,base_nlms,2,24,8.9,114.9,0.435,0.099,-0.958,100.0,3,thats always great everyone im sure its one of them why || emission of the dog consciousness || next day ill check out any of the program dish
+rock,-10,soft_vad_leaky,1,24,4.8,126.5,0.425,0.081,-1.074,100.0,3,thats always a way like every pocket should start from one hand || especially with my own pocket shoes || best day with my type of job issues and their passion
+rock,0,primary_noisy,20,24,91.1,11.6,0.782,0.226,-0.538,100.0,3,the bill was paid every third week || move the sheet to the dark blue background || these days make chicken play is a rare dish
+rock,0,fir_bp,17,24,76.2,26.8,0.707,0.228,-0.612,100.0,3,the bill was made every thursday || music sheet in the dark blue background || these days a chicken leg is a rare dish
+rock,0,notch,19,24,86.3,12.6,0.778,0.218,-0.539,100.0,3,that bill was paid every third week || move the sheet to the dark blue background || these days a chicken play is a rare dish
+rock,0,base_nlms,21,24,95.2,8.3,0.789,0.383,-0.525,100.0,3,the bill was paid every third week || lets move the sheet to the dark blue background || these days a chicken leg is a rare dish
+rock,0,soft_vad_leaky,20,24,90.5,8.3,0.84,0.433,-0.436,100.0,3,the bill was paid every third week || move the shape to the dark blue background || these days a chicken leg is a rare dish
+techno,-15,primary_noisy,7,24,32.7,64.2,0.472,0.149,-0.932,100.0,3,the bill was made every third year || let the shit in the darkness go back || leave a link in the description below
+techno,-15,fir_bp,5,24,23.2,96.3,0.376,0.053,-1.132,100.0,3,the bill would take half a third of the bill || we are the students of our spin back man || the update is open for you
+techno,-15,notch,7,24,32.7,84.8,0.443,0.135,-1.007,100.0,3,the bill was made every third of the year || let the shit in the darkness go back || leave a name and check the file in the description below
+techno,-15,base_nlms,5,24,23.8,98.2,0.494,0.218,-0.871,100.0,3,the bill was made as the third meeting || im not the sheep im gonna dodge you in the back right now || be safe and keep in mind itll be better
+techno,-15,soft_vad_leaky,6,24,28.6,72.0,0.488,0.151,-0.919,100.0,3,the bill was made every third year || let the shit in the darkness go back now || be safe and keep in mind and be good
+techno,-10,primary_noisy,16,24,72.6,32.5,0.75,0.288,-0.58,100.0,3,the bill was made every third week || look at the sheets in the dark blue background || these days a chicken leg is invariably
+techno,-10,fir_bp,8,24,38.1,63.7,0.507,0.184,-0.903,100.0,3,the bill will take every third week || we are the sheep of the dark blue backrests || the day it came to life it was gorgeous
+techno,-10,notch,16,24,72.6,32.5,0.754,0.293,-0.56,100.0,3,the bill was made every third week || look at the sheets in the dark blue background || these days a chicken leg is invariably
+techno,-10,base_nlms,19,24,85.7,20.8,0.778,0.338,-0.544,100.0,3,the bill was paid every third week || one of the sheets with a dark blue background || these days a chicken leg is a rare dish
+techno,-10,soft_vad_leaky,15,24,67.3,37.6,0.728,0.43,-0.604,100.0,3,the bill was made every third week || well let the sheep in the dark move back around || these days a chicken leg is a rare gift
+techno,0,primary_noisy,22,24,100.0,3.7,0.928,0.707,-0.357,100.0,3,the bill was paid every third week || glue the sheet to the dark blue background || these days a chicken leg is in rare dish
+techno,0,fir_bp,19,24,85.7,17.4,0.835,0.475,-0.444,100.0,3,the bill would take every third week || glue the sheets to the dark blue background || these days a chicken leg is in rare dish
+techno,0,notch,21,24,95.2,7.9,0.925,0.704,-0.367,100.0,3,the bill was paid every third week || glue the sheets to the dark blue background || these days a chicken leg is in rare dish
+techno,0,base_nlms,21,24,95.2,4.2,0.876,0.558,-0.414,100.0,3,the bill was paid every third week || glue the sheath to the dark blue background || these days a chicken leg is a rare dish
+techno,0,soft_vad_leaky,21,24,95.2,4.2,0.922,0.682,-0.352,100.0,3,the bill was paid every third week || glue the sheets to the dark blue background || these days a chicken leg is a rare dish

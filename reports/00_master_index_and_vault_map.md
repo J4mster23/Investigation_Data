@@ -41,22 +41,42 @@ This series of progress reports documents the end-to-end research, empirical fin
                         │                                                                           │
                          └─────────────────────────────────┬─────────────────────────────────────────┘
                                                            ▼
-                                           ┌───────────────────────────────┐
-                                           │ 07. Embedded Firmware &       │
-                                           │     ESP32-S3 Hardware Engine  │
-                                           └───────────────┬───────────────┘
-                                                           │
-                                                           ▼
-                                           ┌───────────────────────────────┐
-                                           │ 08. Comparative Testing &     │
-                                           │     Findings: Fixed vs. NLMS  │
-                                           └───────────────┬───────────────┘
-                                                           │
-                                                           ▼
-                                           ┌───────────────────────────────┐
-                                           │ 09. Experimental Setup:       │
-                                           │     Concert Sim & ESP32-S3 HW │
-                                           └───────────────────────────────┘
+                                            ┌───────────────────────────────┐
+                                            │ 08. Comparative Testing &     │
+                                            │     Findings: Fixed vs. NLMS  │
+                                            └───────────────┬───────────────┘
+                                                            │
+                                ┌───────────────────────────┴───────────────────────────┐
+                                ▼                                                       ▼
+                ┌───────────────────────────────┐                       ┌───────────────────────────────┐
+                │ 09. Experimental Setup:       │                       │ 10. Partner Weekly Progress:  │
+                │     Concert Sim & ESP32-S3 HW │                       │     Leaky NLMS & Robust VAD   │
+                └───────────────┬───────────────┘                       └───────────────┬───────────────┘
+                                │                                                       │
+                                └───────────────────────────┬───────────────────────────┘
+                                                            ▼
+                                            ┌───────────────────────────────┐
+                                            │ 11. Advanced Low-Latency      │
+                                            │     Architectures on ESP32-S3 │
+                                            └───────────────┬───────────────┘
+                                                            │
+                                                            ▼
+                                            ┌───────────────────────────────┐
+                                            │ 12. Concert Venue Room        │
+                                            │     Acoustic Benchmark (ISM)  │
+                                            └───────────────┬───────────────┘
+                                                            │
+                                                            ▼
+                                            ┌───────────────────────────────┐
+                                            │ 13. Google STT Intelligibility│
+                                            │     Benchmark (ASR Lexicon)   │
+                                            └───────────────┬───────────────┘
+                                                            │
+                                                            ▼
+                                            ┌───────────────────────────────┐
+                                            │ 14. Faster-Whisper vs Google  │
+                                            │     Intelligibility Benchmark │
+                                            └───────────────────────────────┘
 ```
 
 ---
@@ -74,6 +94,11 @@ This series of progress reports documents the end-to-end research, empirical fin
 | [**Report 07**](07_embedded_firmware_and_hardware_deployment.md) | **Embedded Firmware Architecture & ESP32-S3 Implementation** | Transposed Direct Form II biquad engine, computational complexity analysis (MFLOPS/RAM), cycle counts, DMA buffer latency, and C header implementation. |
 | [**Report 08**](08_comparative_testing_and_findings_nlms.md) | **Comparative Testing & Findings: Fixed vs. Adaptive NLMS** | Cross-benchmark across 6 SNRs, 3 genres, and genders comparing FIR, IIR, Notch, Dual-Mic NLMS, and Hybrid Notch+NLMS; plus 5 acoustic stress scenarios. |
 | [**Report 09**](09_experimental_setup_simulation_and_hardware.md) | **Experimental Setup: Concert Simulation & Hardware** | Multi-venue concert simulation models (Club, Arena, Festival), ESP32-S3 hardware wiring (Adafruit MEMS, PCM5102A, NJM4556AD), and 3-stage validation protocol. |
+| [**Report 10**](10_partner_weekly_progress_leaky_nlms_and_vad.md) | **Partner Weekly Progress: Leaky NLMS & Robust VAD** | Resolution of the $+10\text{ dB}$ vocal self-cancellation hazard, Leaky NLMS ($\gamma=0.999$), dual-mic ZCR-gated Sigmoid VAD, and 1,500-run multi-noise benchmark. |
+| [**Report 11**](11_advanced_low_latency_speech_enhancement_esp32.md) | **Advanced Low-Latency Architectures on ESP32-S3** | Ultra-high AOP front-ends, $<3.5\text{ ms}$ comb-filtering mitigation, RL-supervised Time-Domain GSC, and 4-phase implementation plan. |
+| [**Report 12**](12_concert_venue_room_acoustics_and_enhancement_benchmark.md) | **Concert Venue Room Acoustic Benchmark (ISM)** | Image Source Method multi-path simulation of Nightclub, Arena, and Festival venues; STOI, PESQ, $\Delta\text{SNR}$, $\Delta\text{ASL}$ across 1,080 conditions. |
+| [**Report 13**](13_google_speech_to_text_intelligibility_benchmark.md) | **Google Speech-to-Text Intelligibility Benchmark** | Commercial ASR evaluation of Harvard sentences before vs. after filtering; Word Recall % and WER % across room conditions and filter topologies. |
+| [**Report 14**](14_faster_whisper_vs_google_stt_intelligibility_comparison.md) | **Faster-Whisper vs. Google STT Intelligibility Benchmark** | Comparative dual-ASR benchmark across 135 conditions resolving Google's binary VAD gate with continuous word-level probabilities and log-likelihoods. |
 
 ---
 
@@ -100,4 +125,38 @@ This series of progress reports documents the end-to-end research, empirical fin
    - 8th-Order IIR SOS: 20 ops/sample   | 0.32 MFLOPS | 1.34 ms passband delay (0.19% CPU)
    - Parametric Notch:  5-10 ops/sample | 0.08-0.16 MFLOPS | <0.15 ms vocal latency (0.05-0.09% CPU)
    - Dual-Mic NLMS:     515 ops/sample  | 8.24 MFLOPS | 4.06 ms DMA roundtrip latency (4.13% CPU)
+
+5. VOCAL CANCELLATION MITIGATION & ROBUST VAD (Report 10):
+   - Speech Leakage Hazard: Standard NLMS collapsed from 0.995 to 0.913 STOI @ +10 dB SNR.
+   - Dual-Mic Robust VAD:   Frame power ratio + ZCR shock gate + EMA + Sigmoid soft probability mask.
+   - Dynamic Step Size:     μ_eff = μ · (1 - V_soft) freezes adaptation during active vocal frames.
+   - Intelligibility Gain:  Soft-VAD restores STOI to 0.979 @ +10 dB and 0.980 @ +5 dB (+0.04 to +0.07 gain).
+   - Soft vs. Hard VAD:     Soft sigmoid gating consistently outperforms binary hard thresholding by avoiding switching clicks.
+
+6. CONCERT VENUE ROOM ACOUSTIC BENCHMARK (Report 12):
+   - 3 Venue Archetypes:    Nightclub (RT60=0.7s), Arena (RT60=1.4s), Festival (RT60=0.2s).
+   - 1,080 Simulation Grid: 20 talkers x 3 genres x 3 venues x 6 SNRs evaluated on STOI, PESQ, ΔSNR, and ΔASL.
+   - Multi-Path Immunity:   Dual-mic Soft-VAD maintains vocal protection across all venues (STOI 0.963 @ +10 dB),
+                            preventing the -6.48 dBFS vocal cancellation collapse suffered by unconstrained NLMS.
+   - Severe Noise (SNR -15):Dual-Mic NLMS delivers +11.6 dB to +12.2 dB true physical noise attenuation across venues.
+   - Perceptual Rejection:  Fixed FIR bandpass is rejected on PESQ grounds (depressed to 1.2-1.5 MOS) due to F0 loss.
+
+7. COMMERCIAL ASR & GOOGLE STT MULTI-SENTENCE BENCHMARK (Report 13):
+   - Extreme Noise (-15 dB SNR): Dual-Mic NLMS more than doubles Word Recall in Jazz (25.0% -> 57.1%) and triples it
+                                in Techno (16.7% -> 57.7%), elevating ASR speech detection from 33% to 100% of sentences.
+   - High Noise (-10 dB SNR):    Dual-Mic NLMS delivers 90.5% Word Recall in Jazz (WER 8.3%) and 81.0% in Techno,
+                                compared to 0% for FIR bandpass which causes total speech detection collapse.
+   - Flaw of Bandpass:          Amputating <300 Hz removes male F0 (125 Hz) and female F0 (219 Hz), causing neural ASR
+                                to classify speech as synthetic noise (0% recall across sentences in Jazz -10 dB).
+   - Vocal Cancellation Proof:   In Techno 0 dB, Baseline NLMS mutates "Glue the sheet..." to "where the sheet..."
+                                due to speech leakage notches, while Soft-VAD Leaky NLMS achieves 100.0% pristine Word Recall.
+8. CONTINUOUS ACOUSTIC CONFIDENCE & FASTER-WHISPER COMPARISON (Report 14):
+   - Overcoming Binary VAD:     Google Cloud STT drops 100% of severely masked sentences in Rock (-10 and -15 dB)
+                                as [NO_SPEECH_DETECTED]. Faster-Whisper provides forced decoding across 100% of trials,
+                                revealing fine-grained Word Probabilities (0.41-0.49) and Logprobs (-0.90 to -1.11).
+   - Dual-ASR Corroboration:    In Jazz -15 dB, both models prove Base NLMS restores speech: Google Word Recall leaps
+                                from 25.0% to 57.2% (100% detection), and Faster-Whisper leaps from 9.5% to 54.2%
+                                with Mean Word Probability surging from 0.301 to 0.543 and Logprob rising -1.24 to -0.81.
+   - Universal Bandpass Loss:   Whisper confirms FIR Bandpass degrades Word Recall from 72.6% to 38.1% in Techno -10 dB,
+                                with confidence dropping from 0.750 to 0.507 due to F0 amputation.
 ```

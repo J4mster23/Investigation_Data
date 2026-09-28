@@ -1,8 +1,10 @@
 function d = calculate_stoi(clean, degraded, fs)
-% CALCULATE_STOI Computes a simplified Short-Time Objective Intelligibility (STOI) measure.
+% CALCULATE_STOI Computes Short-Time Objective Intelligibility (STOI) measure.
 %   d = calculate_stoi(clean, degraded, fs) calculates the intelligibility
 %   index between a clean speech signal and a degraded (or enhanced) signal.
 %   Returns a value between 0 and 1, where higher is more intelligible.
+%
+%   Uses MathWorks Audio Toolbox built-in stoi(processed, reference, fs).
 
     % Ensure signals are column vectors and equal length
     clean = clean(:);
@@ -11,6 +13,17 @@ function d = calculate_stoi(clean, degraded, fs)
     clean = clean(1:L);
     degraded = degraded(1:L);
 
+    % Call MATLAB Audio Toolbox built-in stoi function
+    % Syntax: metric = stoi(processed, reference, fs)
+    try
+        d_val = stoi(degraded, clean, fs);
+        d = max(0, min(1, double(d_val)));
+        return;
+    catch ME
+        warning('Audio Toolbox stoi failed (%s). Using fallback calculation.', ME.message);
+    end
+
+    % Fallback 1/3-octave calculation if toolbox function fails
     N_fft = 512;
     hop = 256;
     win = hann(N_fft, 'periodic');
@@ -45,7 +58,7 @@ function d = calculate_stoi(clean, degraded, fs)
         d_k = band_deg(k, :);
         
         alpha = sqrt(sum(c_k.^2) / (sum(d_k.^2) + eps));
-        d_k_norm = min(d_k * alpha, c_k * 1.5); % simple normalization/clipping
+        d_k_norm = min(d_k * alpha, c_k * 1.5);
         
         r = corrcoef(c_k, d_k_norm);
         if numel(r) >= 4 && ~isnan(r(1, 2))

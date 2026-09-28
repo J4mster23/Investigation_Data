@@ -1,0 +1,46 @@
+Genre,SNR_dB,Filter_Stage,Total_Correct_Words,Total_Reference_Words,Mean_Word_Recall_Pct,Mean_WER_Pct,Mean_Confidence,Speech_Detection_Rate_Pct,Sentences_Tested,Representative_Actual_Responses
+jazz,-15,primary_noisy,6,24,25.0,77.8,0.952,33.3,3,[NO_SPEECH_DETECTED] || [NO_SPEECH_DETECTED] || these days and chicken leg is a great day
+jazz,-15,fir_bp,0,24,0.0,100.0,0.0,0.0,3,[NO_SPEECH_DETECTED] || [NO_SPEECH_DETECTED] || [NO_SPEECH_DETECTED]
+jazz,-15,notch,6,24,25.0,77.8,0.952,33.3,3,[NO_SPEECH_DETECTED] || [NO_SPEECH_DETECTED] || these days and chicken leg is a great day
+jazz,-15,base_nlms,13,24,57.1,44.0,0.937,100.0,3,the girl was playing every thursday || dark blue back || these days a chicken leg is a rare dish
+jazz,-15,soft_vad_leaky,10,24,44.0,55.0,0.948,66.7,3,the girl was paid every thursday || [NO_SPEECH_DETECTED] || these days a chicken leg is a great day
+jazz,-10,primary_noisy,15,24,66.7,37.0,0.952,66.7,3,the bill was paid every third week || [NO_SPEECH_DETECTED] || these days a chicken leg is in rare dish
+jazz,-10,fir_bp,0,24,0.0,100.0,0.0,0.0,3,[NO_SPEECH_DETECTED] || [NO_SPEECH_DETECTED] || [NO_SPEECH_DETECTED]
+jazz,-10,notch,15,24,66.7,37.0,0.952,66.7,3,the bill was paid every third week || [NO_SPEECH_DETECTED] || these days a chicken leg is in rare dish
+jazz,-10,base_nlms,20,24,90.5,8.3,0.952,100.0,3,the bill was paid every third week || blue the sheet to the dark blue back || these days a chicken leg is a rare dish
+jazz,-10,soft_vad_leaky,20,24,90.5,8.3,0.95,100.0,3,the bill was paid every third week || who the sheet to the dark blue back || these days a chicken leg is a rare dish
+jazz,0,primary_noisy,21,24,95.2,4.2,0.952,100.0,3,the bill was paid every third week || blue the sheet to the dark blue background || these days a chicken leg is a rare dish
+jazz,0,fir_bp,21,24,95.2,4.2,0.952,100.0,3,the bill was paid every third week || blue the sheet to the dark blue background || these days a chicken leg is a rare dish
+jazz,0,notch,21,24,95.2,4.2,0.952,100.0,3,the bill was paid every third week || blue the sheet to the dark blue background || these days a chicken leg is a rare dish
+jazz,0,base_nlms,22,24,100.0,0.0,0.952,100.0,3,the bill was paid every third week || glue the sheet to the dark blue background || these days a chicken leg is a rare dish
+jazz,0,soft_vad_leaky,21,24,95.2,4.2,0.952,100.0,3,the bill was paid every third week || blue the sheet to the dark blue background || these days a chicken leg is a rare dish
+rock,-15,primary_noisy,0,24,0.0,100.0,0.0,0.0,3,[NO_SPEECH_DETECTED] || [NO_SPEECH_DETECTED] || [NO_SPEECH_DETECTED]
+rock,-15,fir_bp,0,24,0.0,100.0,0.0,0.0,3,[NO_SPEECH_DETECTED] || [NO_SPEECH_DETECTED] || [NO_SPEECH_DETECTED]
+rock,-15,notch,0,24,0.0,100.0,0.0,0.0,3,[NO_SPEECH_DETECTED] || [NO_SPEECH_DETECTED] || [NO_SPEECH_DETECTED]
+rock,-15,base_nlms,0,24,0.0,100.0,0.0,0.0,3,[NO_SPEECH_DETECTED] || [NO_SPEECH_DETECTED] || [NO_SPEECH_DETECTED]
+rock,-15,soft_vad_leaky,0,24,0.0,100.0,0.0,0.0,3,[NO_SPEECH_DETECTED] || [NO_SPEECH_DETECTED] || [NO_SPEECH_DETECTED]
+rock,-10,primary_noisy,0,24,0.0,100.0,0.0,0.0,3,[NO_SPEECH_DETECTED] || [NO_SPEECH_DETECTED] || [NO_SPEECH_DETECTED]
+rock,-10,fir_bp,0,24,0.0,100.0,0.0,0.0,3,[NO_SPEECH_DETECTED] || [NO_SPEECH_DETECTED] || [NO_SPEECH_DETECTED]
+rock,-10,notch,0,24,0.0,100.0,0.0,0.0,3,[NO_SPEECH_DETECTED] || [NO_SPEECH_DETECTED] || [NO_SPEECH_DETECTED]
+rock,-10,base_nlms,0,24,0.0,100.0,0.0,0.0,3,[NO_SPEECH_DETECTED] || [NO_SPEECH_DETECTED] || [NO_SPEECH_DETECTED]
+rock,-10,soft_vad_leaky,0,24,0.0,100.0,0.0,0.0,3,[NO_SPEECH_DETECTED] || [NO_SPEECH_DETECTED] || [NO_SPEECH_DETECTED]
+rock,0,primary_noisy,19,24,85.7,16.7,0.949,100.0,3,the bill was paid every third week || who are the sheep to the dark blue back || these days a chicken leg is a rare dish
+rock,0,fir_bp,8,24,33.3,66.7,0.952,66.7,3,[NO_SPEECH_DETECTED] || back || these days a chicken leg is a rare dish
+rock,0,notch,15,24,66.7,33.3,0.952,100.0,3,the bill was paid every third week || back || these days a chicken leg is a rare dish
+rock,0,base_nlms,20,24,90.5,8.3,0.94,100.0,3,the bill was paid every third week || the sheet to the dark blue back || these days a chicken leg is a rare dish
+rock,0,soft_vad_leaky,19,24,85.7,16.7,0.947,100.0,3,the bill was paid every third week || who are the sheep to the dark blue back || these days a chicken leg is a rare dish
+techno,-15,primary_noisy,4,24,16.7,85.2,0.941,33.3,3,[NO_SPEECH_DETECTED] || [NO_SPEECH_DETECTED] || please save a chicken leg is andrea good
+techno,-15,fir_bp,3,24,12.5,88.9,0.939,33.3,3,[NO_SPEECH_DETECTED] || [NO_SPEECH_DETECTED] || please say a chicken leg chicken burger
+techno,-15,notch,4,24,16.7,85.2,0.94,33.3,3,[NO_SPEECH_DETECTED] || [NO_SPEECH_DETECTED] || please save a chicken leg is andrea good
+techno,-15,base_nlms,13,24,57.7,45.5,0.946,100.0,3,the bill was made every third week || back || these days and chicken leg is a rare gift
+techno,-15,soft_vad_leaky,10,24,43.5,56.1,0.943,100.0,3,the bill was named after surgery || back || these days a chicken leg is a rare gift
+techno,-10,primary_noisy,14,24,61.9,38.1,0.95,100.0,3,the bill was made every third week || back || these days a chicken leg is a rare dish
+techno,-10,fir_bp,7,24,29.2,70.4,0.951,33.3,3,[NO_SPEECH_DETECTED] || [NO_SPEECH_DETECTED] || these days a chicken leg is a rare gift
+techno,-10,notch,14,24,61.9,38.1,0.951,100.0,3,the bill was made every third week || back || these days a chicken leg is a rare dish
+techno,-10,base_nlms,18,24,81.0,20.8,0.952,100.0,3,the bill was paid every third week || murder sheets of the dark blue back || these days a chicken leg is a rare dish
+techno,-10,soft_vad_leaky,18,24,81.0,21.4,0.913,100.0,3,the bill was made every third week || lewisham to the dark blue back || these days a chicken leg is a rare dish
+techno,0,primary_noisy,22,24,100.0,0.0,0.952,100.0,3,the bill was paid every third week || glue the sheet to the dark blue background || these days a chicken leg is a rare dish
+techno,0,fir_bp,21,24,95.2,4.2,0.952,100.0,3,the bill was paid every third week || glue the sheets to the dark blue background || these days a chicken leg is a rare dish
+techno,0,notch,22,24,100.0,0.0,0.952,100.0,3,the bill was paid every third week || glue the sheet to the dark blue background || these days a chicken leg is a rare dish
+techno,0,base_nlms,21,24,95.2,4.2,0.952,100.0,3,the bill was paid every third week || where the sheet to the dark blue background || these days a chicken leg is a rare dish
+techno,0,soft_vad_leaky,22,24,100.0,0.0,0.952,100.0,3,the bill was paid every third week || glue the sheet to the dark blue background || these days a chicken leg is a rare dish

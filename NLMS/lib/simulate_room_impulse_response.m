@@ -20,7 +20,13 @@ function [rir, t_axis] = simulate_room_impulse_response(room_dim, src_pos, rec_p
 %   t_axis - Time vector in seconds
 
     if nargin < 5 || isempty(fs), fs = 16000; end
-    if nargin < 6 || isempty(max_time), max_time = min(rt60 * 1.1, 0.8); end
+    if nargin < 6 || isempty(max_time)
+        if rt60 <= 0
+            max_time = 0.1;
+        else
+            max_time = max(min(rt60 * 1.1, 0.8), 0.05);
+        end
+    end
     apply_shadow = (nargin >= 7 && ~isempty(ear_axis));
 
     if apply_shadow
@@ -35,9 +41,13 @@ function [rir, t_axis] = simulate_room_impulse_response(room_dim, src_pos, rec_p
     S = 2 * (Lx*Ly + Lx*Lz + Ly*Lz); 
     
     % Norris-Eyring average absorption and wall reflection coefficient
-    alpha = 1 - exp(-0.161 * V / (S * max(rt60, 0.05)));
-    alpha = min(max(alpha, 0.01), 0.95); 
-    beta = sqrt(1 - alpha);
+    if rt60 <= 0
+        beta = 0; % Pure anechoic (direct path only)
+    else
+        alpha = 1 - exp(-0.161 * V / (S * max(rt60, 0.05)));
+        alpha = min(max(alpha, 0.01), 0.95); 
+        beta = sqrt(1 - alpha);
+    end
     
     % Determine maximum image order based on strict max_time
     max_dist = c * max_time;

@@ -2,7 +2,7 @@
 """
 evaluate_google_stt_multi_sentence.py
 Evaluates speech intelligibility using Google Cloud Speech-to-Text API
-across multiple Harvard sentences (Male and Female talkers) at -15 dB, -10 dB, and 0 dB SNR.
+across multiple Harvard sentences (Male and Female talkers) at -20 dB to 0 dB SNR.
 
 Outputs to CSV:
 - Actual Speech-to-Text response string (and [NO_SPEECH_DETECTED] when rejected)

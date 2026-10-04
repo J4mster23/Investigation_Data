@@ -1,6 +1,6 @@
 % generate_multi_sentence_stt_samples.m
 % Generates room-acoustic audition audio files for multi-sentence Google STT evaluation
-% Evaluates across 3 Genres (Jazz, Rock, Techno) at -15 dB, -10 dB, and 0 dB SNR
+% Evaluates across 3 Genres (Jazz, Rock, Techno) at -20 dB to 0 dB SNR
 % for 3 distinct Harvard sentences across Male and Female talkers.
 
 clear; clc;
@@ -12,8 +12,8 @@ fs = 16000;
 N_nlms = 256;
 mu_nlms = 0.05;
 eps_nlms = 1e-2;
-gamma_leaky = 0.999;
-vad_prm = struct('frame_len_ms', 20, 'alpha_ema', 0.9, 'zcr_thresh', 0.05);
+gamma_leaky = 1 - 2^-15;
+vad_prm = struct('frame_len_ms', 20, 'alpha_ema', 0.9, 'zcr_thresh', 0.01);
 
 % Paths
 script_dir = fileparts(mfilename('fullpath'));
@@ -48,12 +48,17 @@ pa_right   = [10.0, 1.00, 2.5];% Stage PA Right
 
 max_rir_sec = 0.45;
 fprintf('--> Precomputing Club Room Impulse Responses (RT60 = 0.70s)...\n');
-[h_s1, ~] = simulate_room_impulse_response(venue_dim, speech_pos, mic1_pos, rt60, fs, max_rir_sec);
-[h_s2, ~] = simulate_room_impulse_response(venue_dim, speech_pos, mic2_pos, rt60, fs, max_rir_sec);
-[h_paL1, ~] = simulate_room_impulse_response(venue_dim, pa_left, mic1_pos, rt60, fs, max_rir_sec);
-[h_paR1, ~] = simulate_room_impulse_response(venue_dim, pa_right, mic1_pos, rt60, fs, max_rir_sec);
-[h_paL2, ~] = simulate_room_impulse_response(venue_dim, pa_left, mic2_pos, rt60, fs, max_rir_sec);
-[h_paR2, ~] = simulate_room_impulse_response(venue_dim, pa_right, mic2_pos, rt60, fs, max_rir_sec);
+
+% Define ear outward axes (Assuming Y-axis aligned dual-mic array)
+ear_axis_1 = [0, -1, 0];
+ear_axis_2 = [0, 1, 0];
+
+[h_s1, ~] = simulate_room_impulse_response(venue_dim, speech_pos, mic1_pos, rt60, fs, max_rir_sec, ear_axis_1);
+[h_s2, ~] = simulate_room_impulse_response(venue_dim, speech_pos, mic2_pos, rt60, fs, max_rir_sec, ear_axis_2);
+[h_paL1, ~] = simulate_room_impulse_response(venue_dim, pa_left, mic1_pos, rt60, fs, max_rir_sec, ear_axis_1);
+[h_paR1, ~] = simulate_room_impulse_response(venue_dim, pa_right, mic1_pos, rt60, fs, max_rir_sec, ear_axis_1);
+[h_paL2, ~] = simulate_room_impulse_response(venue_dim, pa_left, mic2_pos, rt60, fs, max_rir_sec, ear_axis_2);
+[h_paR2, ~] = simulate_room_impulse_response(venue_dim, pa_right, mic2_pos, rt60, fs, max_rir_sec, ear_axis_2);
 
 h_n1 = 0.5 * (h_paL1 + h_paR1);
 h_n2 = 0.5 * (h_paL2 + h_paR2);
@@ -75,7 +80,7 @@ noise_files.jazz   = fullfile(dataset_dir, 'wav_16k', 'jazz', 'jazz_01_jazz.0001
 noise_files.rock   = fullfile(dataset_dir, 'wav_16k', 'rock', 'rock_01_rock.00011.wav');
 
 genres = {'jazz', 'rock', 'techno'};
-snr_levels = [-15, -10, 0]; % Including -15 dB as requested!
+snr_levels = [-20, -15, -10, -5, 0];
 
 manifest_file = fullfile(sample_dir, 'manifest.json');
 manifest_items = {};
@@ -104,10 +109,13 @@ for g_idx = 1:length(genres)
             if fs_s ~= fs, clean_speech = resample(clean_speech, fs, fs_s); end
             
             L = length(clean_speech);
-            if L > 16000 * 5, L = 16000 * 5; clean_speech = clean_speech(1:L); end
+            if L > 16000 * 9, L = 16000 * 9; clean_speech = clean_speech(1:L); end
+            
+            clean_speech = [zeros(fs, 1); clean_speech];
+            L = length(clean_speech);
             
             s1_rev = filter(h_s1, 1, clean_speech);
-            s2_rev = 0.25 * filter(h_s2, 1, clean_speech);
+            s2_rev = filter(h_s2, 1, clean_speech);
             
             if length(music_mic1_full) < L
                 reps = ceil(L / length(music_mic1_full));

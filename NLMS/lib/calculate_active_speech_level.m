@@ -6,8 +6,8 @@ function [active_level, activity_factor] = calculate_active_speech_level(speech,
 
     speech = speech(:);
     
-    % Use exactly 320 samples (20ms at 16kHz) as per Python script
-    frame_len = 320; 
+    % Frame length 20ms based on sampling rate
+    frame_len = round(0.02 * fs); 
     num_frames = floor(length(speech) / frame_len);
     
     if num_frames == 0

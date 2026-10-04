@@ -22,7 +22,7 @@ function [vad_hard, vad_soft] = compute_robust_vad(d, x, fs, prm)
     end
     if ~isfield(prm, 'frame_len_ms'), prm.frame_len_ms = 20; end
     if ~isfield(prm, 'alpha_ema'), prm.alpha_ema = 0.9; end
-    if ~isfield(prm, 'zcr_thresh'), prm.zcr_thresh = 0.05; end
+    if ~isfield(prm, 'zcr_thresh'), prm.zcr_thresh = 0.01; end
 
     % Ensure column vectors
     d = d(:);
@@ -48,7 +48,8 @@ function [vad_hard, vad_soft] = compute_robust_vad(d, x, fs, prm)
     ratio_db = 10 * log10(ratio + 1e-8);
     
     % 3. Zero-Crossing Rate (Secondary Check)
-    zcr = sum(abs(diff(sign(d_frames))) > 0, 1) / (frame_len - 1);
+    % Aligned with firmware: treating > 0 as true, <= 0 as false
+    zcr = sum(diff(d_frames > 0) ~= 0, 1) / (frame_len - 1);
     
     % Initialize smoothed ratio
     smoothed_ratio = zeros(1, num_frames);

@@ -12,8 +12,8 @@ fs = 16000;
 N_nlms = 256;
 mu_nlms = 0.05;
 eps_nlms = 1e-2;
-gamma_leaky = 0.999;
-vad_prm = struct('frame_len_ms', 20, 'alpha_ema', 0.9, 'zcr_thresh', 0.05);
+gamma_leaky = 1 - 2^-15;
+vad_prm = struct('frame_len_ms', 20, 'alpha_ema', 0.9, 'zcr_thresh', 0.01);
 
 % 1. Set up directory paths
 script_dir = fileparts(mfilename('fullpath'));
@@ -86,15 +86,21 @@ for v_idx = 1:length(venue_keys)
     fprintf('    Synthesizing RIRs for [%s] (RT60 = %.2fs, Room = %dx%dx%dm)...\n', ...
         v.name, v.rt60, v.dim(1), v.dim(2), v.dim(3));
     
+    % Define ear outward axes (Assuming Y-axis aligned dual-mic array)
+    % Mic 1 points toward negative Y (towards talker)
+    ear_axis_1 = [0, -1, 0];
+    % Mic 2 points toward positive Y (away from talker)
+    ear_axis_2 = [0, 1, 0];
+    
     % Speech RIRs (Near-field talker to mics)
-    [h_s1, ~] = simulate_room_impulse_response(v.dim, v.speech_pos, v.mic1_pos, v.rt60, fs, max_rir_sec);
-    [h_s2, ~] = simulate_room_impulse_response(v.dim, v.speech_pos, v.mic2_pos, v.rt60, fs, max_rir_sec);
+    [h_s1, ~] = simulate_room_impulse_response(v.dim, v.speech_pos, v.mic1_pos, v.rt60, fs, max_rir_sec, ear_axis_1);
+    [h_s2, ~] = simulate_room_impulse_response(v.dim, v.speech_pos, v.mic2_pos, v.rt60, fs, max_rir_sec, ear_axis_2);
     
     % Music RIRs (Stereo Stage PA to mics)
-    [h_paL1, ~] = simulate_room_impulse_response(v.dim, v.pa_left, v.mic1_pos, v.rt60, fs, max_rir_sec);
-    [h_paR1, ~] = simulate_room_impulse_response(v.dim, v.pa_right, v.mic1_pos, v.rt60, fs, max_rir_sec);
-    [h_paL2, ~] = simulate_room_impulse_response(v.dim, v.pa_left, v.mic2_pos, v.rt60, fs, max_rir_sec);
-    [h_paR2, ~] = simulate_room_impulse_response(v.dim, v.pa_right, v.mic2_pos, v.rt60, fs, max_rir_sec);
+    [h_paL1, ~] = simulate_room_impulse_response(v.dim, v.pa_left, v.mic1_pos, v.rt60, fs, max_rir_sec, ear_axis_1);
+    [h_paR1, ~] = simulate_room_impulse_response(v.dim, v.pa_right, v.mic1_pos, v.rt60, fs, max_rir_sec, ear_axis_1);
+    [h_paL2, ~] = simulate_room_impulse_response(v.dim, v.pa_left, v.mic2_pos, v.rt60, fs, max_rir_sec, ear_axis_2);
+    [h_paR2, ~] = simulate_room_impulse_response(v.dim, v.pa_right, v.mic2_pos, v.rt60, fs, max_rir_sec, ear_axis_2);
     
     % Store in struct
     rirs.(v_key).h_s1 = h_s1;
@@ -108,7 +114,7 @@ fprintf('    All Room Impulse Responses generated successfully.\n\n');
 m_files = dir(fullfile(speech_corpus_dir, 'male', 'male_*.wav'));
 f_files = dir(fullfile(speech_corpus_dir, 'female', 'female_*.wav'));
 
-n_spk = 10;
+n_spk = 2;
 speech_manifest = {};
 for i = 1:min(n_spk, length(m_files))
     speech_manifest{end+1} = struct('path', fullfile(speech_corpus_dir, 'male', m_files(i).name), ...
@@ -126,7 +132,7 @@ noise_files.jazz   = fullfile(dataset_dir, 'wav_16k', 'jazz', 'jazz_01_jazz.0001
 noise_files.rock   = fullfile(dataset_dir, 'wav_16k', 'rock', 'rock_01_rock.00011.wav');
 
 genres = {'techno', 'jazz', 'rock'};
-snr_levels = [-15, -10, -5, 0, 5, 10];
+snr_levels = [-20, -15, -10, -5, 0];
 filter_names = {'Unprocessed', 'FIR_BP', 'Parametric_Notch', 'Base_NLMS', 'Leaky_NLMS', 'Soft_VAD_Leaky'};
 
 % 7. Initialize Results Files
@@ -189,18 +195,21 @@ for v_idx = 1:length(venue_keys)
                 if fs_s ~= fs, clean_speech = resample(clean_speech, fs, fs_s); end
                 
                 L = length(clean_speech);
-                if L > 16000 * 5 % Cap to 5 seconds for simulation throughput
-                    L = 16000 * 5;
+                if L > 16000 * 9 % Cap to 9 seconds of speech to allow 1s pre-roll (total 10s)
+                    L = 16000 * 9;
                     clean_speech = clean_speech(1:L);
                 end
+                
+                % Add 1-second noise pre-roll (silence in speech track)
+                clean_speech = [zeros(fs, 1); clean_speech];
+                L = length(clean_speech);
                 
                 % Convolve speech through near-field vocal RIRs
                 % Primary mic: forward direct sound + early reflections
                 s1_rev = filter(h_s1, 1, clean_speech);
                 
-                % Reference mic: rear-facing, incorporates 12 dB head shadowing attenuation
-                % modeled as 0.25 amplitude factor + RIR path
-                s2_rev = 0.25 * filter(h_s2, 1, clean_speech);
+                % Reference mic: rear-facing, physical diffraction is already modeled in h_s2
+                s2_rev = filter(h_s2, 1, clean_speech);
                 
                 % Loop/slice music to match speech length
                 if length(music_mic1_full) < L

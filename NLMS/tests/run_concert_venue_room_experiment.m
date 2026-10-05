@@ -140,10 +140,10 @@ results_csv = fullfile(output_dir, 'room_experiment_results.csv');
 summary_csv = fullfile(output_dir, 'room_experiment_summary.csv');
 
 fid_res = fopen(results_csv, 'w');
-fprintf(fid_res, 'Venue,Genre,File,Gender,SNR_dB,Filter,STOI,PESQ,dSNR_dB,dASL_dB\n');
+fprintf(fid_res, 'Venue,Genre,File,Gender,SNR_dB,Filter,STOI,PESQ,ViSQOL,dSNR_dB,dASL_dB\n');
 
 fid_sum = fopen(summary_csv, 'w');
-fprintf(fid_sum, 'Venue,Genre,SNR_dB,Filter,Mean_STOI,Mean_PESQ,Mean_dSNR_dB,Mean_dASL_dB\n');
+fprintf(fid_sum, 'Venue,Genre,SNR_dB,Filter,Mean_STOI,Mean_PESQ,Mean_ViSQOL,Mean_dSNR_dB,Mean_dASL_dB\n');
 
 % Container for aggregated summary statistics
 summary_map = containers.Map();
@@ -183,9 +183,9 @@ for v_idx = 1:length(venue_keys)
         for snr_idx = 1:length(snr_levels)
             target_snr = snr_levels(snr_idx);
             
-            % Accumulator for summary [STOI, PESQ, dSNR, dASL] across 20 talkers for 6 filters
-            % Dimensions: 6 filters x 4 metrics
-            cond_metrics = zeros(6, 4);
+            % Accumulator for summary [STOI, PESQ, ViSQOL, dSNR, dASL] across talkers for 6 filters
+            % Dimensions: 6 filters x 5 metrics
+            cond_metrics = zeros(6, 5);
             
             for s_idx = 1:length(speech_manifest)
                 spk = speech_manifest{s_idx};
@@ -285,11 +285,14 @@ for v_idx = 1:length(venue_keys)
                     % 2. PESQ / PSQS
                     pesq_val = calculate_pesq_metric(s_ref, out_sig, fs);
                     
-                    % 3. Active Speech Level Delta
+                    % 3. ViSQOL (Objective Speech Quality MOS)
+                    visqol_val = calculate_visqol(s_ref, out_sig, fs);
+                    
+                    % 4. Active Speech Level Delta
                     [asl_out, ~] = calculate_active_speech_level(out_sig, fs);
                     d_asl = asl_out - asl_d;
                     
-                    % 4. Physical Delta SNR
+                    % 5. Physical Delta SNR
                     % For linear/adaptive output, estimate residual noise during inactive speech
                     noise_res = out_sig - s_ref;
                     snr_out_linear = mean(s_ref.^2) / (mean(noise_res.^2) + 1e-12);
@@ -301,12 +304,13 @@ for v_idx = 1:length(venue_keys)
                     % Accumulate
                     cond_metrics(f, 1) = cond_metrics(f, 1) + stoi_val;
                     cond_metrics(f, 2) = cond_metrics(f, 2) + pesq_val;
-                    cond_metrics(f, 3) = cond_metrics(f, 3) + d_snr;
-                    cond_metrics(f, 4) = cond_metrics(f, 4) + d_asl;
+                    cond_metrics(f, 3) = cond_metrics(f, 3) + visqol_val;
+                    cond_metrics(f, 4) = cond_metrics(f, 4) + d_snr;
+                    cond_metrics(f, 5) = cond_metrics(f, 5) + d_asl;
                     
                     % Write individual file row to CSV
-                    fprintf(fid_res, '%s,%s,%s,%s,%d,%s,%.4f,%.3f,%.2f,%.2f\n', ...
-                        v_key, genre, spk.name, spk.gender, target_snr, filt_name, stoi_val, pesq_val, d_snr, d_asl);
+                    fprintf(fid_res, '%s,%s,%s,%s,%d,%s,%.4f,%.3f,%.3f,%.2f,%.2f\n', ...
+                        v_key, genre, spk.name, spk.gender, target_snr, filt_name, stoi_val, pesq_val, visqol_val, d_snr, d_asl);
                 end
                 
                 % Save audio demonstration files for select representative conditions
@@ -326,9 +330,9 @@ for v_idx = 1:length(venue_keys)
             
             % Write to summary CSV and print to terminal
             for f = 1:6
-                fprintf(fid_sum, '%s,%s,%d,%s,%.4f,%.3f,%.2f,%.2f\n', ...
+                fprintf(fid_sum, '%s,%s,%d,%s,%.4f,%.3f,%.3f,%.2f,%.2f\n', ...
                     v_key, genre, target_snr, filter_names{f}, ...
-                    cond_metrics(f, 1), cond_metrics(f, 2), cond_metrics(f, 3), cond_metrics(f, 4));
+                    cond_metrics(f, 1), cond_metrics(f, 2), cond_metrics(f, 3), cond_metrics(f, 4), cond_metrics(f, 5));
             end
             
             fprintf('  [%s | %-6s | SNR: %3d dB]  STOI: Unproc=%.3f | FIR=%.3f | Notch=%.3f | Base=%.3f | Leaky=%.3f | SoftVAD=%.3f\n', ...
@@ -338,6 +342,9 @@ for v_idx = 1:length(venue_keys)
             fprintf('                               PESQ: Unproc=%.2f | FIR=%.2f | Notch=%.2f | Base=%.2f | Leaky=%.2f | SoftVAD=%.2f\n', ...
                 cond_metrics(1, 2), cond_metrics(2, 2), cond_metrics(3, 2), ...
                 cond_metrics(4, 2), cond_metrics(5, 2), cond_metrics(6, 2));
+            fprintf('                             ViSQOL: Unproc=%.2f | FIR=%.2f | Notch=%.2f | Base=%.2f | Leaky=%.2f | SoftVAD=%.2f\n', ...
+                cond_metrics(1, 3), cond_metrics(2, 3), cond_metrics(3, 3), ...
+                cond_metrics(4, 3), cond_metrics(5, 3), cond_metrics(6, 3));
         end
     end
 end

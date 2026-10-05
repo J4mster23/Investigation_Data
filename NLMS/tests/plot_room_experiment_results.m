@@ -20,7 +20,7 @@ T = readtable(summary_csv, opts);
 
 venues = {'club', 'arena', 'festival'};
 venue_titles = {'Nightclub (RT60 ~ 0.70s)', 'Concert Arena (RT60 ~ 1.40s)', 'Open-Air Festival (RT60 ~ 0.20s)'};
-snr_grid = [-15, -10, -5, 0, 5, 10];
+snr_grid = unique(T.SNR_dB)';
 filters = {'Unprocessed', 'FIR_BP', 'Parametric_Notch', 'Base_NLMS', 'Leaky_NLMS', 'Soft_VAD_Leaky'};
 filter_labels = {'Unprocessed Primary', 'Fixed FIR Bandpass', 'Parametric Notch', 'Baseline NLMS', 'Leaky NLMS', 'Soft-VAD Leaky NLMS'};
 
@@ -110,6 +110,39 @@ end
 sgtitle('Perceptual Speech Quality (PESQ) across Live Concert Venues & SNR Tiers', 'FontSize', 14, 'FontWeight', 'bold');
 saveas(fig2, fullfile(figures_dir, 'room_experiment_pesq_vs_snr.png'));
 close(fig2);
+
+if ismember('Mean_ViSQOL', T.Properties.VariableNames)
+    fprintf('--> Plotting Figure 2b: ViSQOL Speech Quality across Venues...\n');
+    fig2b = figure('Visible', 'off', 'Position', [100, 100, 1400, 480]);
+    for v = 1:length(venues)
+        v_key = venues{v};
+        subplot(1, 3, v);
+        hold on; box on; grid on;
+        for f = 1:length(filters)
+            f_name = filters{f};
+            visqol_means = zeros(length(snr_grid), 1);
+            for s = 1:length(snr_grid)
+                snr_val = snr_grid(s);
+                rows = strcmp(T.Venue, v_key) & strcmp(T.Filter, f_name) & (T.SNR_dB == snr_val);
+                visqol_means(s) = mean(T.Mean_ViSQOL(rows));
+            end
+            plot(snr_grid, visqol_means, 'LineStyle', line_styles{f}, 'LineWidth', line_widths(f), ...
+                'Color', colors(f, :), 'Marker', markers{f}, 'MarkerSize', 6, 'MarkerFaceColor', colors(f, :), ...
+                'DisplayName', filter_labels{f});
+        end
+        title(venue_titles{v}, 'FontSize', 12, 'FontWeight', 'bold');
+        xlabel('Target SNR (dB)', 'FontSize', 11);
+        ylabel('ViSQOL Quality (MOS 1-5)', 'FontSize', 11);
+        ylim([1.0, 5.0]);
+        set(gca, 'XTick', snr_grid);
+        if v == 1
+            legend('Location', 'southeast', 'FontSize', 8);
+        end
+    end
+    sgtitle('ViSQOL Speech Quality across Live Concert Venues & SNR Tiers', 'FontSize', 14, 'FontWeight', 'bold');
+    saveas(fig2b, fullfile(figures_dir, 'room_experiment_visqol_vs_snr.png'));
+    close(fig2b);
+end
 
 fprintf('--> Plotting Figure 3: Physical Delta SNR at Extreme Noise (-15 dB)...\n');
 fig3 = figure('Visible', 'off', 'Position', [100, 100, 900, 500]);

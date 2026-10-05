@@ -21,8 +21,26 @@ T = readtable(summary_csv, opts);
 venues = {'club', 'arena', 'festival'};
 venue_titles = {'Nightclub (RT60 ~ 0.70s)', 'Concert Arena (RT60 ~ 1.40s)', 'Open-Air Festival (RT60 ~ 0.20s)'};
 snr_grid = unique(T.SNR_dB)';
-filters = {'Unprocessed', 'FIR_BP', 'Parametric_Notch', 'Base_NLMS', 'Leaky_NLMS', 'Soft_VAD_Leaky'};
-filter_labels = {'Unprocessed Primary', 'Fixed FIR Bandpass', 'Parametric Notch', 'Baseline NLMS', 'Leaky NLMS', 'Soft-VAD Leaky NLMS'};
+filters = { ...
+    'Unprocessed', ...
+    'FIR_BP', ...
+    'Parametric_Notch', ...
+    'Base_NLMS', ...
+    'Soft_VAD_Leaky', ...
+    'Cascade_Notch_NLMS', ...
+    'Cascade_FIR_NLMS', ...
+    'Cascade_Hybrid_Optimal' ...
+};
+filter_labels = { ...
+    'Unprocessed Primary', ...
+    'Fixed FIR Bandpass', ...
+    'Parametric Notch', ...
+    'Baseline NLMS', ...
+    'Soft-VAD Leaky NLMS', ...
+    'Notch -> NLMS+VAD (Cascade)', ...
+    'FIR -> NLMS+VAD (Cascade)', ...
+    'Hybrid Optimal (Notch-NLMS-Notch)' ...
+};
 
 % Visual Styling Palette
 colors = [
@@ -30,12 +48,14 @@ colors = [
     0.85, 0.35, 0.25; % Red/Orange (FIR)
     0.20, 0.70, 0.30; % Green (Notch)
     0.25, 0.50, 0.90; % Blue (Base NLMS)
-    0.60, 0.30, 0.85; % Purple (Leaky NLMS)
-    0.95, 0.65, 0.05  % Gold/Amber (Soft-VAD Leaky)
+    0.60, 0.30, 0.85; % Purple (Soft-VAD Leaky)
+    0.00, 0.75, 0.75; % Cyan (Notch -> NLMS)
+    0.90, 0.50, 0.10; % Orange (FIR -> NLMS)
+    0.85, 0.10, 0.40  % Magenta/Crimson (Hybrid Optimal)
 ];
-markers = {'s', '^', 'd', 'v', 'p', 'o'};
-line_styles = {':', '--', '-.', '-', '--', '-'};
-line_widths = [1.5, 1.5, 1.8, 1.8, 1.8, 2.5];
+markers = {'s', '^', 'd', 'v', 'p', 'h', 'x', 'o'};
+line_styles = {':', '--', '-.', '-', '--', '-', '--', '-'};
+line_widths = [1.5, 1.5, 1.8, 1.8, 2.0, 2.2, 2.0, 2.8];
 
 fprintf('--> Plotting Figure 1: STOI Intelligibility across Venues...\n');
 fig1 = figure('Visible', 'off', 'Position', [100, 100, 1400, 480]);
@@ -63,8 +83,8 @@ for v = 1:length(venues)
     title(venue_titles{v}, 'FontSize', 12, 'FontWeight', 'bold');
     xlabel('Target SNR (dB)', 'FontSize', 11);
     ylabel('STOI (Intelligibility Index)', 'FontSize', 11);
-    ylim([0.65, 1.02]);
-    xlim([-16, 11]);
+    ylim([0.15, 0.85]);
+    xlim([-22, 2]);
     set(gca, 'XTick', snr_grid);
     if v == 1
         legend('Location', 'southeast', 'FontSize', 8);
@@ -100,8 +120,8 @@ for v = 1:length(venues)
     title(venue_titles{v}, 'FontSize', 12, 'FontWeight', 'bold');
     xlabel('Target SNR (dB)', 'FontSize', 11);
     ylabel('PESQ Quality (MOS-LQO)', 'FontSize', 11);
-    ylim([1.0, 4.6]);
-    xlim([-16, 11]);
+    ylim([1.05, 1.80]);
+    xlim([-22, 2]);
     set(gca, 'XTick', snr_grid);
     if v == 1
         legend('Location', 'southeast', 'FontSize', 8);
@@ -133,7 +153,8 @@ if ismember('Mean_ViSQOL', T.Properties.VariableNames)
         title(venue_titles{v}, 'FontSize', 12, 'FontWeight', 'bold');
         xlabel('Target SNR (dB)', 'FontSize', 11);
         ylabel('ViSQOL Quality (MOS 1-5)', 'FontSize', 11);
-        ylim([1.0, 5.0]);
+        ylim([1.0, 2.6]);
+        xlim([-22, 2]);
         set(gca, 'XTick', snr_grid);
         if v == 1
             legend('Location', 'southeast', 'FontSize', 8);
@@ -148,8 +169,8 @@ fprintf('--> Plotting Figure 3: Physical Delta SNR at Extreme Noise (-15 dB)...\
 fig3 = figure('Visible', 'off', 'Position', [100, 100, 900, 500]);
 hold on; box on; grid on;
 
-active_filters = {'FIR_BP', 'Parametric_Notch', 'Base_NLMS', 'Leaky_NLMS', 'Soft_VAD_Leaky'};
-active_labels = {'Fixed FIR Bandpass', 'Parametric Notch', 'Baseline NLMS', 'Leaky NLMS', 'Soft-VAD Leaky'};
+active_filters = {'FIR_BP', 'Parametric_Notch', 'Base_NLMS', 'Soft_VAD_Leaky', 'Cascade_Notch_NLMS', 'Cascade_Hybrid_Optimal'};
+active_labels = {'Fixed FIR Bandpass', 'Parametric Notch', 'Baseline NLMS', 'Soft-VAD Leaky', 'Notch -> NLMS (Cascade)', 'Hybrid Optimal'};
 bar_data = zeros(length(venues), length(active_filters));
 
 for v = 1:length(venues)
@@ -157,7 +178,9 @@ for v = 1:length(venues)
     for f = 1:length(active_filters)
         f_name = active_filters{f};
         rows = strcmp(T.Venue, v_key) & strcmp(T.Filter, f_name) & (T.SNR_dB == -15);
-        bar_data(v, f) = mean(T.Mean_dSNR_dB(rows));
+        if any(rows)
+            bar_data(v, f) = mean(T.Mean_dSNR_dB(rows));
+        end
     end
 end
 

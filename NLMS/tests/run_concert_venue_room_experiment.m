@@ -133,7 +133,16 @@ noise_files.rock   = fullfile(dataset_dir, 'wav_16k', 'rock', 'rock_01_rock.0001
 
 genres = {'techno', 'jazz', 'rock'};
 snr_levels = [-20, -15, -10, -5, 0];
-filter_names = {'Unprocessed', 'FIR_BP', 'Parametric_Notch', 'Base_NLMS', 'Leaky_NLMS', 'Soft_VAD_Leaky'};
+filter_names = { ...
+    'Unprocessed', ...
+    'FIR_BP', ...
+    'Parametric_Notch', ...
+    'Base_NLMS', ...
+    'Soft_VAD_Leaky', ...
+    'Cascade_Notch_NLMS', ...
+    'Cascade_FIR_NLMS', ...
+    'Cascade_Hybrid_Optimal' ...
+};
 
 % 7. Initialize Results Files
 results_csv = fullfile(output_dir, 'room_experiment_results.csv');
@@ -183,9 +192,9 @@ for v_idx = 1:length(venue_keys)
         for snr_idx = 1:length(snr_levels)
             target_snr = snr_levels(snr_idx);
             
-            % Accumulator for summary [STOI, PESQ, ViSQOL, dSNR, dASL] across talkers for 6 filters
-            % Dimensions: 6 filters x 5 metrics
-            cond_metrics = zeros(6, 5);
+            % Accumulator for summary [STOI, PESQ, ViSQOL, dSNR, dASL] across talkers for all filters
+            % Dimensions: length(filter_names) x 5 metrics
+            cond_metrics = zeros(length(filter_names), 5);
             
             for s_idx = 1:length(speech_manifest)
                 spk = speech_manifest{s_idx};
@@ -208,8 +217,8 @@ for v_idx = 1:length(venue_keys)
                 % Primary mic: forward direct sound + early reflections
                 s1_rev = filter(h_s1, 1, clean_speech);
                 
-                % Reference mic: rear-facing, physical diffraction is already modeled in h_s2
-                s2_rev = filter(h_s2, 1, clean_speech);
+                % Reference mic: rear-facing, incorporates 12 dB head shadowing attenuation (0.25 linear factor)
+                s2_rev = 0.25 * filter(h_s2, 1, clean_speech);
                 
                 % Loop/slice music to match speech length
                 if length(music_mic1_full) < L
@@ -264,18 +273,30 @@ for v_idx = 1:length(venue_keys)
                 % Filter 4: Baseline Dual-Mic NLMS
                 [e{4}, ~] = nlms_filter(d, x, N_nlms, mu_nlms, eps_nlms);
                 
-                % Filter 5: Leaky NLMS (gamma = 0.999)
-                [e{5}, ~] = nlms_leaky_filter(d, x, N_nlms, mu_nlms, eps_nlms, gamma_leaky, zeros(L, 1));
-                
-                % Filter 6: Soft-VAD Leaky NLMS
+                % Filter 5: Soft-VAD Leaky NLMS
                 [~, vad_soft] = compute_robust_vad(d, x, fs, vad_prm);
-                [e{6}, ~] = nlms_leaky_filter(d, x, N_nlms, mu_nlms, eps_nlms, gamma_leaky, vad_soft);
+                [e{5}, ~] = nlms_leaky_filter(d, x, N_nlms, mu_nlms, eps_nlms, gamma_leaky, vad_soft);
+                
+                % Filter 6: Cascade Parametric Notch -> Soft-VAD Leaky NLMS (Firmware Mode A)
+                d_notch = sosfilt(sos_notch, d);
+                x_notch = sosfilt(sos_notch, x);
+                [~, vad_soft_notch] = compute_robust_vad(d_notch, x_notch, fs, vad_prm);
+                [e{6}, ~] = nlms_leaky_filter(d_notch, x_notch, N_nlms, mu_nlms, eps_nlms, gamma_leaky, vad_soft_notch);
+                
+                % Filter 7: Cascade Fixed FIR Bandpass -> Soft-VAD Leaky NLMS (Firmware Mode B)
+                d_fir = filter(b_fir, 1, d);
+                x_fir = filter(b_fir, 1, x);
+                [~, vad_soft_fir] = compute_robust_vad(d_fir, x_fir, fs, vad_prm);
+                [e{7}, ~] = nlms_leaky_filter(d_fir, x_fir, N_nlms, mu_nlms, eps_nlms, gamma_leaky, vad_soft_fir);
+                
+                % Filter 8: Optimal Hybrid Cascade (Notch Pre-Filter -> NLMS+VAD -> Notch Post-Filter)
+                e{8} = sosfilt(sos_notch, e{6});
                 
                 % ----------------- METRIC EVALUATION -----------------
                 snr_in_linear = mean(s_ref.^2) / (mean(n_ref.^2) + 1e-12);
                 snr_in_dB = 10 * log10(snr_in_linear + 1e-12);
                 
-                for f = 1:6
+                for f = 1:length(filter_names)
                     filt_name = filter_names{f};
                     out_sig = e{f};
                     
@@ -293,12 +314,9 @@ for v_idx = 1:length(venue_keys)
                     d_asl = asl_out - asl_d;
                     
                     % 5. Physical Delta SNR
-                    % For linear/adaptive output, estimate residual noise during inactive speech
                     noise_res = out_sig - s_ref;
                     snr_out_linear = mean(s_ref.^2) / (mean(noise_res.^2) + 1e-12);
                     d_snr = 10 * log10(snr_out_linear + 1e-12) - snr_in_dB;
-                    
-                    % Bounded delta SNR
                     d_snr = max(min(d_snr, 30.0), -10.0);
                     
                     % Accumulate
@@ -321,7 +339,9 @@ for v_idx = 1:length(venue_keys)
                     audiowrite(fullfile(sample_dir, [sub_prefix '_02_fir_bp.wav']), e{2} / max(abs(e{2})+1e-4) * 0.9, fs);
                     audiowrite(fullfile(sample_dir, [sub_prefix '_03_notch.wav']), e{3} / max(abs(e{3})+1e-4) * 0.9, fs);
                     audiowrite(fullfile(sample_dir, [sub_prefix '_04_base_nlms.wav']), e{4} / max(abs(e{4})+1e-4) * 0.9, fs);
-                    audiowrite(fullfile(sample_dir, [sub_prefix '_05_soft_vad_leaky.wav']), e{6} / max(abs(e{6})+1e-4) * 0.9, fs);
+                    audiowrite(fullfile(sample_dir, [sub_prefix '_05_soft_vad_leaky.wav']), e{5} / max(abs(e{5})+1e-4) * 0.9, fs);
+                    audiowrite(fullfile(sample_dir, [sub_prefix '_06_cascade_notch_nlms.wav']), e{6} / max(abs(e{6})+1e-4) * 0.9, fs);
+                    audiowrite(fullfile(sample_dir, [sub_prefix '_08_hybrid_optimal.wav']), e{8} / max(abs(e{8})+1e-4) * 0.9, fs);
                 end
             end
             
@@ -329,22 +349,19 @@ for v_idx = 1:length(venue_keys)
             cond_metrics = cond_metrics / length(speech_manifest);
             
             % Write to summary CSV and print to terminal
-            for f = 1:6
+            for f = 1:length(filter_names)
                 fprintf(fid_sum, '%s,%s,%d,%s,%.4f,%.3f,%.3f,%.2f,%.2f\n', ...
                     v_key, genre, target_snr, filter_names{f}, ...
                     cond_metrics(f, 1), cond_metrics(f, 2), cond_metrics(f, 3), cond_metrics(f, 4), cond_metrics(f, 5));
             end
             
-            fprintf('  [%s | %-6s | SNR: %3d dB]  STOI: Unproc=%.3f | FIR=%.3f | Notch=%.3f | Base=%.3f | Leaky=%.3f | SoftVAD=%.3f\n', ...
+            fprintf('  [%s | %-6s | SNR: %3d dB]  STOI: Unproc=%.3f | Notch=%.3f | SoftVAD=%.3f | Notch+NLMS=%.3f | Hybrid=%.3f\n', ...
                 v_key(1:min(4,length(v_key))), genre, target_snr, ...
-                cond_metrics(1, 1), cond_metrics(2, 1), cond_metrics(3, 1), ...
-                cond_metrics(4, 1), cond_metrics(5, 1), cond_metrics(6, 1));
-            fprintf('                               PESQ: Unproc=%.2f | FIR=%.2f | Notch=%.2f | Base=%.2f | Leaky=%.2f | SoftVAD=%.2f\n', ...
-                cond_metrics(1, 2), cond_metrics(2, 2), cond_metrics(3, 2), ...
-                cond_metrics(4, 2), cond_metrics(5, 2), cond_metrics(6, 2));
-            fprintf('                             ViSQOL: Unproc=%.2f | FIR=%.2f | Notch=%.2f | Base=%.2f | Leaky=%.2f | SoftVAD=%.2f\n', ...
-                cond_metrics(1, 3), cond_metrics(2, 3), cond_metrics(3, 3), ...
-                cond_metrics(4, 3), cond_metrics(5, 3), cond_metrics(6, 3));
+                cond_metrics(1, 1), cond_metrics(3, 1), cond_metrics(5, 1), cond_metrics(6, 1), cond_metrics(8, 1));
+            fprintf('                               PESQ: Unproc=%.2f | Notch=%.2f | SoftVAD=%.2f | Notch+NLMS=%.2f | Hybrid=%.2f\n', ...
+                cond_metrics(1, 2), cond_metrics(3, 2), cond_metrics(5, 2), cond_metrics(6, 2), cond_metrics(8, 2));
+            fprintf('                             ViSQOL: Unproc=%.2f | Notch=%.2f | SoftVAD=%.2f | Notch+NLMS=%.2f | Hybrid=%.2f\n', ...
+                cond_metrics(1, 3), cond_metrics(3, 3), cond_metrics(5, 3), cond_metrics(6, 3), cond_metrics(8, 3));
         end
     end
 end

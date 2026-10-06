@@ -18,8 +18,15 @@ end
 opts = detectImportOptions(summary_csv);
 T = readtable(summary_csv, opts);
 
-venues = {'club', 'arena', 'festival'};
-venue_titles = {'Nightclub (RT60 ~ 0.70s)', 'Concert Arena (RT60 ~ 1.40s)', 'Open-Air Festival (RT60 ~ 0.20s)'};
+if all(ismember({'freefield', 'damped'}, T.Venue))
+    venues = {'freefield', 'damped', 'festival', 'club', 'arena'};
+    venue_titles = {'Free-Field (RT60 ~ 0.0s)', 'Damped Shell (RT60 ~ 0.08s)', 'Festival (RT60 ~ 0.20s)', 'Nightclub (RT60 ~ 0.70s)', 'Concert Arena (RT60 ~ 1.40s)'};
+    fig_w = 1800;
+else
+    venues = {'club', 'arena', 'festival'};
+    venue_titles = {'Nightclub (RT60 ~ 0.70s)', 'Concert Arena (RT60 ~ 1.40s)', 'Open-Air Festival (RT60 ~ 0.20s)'};
+    fig_w = 1400;
+end
 snr_grid = unique(T.SNR_dB)';
 filters = { ...
     'Unprocessed', ...
@@ -58,11 +65,11 @@ line_styles = {':', '--', '-.', '-', '--', '-', '--', '-'};
 line_widths = [1.5, 1.5, 1.8, 1.8, 2.0, 2.2, 2.0, 2.8];
 
 fprintf('--> Plotting Figure 1: STOI Intelligibility across Venues...\n');
-fig1 = figure('Visible', 'off', 'Position', [100, 100, 1400, 480]);
+fig1 = figure('Visible', 'off', 'Position', [100, 100, fig_w, 480]);
 
 for v = 1:length(venues)
     v_key = venues{v};
-    subplot(1, 3, v);
+    subplot(1, length(venues), v);
     hold on; box on; grid on;
     
     for f = 1:length(filters)
@@ -95,11 +102,11 @@ saveas(fig1, fullfile(figures_dir, 'room_experiment_stoi_vs_snr.png'));
 close(fig1);
 
 fprintf('--> Plotting Figure 2: PESQ Speech Quality across Venues...\n');
-fig2 = figure('Visible', 'off', 'Position', [100, 100, 1400, 480]);
+fig2 = figure('Visible', 'off', 'Position', [100, 100, fig_w, 480]);
 
 for v = 1:length(venues)
     v_key = venues{v};
-    subplot(1, 3, v);
+    subplot(1, length(venues), v);
     hold on; box on; grid on;
     
     for f = 1:length(filters)
@@ -133,10 +140,10 @@ close(fig2);
 
 if ismember('Mean_ViSQOL', T.Properties.VariableNames)
     fprintf('--> Plotting Figure 2b: ViSQOL Speech Quality across Venues...\n');
-    fig2b = figure('Visible', 'off', 'Position', [100, 100, 1400, 480]);
+    fig2b = figure('Visible', 'off', 'Position', [100, 100, fig_w, 480]);
     for v = 1:length(venues)
         v_key = venues{v};
-        subplot(1, 3, v);
+        subplot(1, length(venues), v);
         hold on; box on; grid on;
         for f = 1:length(filters)
             f_name = filters{f};
@@ -188,7 +195,11 @@ b = bar(bar_data, 'grouped');
 for f = 1:length(active_filters)
     b(f).FaceColor = colors(f+1, :);
 end
-set(gca, 'XTickLabel', {'Nightclub (RT60=0.7s)', 'Concert Arena (RT60=1.4s)', 'Festival Stage (RT60=0.2s)'}, 'FontSize', 11);
+if length(venues) == 5
+    set(gca, 'XTickLabel', {'Free-Field (0.0s)', 'Damped (0.08s)', 'Festival (0.2s)', 'Club (0.7s)', 'Arena (1.4s)'}, 'FontSize', 10);
+else
+    set(gca, 'XTickLabel', {'Nightclub (RT60=0.7s)', 'Concert Arena (RT60=1.4s)', 'Festival Stage (RT60=0.2s)'}, 'FontSize', 11);
+end
 ylabel('Physical Noise Reduction \DeltaSNR (dB)', 'FontSize', 12);
 title('Broadband Noise Attenuation Depth (\DeltaSNR) in Severe High Noise (SNR = -15 dB)', 'FontSize', 13, 'FontWeight', 'bold');
 legend(active_labels, 'Location', 'northwest', 'FontSize', 10);

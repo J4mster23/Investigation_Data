@@ -42,25 +42,25 @@ filters_notch = ws.filters_notch;
 % 3. Venue Geometries (Report 09 specifications)
 venues = struct();
 
-% 3.1 Nightclub (Indoor, dense early reflections)
-venues.club.name = 'Nightclub';
-venues.club.dim  = [12.0, 15.0, 4.0];
-venues.club.rt60 = 0.70;
-venues.club.speech_pos = [6.0, 8.65, 1.6]; % Near-field talker (0.35m from Mic 1)
-venues.club.mic1_pos   = [6.0, 9.00, 1.6]; % Primary mic (front)
-venues.club.mic2_pos   = [6.0, 9.04, 1.6]; % Reference mic (rear, 4cm spacing)
-venues.club.pa_left    = [2.0, 1.00, 2.5]; % Stage PA Left
-venues.club.pa_right   = [10.0, 1.00, 2.5];% Stage PA Right
+% 3.1 Free-Field Stage (Zero reverb, direct sound propagation, acoustic upper bound)
+venues.freefield.name = 'Free-Field Stage';
+venues.freefield.dim  = [12.0, 15.0, 4.0];
+venues.freefield.rt60 = 0.00;
+venues.freefield.speech_pos = [6.0, 8.65, 1.6]; % Near-field talker (0.35m from Mic 1)
+venues.freefield.mic1_pos   = [6.0, 9.00, 1.6]; % Primary mic (front)
+venues.freefield.mic2_pos   = [6.0, 9.04, 1.6]; % Reference mic (rear, 4cm spacing)
+venues.freefield.pa_left    = [2.0, 1.00, 2.5]; % Stage PA Left
+venues.freefield.pa_right   = [10.0, 1.00, 2.5];% Stage PA Right
 
-% 3.2 Concert Arena (Cavernous hall, heavy diffuse reverberation)
-venues.arena.name = 'Concert Arena';
-venues.arena.dim  = [25.0, 30.0, 8.0];
-venues.arena.rt60 = 1.40;
-venues.arena.speech_pos = [12.5, 17.65, 1.6];
-venues.arena.mic1_pos   = [12.5, 18.00, 1.6];
-venues.arena.mic2_pos   = [12.5, 18.04, 1.6];
-venues.arena.pa_left    = [4.0, 2.00, 5.0];
-venues.arena.pa_right   = [21.0, 2.00, 5.0];
+% 3.2 Acoustically Damped Stage (Heavy absorption, treated vocal shell / booth)
+venues.damped.name = 'Damped Stage Shell';
+venues.damped.dim  = [12.0, 15.0, 4.0];
+venues.damped.rt60 = 0.08;
+venues.damped.speech_pos = [6.0, 8.65, 1.6];
+venues.damped.mic1_pos   = [6.0, 9.00, 1.6];
+venues.damped.mic2_pos   = [6.0, 9.04, 1.6];
+venues.damped.pa_left    = [2.0, 1.00, 2.5];
+venues.damped.pa_right   = [10.0, 1.00, 2.5];
 
 % 3.3 Open-Air Festival (Direct PA + ground reflection, low RT60)
 venues.festival.name = 'Open-Air Festival';
@@ -72,7 +72,27 @@ venues.festival.mic2_pos   = [20.0, 15.04, 1.6];
 venues.festival.pa_left    = [8.0, 3.00, 4.0];
 venues.festival.pa_right   = [32.0, 3.00, 4.0];
 
-venue_keys = {'club', 'arena', 'festival'};
+% 3.4 Nightclub (Indoor, dense early reflections)
+venues.club.name = 'Nightclub';
+venues.club.dim  = [12.0, 15.0, 4.0];
+venues.club.rt60 = 0.70;
+venues.club.speech_pos = [6.0, 8.65, 1.6];
+venues.club.mic1_pos   = [6.0, 9.00, 1.6];
+venues.club.mic2_pos   = [6.0, 9.04, 1.6];
+venues.club.pa_left    = [2.0, 1.00, 2.5];
+venues.club.pa_right   = [10.0, 1.00, 2.5];
+
+% 3.5 Concert Arena (Cavernous hall, heavy diffuse reverberation)
+venues.arena.name = 'Concert Arena';
+venues.arena.dim  = [25.0, 30.0, 8.0];
+venues.arena.rt60 = 1.40;
+venues.arena.speech_pos = [12.5, 17.65, 1.6];
+venues.arena.mic1_pos   = [12.5, 18.00, 1.6];
+venues.arena.mic2_pos   = [12.5, 18.04, 1.6];
+venues.arena.pa_left    = [4.0, 2.00, 5.0];
+venues.arena.pa_right   = [21.0, 2.00, 5.0];
+
+venue_keys = {'freefield', 'damped', 'festival', 'club', 'arena'};
 
 % 4. Precompute & Cache Multi-Path RIRs for Each Venue
 fprintf('--> Precomputing Image Source Method (ISM) Room Impulse Responses...\n');

@@ -159,7 +159,7 @@ def main():
         writer.writerows(comparison_records)
 
     # Write Summary comparison CSV
-    filter_order = ["primary_noisy", "fir_bp", "notch", "base_nlms", "soft_vad_leaky"]
+    filter_order = ["primary_noisy", "fir_bp", "notch", "base_nlms", "soft_vad_leaky", "cascade_notch_nlms", "hybrid_optimal"]
     sorted_keys = sorted(summary_map.keys(), key=lambda k: (k[0], k[1], filter_order.index(k[2]) if k[2] in filter_order else 99))
 
     summary_records = []

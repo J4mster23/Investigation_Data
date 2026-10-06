@@ -59,7 +59,9 @@ FILTER_MAP = {
     "fir_bp": "FIR_BP",
     "notch": "Parametric_Notch",
     "base_nlms": "Base_NLMS",
-    "soft_vad_leaky": "Soft_VAD_Leaky"
+    "soft_vad_leaky": "Soft_VAD_Leaky",
+    "cascade_notch_nlms": "Cascade_Notch_NLMS",
+    "hybrid_optimal": "Cascade_Hybrid_Optimal"
 }
 
 def clean_text(text):

@@ -22,3 +22,6 @@ dataset/test_stimuli/
 # Large speech corpora (not pushed to git)
 dataset/speech_corpus/
 dataset/raw_ius/
+
+# Scratch & local checkouts
+scratch/

@@ -80,7 +80,7 @@ noise_files.jazz   = fullfile(dataset_dir, 'wav_16k', 'jazz', 'jazz_01_jazz.0001
 noise_files.rock   = fullfile(dataset_dir, 'wav_16k', 'rock', 'rock_01_rock.00011.wav');
 
 genres = {'jazz', 'rock', 'techno'};
-snr_levels = [-20, -15, -10, -5, 0];
+snr_levels = [-15, -10, 0];
 
 manifest_file = fullfile(sample_dir, 'manifest.json');
 manifest_items = {};
@@ -115,7 +115,7 @@ for g_idx = 1:length(genres)
             L = length(clean_speech);
             
             s1_rev = filter(h_s1, 1, clean_speech);
-            s2_rev = filter(h_s2, 1, clean_speech);
+            s2_rev = 0.25 * filter(h_s2, 1, clean_speech); % 12 dB physical head shadow
             
             if length(music_mic1_full) < L
                 reps = ceil(L / length(music_mic1_full));
@@ -155,14 +155,23 @@ for g_idx = 1:length(genres)
             [~, vad_soft] = compute_robust_vad(d, x, fs, vad_prm);
             [e5, ~] = nlms_leaky_filter(d, x, N_nlms, mu_nlms, eps_nlms, gamma_leaky, vad_soft);
             
+            % 6. Cascade Notch -> NLMS+VAD (Firmware Pipeline A - Winner)
+            d_notch = sosfilt(sos_notch, d);
+            x_notch = sosfilt(sos_notch, x);
+            [~, vad_soft_notch] = compute_robust_vad(d_notch, x_notch, fs, vad_prm);
+            [e6, ~] = nlms_leaky_filter(d_notch, x_notch, N_nlms, mu_nlms, eps_nlms, gamma_leaky, vad_soft_notch);
+            
+            % 7. Optimal Hybrid Cascade (Pre-Notch -> NLMS+VAD -> Post-Notch)
+            e7 = sosfilt(sos_notch, e6);
+            
             % Normalize audio before writing
-            e_list = {e1, e2, e3, e4, e5};
-            suffix_list = {'01_primary_noisy.wav', '02_fir_bp.wav', '03_notch.wav', '04_base_nlms.wav', '05_soft_vad_leaky.wav'};
-            filter_labels = {'primary_noisy', 'fir_bp', 'notch', 'base_nlms', 'soft_vad_leaky'};
+            e_list = {e1, e2, e3, e4, e5, e6, e7};
+            suffix_list = {'01_primary_noisy.wav', '02_fir_bp.wav', '03_notch.wav', '04_base_nlms.wav', '05_soft_vad_leaky.wav', '06_cascade_notch_nlms.wav', '08_hybrid_optimal.wav'};
+            filter_labels = {'primary_noisy', 'fir_bp', 'notch', 'base_nlms', 'soft_vad_leaky', 'cascade_notch_nlms', 'hybrid_optimal'};
             
             base_fname = sprintf('club_%s_snr%d_%s', genre, target_snr, sent.id);
             
-            for k = 1:5
+            for k = 1:length(e_list)
                 out_wav = fullfile(sample_dir, [base_fname '_' suffix_list{k}]);
                 wav_sig = e_list{k};
                 max_p = max(abs(wav_sig));
@@ -171,8 +180,8 @@ for g_idx = 1:length(genres)
                 total_exported = total_exported + 1;
             end
             
-            fprintf('  Exported 5 audio files for [%s | %s | SNR %3d dB | %s]\n', ...
-                genre, sent.id, target_snr, sent.text);
+            fprintf('  Exported %d audio files for [%s | %s | SNR %3d dB | %s]\n', ...
+                length(e_list), genre, sent.id, target_snr, sent.text);
         end
     end
 end

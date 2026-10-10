@@ -1,0 +1,577 @@
+Venue,Genre,Song,SNR_dB,Speaker,Filter_Name,STOI,Delta_STOI,PESQ,SNR_out_dB,Delta_SNR_dB,Delta_ASL_dB,Whisper_Transcript,Whisper_WER,Whisper_Recall,Google_Transcript,Google_WER,Google_Recall
+Full_Outside,jazz,jazz1,-10,SP1,CONTROL,0.7278,-0.0141,1.2212,-14.08,1.85,-0.56,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,jazz,jazz1,-10,SP2,CONTROL,0.5665,-0.0023,1.2348,-14.23,1.47,0.52,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,jazz,jazz2,-10,SP1,CONTROL,0.6550,-0.0275,1.1344,-14.55,4.03,-3.46,"the bill was paid every thursday",28.57,71.43,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,jazz,jazz2,-10,SP2,CONTROL,0.5660,-0.0227,1.1680,-14.52,2.07,-0.63,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,rock,rock1,-10,SP1,CONTROL,0.6899,-0.0098,1.2692,-13.73,5.28,-4.56,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,rock,rock1,-10,SP2,CONTROL,0.5936,-0.0212,1.3983,-13.81,0.25,0.45,"the bill was paid every third week",0.00,100.00,"the girl was paid every third week",14.29,85.71
+Full_Outside,rock,rock2,-10,SP1,CONTROL,0.6882,-0.0326,1.1652,-14.04,0.93,-0.20,"the bill was paid every thursday",28.57,71.43,"burwood paid every third",57.14,42.86
+Full_Outside,rock,rock2,-10,SP2,CONTROL,0.5897,-0.0134,1.2161,-14.27,2.27,-1.18,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,techno,techno1,-10,SP1,CONTROL,0.6824,-0.0263,1.2589,-12.62,12.20,-10.33,"the bill was paid every thursday",28.57,71.43,"the bill was paid every third",14.29,85.71
+Full_Outside,techno,techno1,-10,SP2,CONTROL,0.6333,-0.0117,1.4052,-12.20,8.53,-5.65,"the bill was paid every third week",0.00,100.00,"the girl was paid every third week",14.29,85.71
+Full_Outside,techno,techno2,-10,SP1,CONTROL,0.8066,-0.0220,1.2821,-12.53,2.02,0.19,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,techno,techno2,-10,SP2,CONTROL,0.6544,-0.0024,1.5172,-12.02,4.50,-0.36,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,jazz,jazz1,-15,SP1,CONTROL,0.6409,-0.0093,1.1120,-16.50,1.56,-1.02,"you can go and pay every thursday",100.00,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,jazz,jazz1,-15,SP2,CONTROL,0.4825,-0.0117,1.1439,-17.10,10.97,-8.95,"the bill will take every third week",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,jazz,jazz2,-15,SP1,CONTROL,0.5776,-0.0028,1.0906,-17.32,4.23,-3.53,"the bill was paid every day",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,jazz,jazz2,-15,SP2,CONTROL,0.5019,-0.0220,1.1067,-17.48,6.52,-5.46,"the bill was paid every thursday",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,rock,rock1,-15,SP1,CONTROL,0.6016,-0.0028,1.1403,-15.46,0.62,0.51,"the bill was paid every thursday",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,rock,rock1,-15,SP2,CONTROL,0.5267,-0.0166,1.2623,-16.57,8.67,-7.46,"the bill was paid every thursday",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,rock,rock2,-15,SP1,CONTROL,0.5927,-0.0343,1.1110,-16.74,3.27,-2.92,"the goal is to save every person",85.71,28.57,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,rock,rock2,-15,SP2,CONTROL,0.5029,-0.0094,1.1492,-17.33,0.44,0.09,"the bill will pay every thursday",57.14,42.86,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,techno,techno1,-15,SP1,CONTROL,0.6052,-0.0043,1.1509,-13.45,4.42,-2.64,"the bill was paid every thursday",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,techno,techno1,-15,SP2,CONTROL,0.5524,-0.0078,1.2421,-13.27,11.24,-7.82,"the bill was paid every thursday",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,techno,techno2,-15,SP1,CONTROL,0.7516,-0.0062,1.1729,-13.10,3.41,-1.76,"the bill was paid every thursday",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,techno,techno2,-15,SP2,CONTROL,0.5859,-0.0053,1.3023,-12.90,1.92,0.80,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,jazz,jazz1,-20,SP1,CONTROL,0.5324,-0.0107,1.0695,-20.29,11.28,-9.77,"you roll your cake every thursday",85.71,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,jazz,jazz1,-20,SP2,CONTROL,0.4102,0.0011,1.0957,-21.40,9.57,-7.23,"until the end of every third week",57.14,57.14,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,jazz,jazz2,-20,SP1,CONTROL,0.5188,0.0045,1.1357,-20.90,2.80,-2.54,"[NO_SPEECH_DETECTED]",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,jazz,jazz2,-20,SP2,CONTROL,0.4524,-0.0108,1.0901,-21.80,3.59,-3.19,"i cant wait to meet everybody",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,rock,rock1,-20,SP1,CONTROL,0.5064,-0.0012,1.0884,-18.69,2.62,-1.21,"the day would fade every thursday",71.43,28.57,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,rock,rock1,-20,SP2,CONTROL,0.4572,-0.0170,1.1150,-20.75,0.84,0.05,"the girl with her is everything",85.71,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,rock,rock2,-20,SP1,CONTROL,0.5071,-0.0105,1.0884,-20.41,-0.44,0.61,"weve always saved every person",85.71,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,rock,rock2,-20,SP2,CONTROL,0.4340,0.0006,1.1095,-21.43,-1.19,1.32,"im sorry im sorry im sorry",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,techno,techno1,-20,SP1,CONTROL,0.5099,0.0019,1.0793,-15.56,3.04,-2.01,"the bill would save every person",57.14,42.86,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,techno,techno1,-20,SP2,CONTROL,0.4752,0.0024,1.1565,-15.35,1.94,0.12,"a girl with code every thursday",85.71,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,techno,techno2,-20,SP1,CONTROL,0.6735,0.0019,1.1147,-14.90,3.45,-1.98,"the bill was paid every 13",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,techno,techno2,-20,SP2,CONTROL,0.5052,-0.0009,1.2008,-14.85,5.11,-1.99,"the bill was paid every thursday",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,jazz,jazz1,0,SP1,CONTROL,0.8562,-0.0366,1.4880,-12.11,-0.66,2.48,"the bill was paid every third week",0.00,100.00,"did bill was paid every third",28.57,71.43
+Full_Outside,jazz,jazz1,0,SP2,CONTROL,0.6964,-0.0273,1.6070,-11.66,0.88,1.67,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Full_Outside,jazz,jazz2,0,SP1,CONTROL,0.7976,-0.0519,1.3468,-11.22,-1.11,2.42,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,jazz,jazz2,0,SP2,CONTROL,0.6690,-0.0382,1.5100,-10.53,2.80,0.78,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,rock,rock1,0,SP1,CONTROL,0.8236,-0.0166,1.5569,-11.45,0.49,1.70,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,rock,rock1,0,SP2,CONTROL,0.6837,-0.0312,1.8024,-10.70,0.51,2.43,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,rock,rock2,0,SP1,CONTROL,0.8130,-0.0328,1.3499,-10.29,0.08,1.29,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,rock,rock2,0,SP2,CONTROL,0.6949,-0.0042,1.4596,-9.51,1.08,0.77,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,techno,techno1,0,SP1,CONTROL,0.8087,-0.0366,1.5125,-10.36,0.44,1.84,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Full_Outside,techno,techno1,0,SP2,CONTROL,0.7249,-0.0207,1.7487,-9.23,-1.47,3.47,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Full_Outside,techno,techno2,0,SP1,CONTROL,0.8672,-0.0375,1.5911,-11.20,0.01,2.73,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,techno,techno2,0,SP2,CONTROL,0.7330,-0.0399,1.9453,-10.50,0.94,2.91,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,jazz,jazz1,-10,SP1,MIXED,0.8036,0.0616,1.1121,-8.92,7.01,-5.72,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,jazz,jazz1,-10,SP2,MIXED,0.5875,0.0187,1.0710,-15.37,0.34,1.01,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Full_Outside,jazz,jazz2,-10,SP1,MIXED,0.7538,0.0714,1.0659,-14.56,4.02,-2.67,"the bill was paid every month",28.57,71.43,"the bill was paid every month",28.57,71.43
+Full_Outside,jazz,jazz2,-10,SP2,MIXED,0.6355,0.0468,1.1001,-6.34,10.25,-7.65,"the bill was paid every third week",0.00,100.00,"the film was paid every third week",14.29,85.71
+Full_Outside,rock,rock1,-10,SP1,MIXED,0.7754,0.0757,1.1254,-6.30,12.71,-11.18,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,rock,rock1,-10,SP2,MIXED,0.5288,-0.0859,1.0354,-11.66,2.39,-1.51,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,rock,rock2,-10,SP1,MIXED,0.7287,0.0079,1.0912,-9.16,5.81,-5.17,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Full_Outside,rock,rock2,-10,SP2,MIXED,0.6115,0.0085,1.0755,-9.33,7.21,-5.47,"the bill was paid every third week",0.00,100.00,"the film was paid every third week",14.29,85.71
+Full_Outside,techno,techno1,-10,SP1,MIXED,0.7427,0.0340,1.0597,-7.09,17.72,-16.57,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Full_Outside,techno,techno1,-10,SP2,MIXED,0.6100,-0.0350,1.0627,-8.65,12.08,-10.02,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Full_Outside,techno,techno2,-10,SP1,MIXED,0.7508,-0.0778,1.0401,-12.33,2.23,-0.90,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,techno,techno2,-10,SP2,MIXED,0.6012,-0.0555,1.0764,-8.78,7.74,-4.66,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,jazz,jazz1,-15,SP1,MIXED,0.7586,0.1083,1.0583,-12.59,5.47,-4.45,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,jazz,jazz1,-15,SP2,MIXED,0.5824,0.0882,1.0482,-14.44,13.64,-12.05,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,jazz,jazz2,-15,SP1,MIXED,0.7382,0.1578,1.0831,-13.53,8.02,-5.95,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,jazz,jazz2,-15,SP2,MIXED,0.5600,0.0361,1.0396,-12.99,11.01,-9.78,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,rock,rock1,-15,SP1,MIXED,0.7521,0.1477,1.0608,-11.98,4.10,-1.95,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,rock,rock1,-15,SP2,MIXED,0.6095,0.0662,1.0795,-11.24,14.00,-12.15,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,rock,rock2,-15,SP1,MIXED,0.7181,0.0911,1.0672,-14.41,5.60,-4.71,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,rock,rock2,-15,SP2,MIXED,0.5859,0.0736,1.0374,-14.34,3.43,-1.50,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,techno,techno1,-15,SP1,MIXED,0.7374,0.1279,1.0560,-8.05,9.82,-7.82,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,techno,techno1,-15,SP2,MIXED,0.5787,0.0185,1.0471,-9.73,14.77,-12.30,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,techno,techno2,-15,SP1,MIXED,0.6837,-0.0741,1.0346,-13.45,3.06,1.01,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,techno,techno2,-15,SP2,MIXED,0.6126,0.0214,1.0435,-15.44,-0.61,0.91,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,jazz,jazz1,-20,SP1,MIXED,0.6046,0.0616,1.0301,-13.25,18.32,-14.84,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,jazz,jazz1,-20,SP2,MIXED,0.5309,0.1218,1.0524,-14.40,16.57,-15.35,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,jazz,jazz2,-20,SP1,MIXED,0.6636,0.1493,1.0567,-13.19,10.50,-9.49,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,jazz,jazz2,-20,SP2,MIXED,0.5473,0.0841,1.0721,-10.29,15.10,-14.10,"the bill was paid every third year",14.29,85.71,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,rock,rock1,-20,SP1,MIXED,0.7105,0.2029,1.0620,-13.49,7.83,-6.80,"the bill was paid every thursday",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,rock,rock1,-20,SP2,MIXED,0.4889,0.0147,1.0261,-18.69,2.90,-1.30,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,rock,rock2,-20,SP1,MIXED,0.6278,0.1101,1.0383,-23.40,-3.43,7.16,"the only thing every court needs",71.43,28.57,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,rock,rock2,-20,SP2,MIXED,0.4793,0.0459,1.0232,-17.50,2.74,0.97,"the bill will pay every 30000",57.14,42.86,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,techno,techno1,-20,SP1,MIXED,0.6339,0.1258,1.0315,-11.28,7.32,-6.31,"the bill was paid every 4 weeks",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,techno,techno1,-20,SP2,MIXED,0.4877,0.0149,1.0302,-11.80,5.49,-2.88,"the bill will pay every third week",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,techno,techno2,-20,SP1,MIXED,0.6537,-0.0180,1.0263,-13.66,4.69,-3.09,"the bill was paid every thursday",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,techno,techno2,-20,SP2,MIXED,0.5581,0.0520,1.0324,-20.44,-0.49,2.91,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,jazz,jazz1,0,SP1,MIXED,0.8025,-0.0903,1.1447,-5.19,6.26,-5.03,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Full_Outside,jazz,jazz1,0,SP2,MIXED,0.5866,-0.1371,1.0360,-13.71,-1.17,2.04,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,jazz,jazz2,0,SP1,MIXED,0.7755,-0.0740,1.0999,-6.11,4.00,-3.60,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Full_Outside,jazz,jazz2,0,SP2,MIXED,0.6249,-0.0822,1.1341,-8.61,4.72,-1.26,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,rock,rock1,0,SP1,MIXED,0.7365,-0.1036,1.0826,-7.27,4.67,-2.76,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,rock,rock1,0,SP2,MIXED,0.6132,-0.1017,1.0840,-6.14,5.07,-1.47,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,rock,rock2,0,SP1,MIXED,0.6896,-0.1563,1.1065,-1.78,8.60,-11.61,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,rock,rock2,0,SP2,MIXED,0.6225,-0.0766,1.0762,-5.55,5.03,-2.59,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,techno,techno1,0,SP1,MIXED,0.6686,-0.1767,1.0657,-3.44,7.36,-7.80,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,techno,techno1,0,SP2,MIXED,0.5961,-0.1495,1.0944,-4.47,3.29,-2.42,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,techno,techno2,0,SP1,MIXED,0.7411,-0.1636,1.1060,-5.50,5.71,-3.45,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,techno,techno2,0,SP2,MIXED,0.6202,-0.1527,1.1490,-2.15,9.29,-7.47,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,jazz,jazz1,-10,SP1,OPTIMAL,0.8542,0.1122,1.2262,-15.88,0.06,2.03,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Full_Outside,jazz,jazz1,-10,SP2,OPTIMAL,0.6630,0.0943,1.1144,-14.23,1.47,1.25,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Full_Outside,jazz,jazz2,-10,SP1,OPTIMAL,0.7998,0.1173,1.2505,-12.03,6.56,-5.71,"the bill was paid every third week",0.00,100.00,"did bill was paid every third",28.57,71.43
+Full_Outside,jazz,jazz2,-10,SP2,OPTIMAL,0.6496,0.0610,1.1972,-11.26,5.34,-3.06,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Full_Outside,rock,rock1,-10,SP1,OPTIMAL,0.7664,0.0667,1.1170,-14.64,4.37,-5.38,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,rock,rock1,-10,SP2,OPTIMAL,0.6408,0.0260,1.0937,-14.01,0.04,0.47,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,rock,rock2,-10,SP1,OPTIMAL,0.7613,0.0405,1.0894,-13.74,1.23,-0.38,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Full_Outside,rock,rock2,-10,SP2,OPTIMAL,0.6376,0.0345,1.1248,-15.17,1.37,0.13,"the bill was paid every third week",0.00,100.00,"the bill was paint every third week",14.29,85.71
+Full_Outside,techno,techno1,-10,SP1,OPTIMAL,0.8270,0.1183,1.2004,-12.29,12.52,-10.27,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Full_Outside,techno,techno1,-10,SP2,OPTIMAL,0.6215,-0.0234,1.1546,-15.09,5.63,-4.67,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Full_Outside,techno,techno2,-10,SP1,OPTIMAL,0.8093,-0.0193,1.1009,-10.79,3.76,-2.30,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Full_Outside,techno,techno2,-10,SP2,OPTIMAL,0.7504,0.0936,1.2608,-11.46,5.06,-1.20,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Full_Outside,jazz,jazz1,-15,SP1,OPTIMAL,0.7176,0.0674,1.0408,-20.51,-2.45,8.14,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,jazz,jazz1,-15,SP2,OPTIMAL,0.6092,0.1150,1.0894,-14.68,13.39,-11.33,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,jazz,jazz2,-15,SP1,OPTIMAL,0.6770,0.0966,1.0548,-11.26,10.29,-9.38,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,jazz,jazz2,-15,SP2,OPTIMAL,0.5754,0.0515,1.0311,-20.86,3.14,-0.63,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,rock,rock1,-15,SP1,OPTIMAL,0.7299,0.1256,1.0617,-16.49,-0.41,1.95,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,rock,rock1,-15,SP2,OPTIMAL,0.6115,0.0683,1.0788,-14.78,10.46,-9.02,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,rock,rock2,-15,SP1,OPTIMAL,0.7252,0.0982,1.1275,-12.58,7.43,-6.45,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,rock,rock2,-15,SP2,OPTIMAL,0.6354,0.1231,1.1350,-13.78,3.99,-2.38,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,techno,techno1,-15,SP1,OPTIMAL,0.7815,0.1719,1.0337,-16.47,1.40,0.59,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,techno,techno1,-15,SP2,OPTIMAL,0.6092,0.0491,1.0596,-18.70,5.80,-3.44,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,techno,techno2,-15,SP1,OPTIMAL,0.7751,0.0172,1.0383,-18.86,-2.35,4.65,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,techno,techno2,-15,SP2,OPTIMAL,0.5755,-0.0158,1.0317,-19.01,-4.18,4.26,"the bill was paid every thursday",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,jazz,jazz1,-20,SP1,OPTIMAL,0.3363,-0.2068,1.0201,-29.68,1.89,-1.49,"the grill has changed",85.71,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,jazz,jazz1,-20,SP2,OPTIMAL,0.4855,0.0763,1.0531,-22.49,8.47,-5.82,"and the bill will change every third week",42.86,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,jazz,jazz2,-20,SP1,OPTIMAL,0.6111,0.0968,1.0543,-18.44,5.25,-5.77,"the bill was paid every month",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,jazz,jazz2,-20,SP2,OPTIMAL,0.5159,0.0527,1.0328,-23.18,2.22,-0.91,"the bill was paid every thursday",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,rock,rock1,-20,SP1,OPTIMAL,0.2692,-0.2384,1.0224,-29.42,-8.11,15.01,"the bill would pay every",57.14,42.86,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,rock,rock1,-20,SP2,OPTIMAL,0.4385,-0.0357,1.0243,-19.62,1.98,-0.01,"the bill was made every third week",14.29,85.71,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,rock,rock2,-20,SP1,OPTIMAL,0.5788,0.0612,1.0370,-23.90,-3.93,5.55,"no one stays every third week",57.14,42.86,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,rock,rock2,-20,SP2,OPTIMAL,0.4972,0.0637,1.0571,-18.67,1.56,-0.33,"the bill will make every third week",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,techno,techno1,-20,SP1,OPTIMAL,0.6255,0.1174,1.0287,-15.05,3.54,-1.66,"the bill was paid every thursday",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,techno,techno1,-20,SP2,OPTIMAL,0.5105,0.0377,1.0254,-21.64,-4.35,5.98,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,techno,techno2,-20,SP1,OPTIMAL,0.3363,-0.3354,1.0380,-24.74,-6.39,10.83,"paid every third week",42.86,57.14,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,techno,techno2,-20,SP2,OPTIMAL,0.3559,-0.1502,1.0242,-12.88,7.07,-7.29,"pay every 30",85.71,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,jazz,jazz1,0,SP1,OPTIMAL,0.8832,-0.0097,1.3193,-10.65,0.80,1.37,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Full_Outside,jazz,jazz1,0,SP2,OPTIMAL,0.3180,-0.4057,1.3683,-5.16,7.37,-9.48,"was paid every third week",28.57,71.43,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,jazz,jazz2,0,SP1,OPTIMAL,0.7902,-0.0593,1.3005,-5.21,4.91,-3.92,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Full_Outside,jazz,jazz2,0,SP2,OPTIMAL,0.7088,0.0017,1.4759,-10.02,3.31,0.82,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Full_Outside,rock,rock1,0,SP1,OPTIMAL,0.7873,-0.0529,1.2366,-9.56,2.38,1.06,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,rock,rock1,0,SP2,OPTIMAL,0.7378,0.0229,1.5815,-10.24,0.98,2.43,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Full_Outside,rock,rock2,0,SP1,OPTIMAL,0.8968,0.0509,1.7114,-10.02,0.36,1.19,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Full_Outside,rock,rock2,0,SP2,OPTIMAL,0.7651,0.0660,1.4797,-9.80,0.79,1.83,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Full_Outside,techno,techno1,0,SP1,OPTIMAL,0.8571,0.0119,1.3179,-8.62,2.18,-0.26,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Full_Outside,techno,techno1,0,SP2,OPTIMAL,0.7055,-0.0401,1.1743,-13.41,-5.65,5.45,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Full_Outside,techno,techno2,0,SP1,OPTIMAL,0.8366,-0.0681,1.2060,-12.77,-1.56,3.52,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Full_Outside,techno,techno2,0,SP2,OPTIMAL,0.7360,-0.0370,1.2710,-8.90,2.54,0.64,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Full_Outside,jazz,jazz1,-10,SP1,PASSTHROUGH,0.7419,0.0000,1.0853,-15.93,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Full_Outside,jazz,jazz1,-10,SP2,PASSTHROUGH,0.5688,0.0000,1.0733,-15.70,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Full_Outside,jazz,jazz2,-10,SP1,PASSTHROUGH,0.6825,0.0000,1.0793,-18.58,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Full_Outside,jazz,jazz2,-10,SP2,PASSTHROUGH,0.5886,0.0000,1.0999,-16.59,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the girl was paid every third week",14.29,85.71
+Full_Outside,rock,rock1,-10,SP1,PASSTHROUGH,0.6997,0.0000,1.0545,-19.01,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Full_Outside,rock,rock1,-10,SP2,PASSTHROUGH,0.6147,0.0000,1.0762,-14.05,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Full_Outside,rock,rock2,-10,SP1,PASSTHROUGH,0.7208,0.0000,1.0689,-14.97,0.00,0.00,"the bill was paid every third week",0.00,100.00,"girl was paid every third",42.86,57.14
+Full_Outside,rock,rock2,-10,SP2,PASSTHROUGH,0.6030,0.0000,1.0648,-16.54,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Full_Outside,techno,techno1,-10,SP1,PASSTHROUGH,0.7087,0.0000,1.0538,-24.82,0.00,0.00,"the bill was paid every thursday",28.57,71.43,"the bill was paid every third",14.29,85.71
+Full_Outside,techno,techno1,-10,SP2,PASSTHROUGH,0.6450,0.0000,1.0749,-20.73,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Full_Outside,techno,techno2,-10,SP1,PASSTHROUGH,0.8286,0.0000,1.0523,-14.55,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Full_Outside,techno,techno2,-10,SP2,PASSTHROUGH,0.6567,0.0000,1.0777,-16.52,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the girl was paid every third week",14.29,85.71
+Full_Outside,jazz,jazz1,-15,SP1,PASSTHROUGH,0.6502,0.0000,1.0500,-18.06,0.00,0.00,"the drill is paid every third week",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,jazz,jazz1,-15,SP2,PASSTHROUGH,0.4942,0.0000,1.0463,-28.07,0.00,0.00,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,jazz,jazz2,-15,SP1,PASSTHROUGH,0.5804,0.0000,1.0514,-21.55,0.00,0.00,"the bill was paid every month",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,jazz,jazz2,-15,SP2,PASSTHROUGH,0.5239,0.0000,1.0662,-24.00,0.00,0.00,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,rock,rock1,-15,SP1,PASSTHROUGH,0.6043,0.0000,1.0365,-16.08,0.00,0.00,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,rock,rock1,-15,SP2,PASSTHROUGH,0.5432,0.0000,1.0462,-25.24,0.00,0.00,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,rock,rock2,-15,SP1,PASSTHROUGH,0.6270,0.0000,1.0474,-20.01,0.00,0.00,"youve always paid every penny",71.43,28.57,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,rock,rock2,-15,SP2,PASSTHROUGH,0.5123,0.0000,1.0451,-17.77,0.00,0.00,"the bill was paid every thursday",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,techno,techno1,-15,SP1,PASSTHROUGH,0.6096,0.0000,1.0329,-17.87,0.00,0.00,"the bill was paid every thursday",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,techno,techno1,-15,SP2,PASSTHROUGH,0.5602,0.0000,1.0467,-24.50,0.00,0.00,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,techno,techno2,-15,SP1,PASSTHROUGH,0.7579,0.0000,1.0354,-16.51,0.00,0.00,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,techno,techno2,-15,SP2,PASSTHROUGH,0.5913,0.0000,1.0471,-14.82,0.00,0.00,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,jazz,jazz1,-20,SP1,PASSTHROUGH,0.5431,0.0000,1.0314,-31.57,0.00,0.00,"you almost made everything",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,jazz,jazz1,-20,SP2,PASSTHROUGH,0.4091,0.0000,1.0383,-30.96,0.00,0.00,"until we meet every third week",57.14,42.86,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,jazz,jazz2,-20,SP1,PASSTHROUGH,0.5143,0.0000,1.0876,-23.69,0.00,0.00,"you always play every night",85.71,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,jazz,jazz2,-20,SP2,PASSTHROUGH,0.4632,0.0000,1.0534,-25.39,0.00,0.00,"but there was pain every now and then",85.71,28.57,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,rock,rock1,-20,SP1,PASSTHROUGH,0.5076,0.0000,1.0286,-21.32,0.00,0.00,"they would fade every third week",57.14,42.86,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,rock,rock1,-20,SP2,PASSTHROUGH,0.4742,0.0000,1.0480,-21.59,0.00,0.00,"i said youre with me every day",100.00,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,rock,rock2,-20,SP1,PASSTHROUGH,0.5176,0.0000,1.0357,-19.96,0.00,0.00,"its always been every day",85.71,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,rock,rock2,-20,SP2,PASSTHROUGH,0.4334,0.0000,1.0385,-20.24,0.00,0.00,"im gonna blow this thing up this way",114.29,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,techno,techno1,-20,SP1,PASSTHROUGH,0.5080,0.0000,1.0239,-18.59,0.00,0.00,"the bill was paid every thursday",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,techno,techno1,-20,SP2,PASSTHROUGH,0.4728,0.0000,1.0323,-17.29,0.00,0.00,"the bill would hold every 30 minutes",57.14,42.86,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,techno,techno2,-20,SP1,PASSTHROUGH,0.6717,0.0000,1.0266,-18.35,0.00,0.00,"the drill was paid every 13",42.86,57.14,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,techno,techno2,-20,SP2,PASSTHROUGH,0.5061,0.0000,1.0311,-19.95,0.00,0.00,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Full_Outside,jazz,jazz1,0,SP1,PASSTHROUGH,0.8929,0.0000,1.2883,-11.45,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Full_Outside,jazz,jazz1,0,SP2,PASSTHROUGH,0.7237,0.0000,1.2695,-12.54,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Full_Outside,jazz,jazz2,0,SP1,PASSTHROUGH,0.8495,0.0000,1.2532,-10.11,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Full_Outside,jazz,jazz2,0,SP2,PASSTHROUGH,0.7072,0.0000,1.3407,-13.33,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Full_Outside,rock,rock1,0,SP1,PASSTHROUGH,0.8402,0.0000,1.2051,-11.94,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Full_Outside,rock,rock1,0,SP2,PASSTHROUGH,0.7149,0.0000,1.2620,-11.21,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Full_Outside,rock,rock2,0,SP1,PASSTHROUGH,0.8459,0.0000,1.1679,-10.37,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Full_Outside,rock,rock2,0,SP2,PASSTHROUGH,0.6991,0.0000,1.1688,-10.59,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Full_Outside,techno,techno1,0,SP1,PASSTHROUGH,0.8453,0.0000,1.1394,-10.80,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Full_Outside,techno,techno1,0,SP2,PASSTHROUGH,0.7456,0.0000,1.2037,-7.76,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Full_Outside,techno,techno2,0,SP1,PASSTHROUGH,0.9047,0.0000,1.1848,-11.21,0.00,0.00,"the bill was paid every third week",0.00,100.00,"did bill was paid every third",28.57,71.43
+Full_Outside,techno,techno2,0,SP2,PASSTHROUGH,0.7729,0.0000,1.2845,-11.44,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Inside,jazz,jazz1,-10,SP1,CONTROL,0.6611,-0.0185,1.1692,-15.57,0.33,0.05,"the bill was paid every thursday",28.57,71.43,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,jazz,jazz1,-10,SP2,CONTROL,0.5121,-0.0165,1.1326,-16.27,0.19,0.24,"the bill will pay every third week",28.57,71.43,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,jazz,jazz2,-10,SP1,CONTROL,0.5855,0.0046,1.0926,-15.61,2.09,-1.82,"the bill was paid every day",28.57,71.43,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,jazz,jazz2,-10,SP2,CONTROL,0.5158,-0.0182,1.1089,-16.19,2.10,-1.47,"the bill will pay every third fee",42.86,57.14,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,rock,rock1,-10,SP1,CONTROL,0.6168,-0.0109,1.2100,-14.37,1.29,-1.24,"the bill was paid every thursday",28.57,71.43,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,rock,rock1,-10,SP2,CONTROL,0.5433,-0.0212,1.2406,-15.23,1.65,-1.02,"the bill would take every third",42.86,57.14,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,rock,rock2,-10,SP1,CONTROL,0.6307,-0.0248,1.1403,-15.32,0.78,-0.48,"the bill was paid every day to",28.57,71.43,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,rock,rock2,-10,SP2,CONTROL,0.5168,-0.0134,1.1428,-15.99,0.98,-0.77,"the bill will pay every third week",28.57,71.43,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,techno,techno1,-10,SP1,CONTROL,0.6638,-0.0020,1.2176,-12.84,1.79,-0.82,"the bill was paid every thursday",28.57,71.43,"girl with paid every third",57.14,42.86
+Inside,techno,techno1,-10,SP2,CONTROL,0.5896,-0.0094,1.2845,-12.91,1.56,0.56,"the bill was paid every third week",0.00,100.00,"the girl with paid every third week",28.57,71.43
+Inside,techno,techno2,-10,SP1,CONTROL,0.7630,-0.0029,1.2382,-12.75,0.65,-0.28,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,techno,techno2,-10,SP2,CONTROL,0.6085,-0.0072,1.4050,-12.69,0.28,0.99,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,jazz,jazz1,-15,SP1,CONTROL,0.5615,-0.0055,1.1115,-18.84,0.37,0.07,"we always hate every person",85.71,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,jazz,jazz1,-15,SP2,CONTROL,0.4237,-0.0245,1.1067,-19.88,0.40,0.12,"until we make every third week",57.14,42.86,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,jazz,jazz2,-15,SP1,CONTROL,0.5132,0.0091,1.1381,-18.93,2.80,-2.70,"we always say everything",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,jazz,jazz2,-15,SP2,CONTROL,0.4488,-0.0115,1.0739,-19.83,2.79,-2.40,"[NO_SPEECH_DETECTED]",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,rock,rock1,-15,SP1,CONTROL,0.5222,-0.0063,1.0662,-17.02,2.04,-1.86,"the bill was paid every thursday",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,rock,rock1,-15,SP2,CONTROL,0.4730,-0.0218,1.1528,-18.10,2.84,-2.59,"the bill will change every third day",42.86,57.14,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,rock,rock2,-15,SP1,CONTROL,0.5344,-0.0264,1.0930,-18.69,1.22,-1.18,"i will always be there for you",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,rock,rock2,-15,SP2,CONTROL,0.4350,-0.0101,1.1248,-19.61,1.39,-1.30,"[NO_SPEECH_DETECTED]",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,techno,techno1,-15,SP1,CONTROL,0.5678,-0.0035,1.1070,-13.99,3.47,-2.77,"the show was paid every thursday",42.86,57.14,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,techno,techno1,-15,SP2,CONTROL,0.5135,-0.0013,1.1469,-14.27,3.45,-2.01,"the bill will change every thursday",57.14,42.86,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,techno,techno2,-15,SP1,CONTROL,0.6998,0.0016,1.1368,-13.72,1.34,-0.89,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,techno,techno2,-15,SP2,CONTROL,0.5443,-0.0047,1.2314,-13.71,1.31,-0.59,"the bill would pay every 30",57.14,42.86,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,jazz,jazz1,-20,SP1,CONTROL,0.4828,-0.0011,1.1101,-23.11,0.57,-0.03,"[NO_SPEECH_DETECTED]",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,jazz,jazz1,-20,SP2,CONTROL,0.3550,-0.0166,1.0880,-24.13,0.87,-0.32,"[NO_SPEECH_DETECTED]",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,jazz,jazz2,-20,SP1,CONTROL,0.4527,0.0106,3.8504,-23.45,2.84,-2.70,"you",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,jazz,jazz2,-20,SP2,CONTROL,0.3867,-0.0151,1.0654,-24.32,3.03,-2.77,"you",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,rock,rock1,-20,SP1,CONTROL,0.4297,-0.0023,1.0557,-20.84,2.73,-2.26,"no money everybody",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,rock,rock1,-20,SP2,CONTROL,0.4017,-0.0185,1.0894,-22.32,3.15,-2.92,"i know what you get every day",100.00,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,rock,rock2,-20,SP1,CONTROL,0.4803,-0.0098,1.0736,-23.02,1.30,-1.36,"you",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,rock,rock2,-20,SP2,CONTROL,0.3671,-0.0054,1.0977,-24.07,1.89,-1.89,"[NO_SPEECH_DETECTED]",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,techno,techno1,-20,SP1,CONTROL,0.4729,-0.0031,1.0564,-16.35,5.16,-4.34,"we know whats going on in this country",114.29,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,techno,techno1,-20,SP2,CONTROL,0.4427,0.0031,1.0905,-16.82,5.08,-3.52,"the girl with her head is married to a woman",128.57,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,techno,techno2,-20,SP1,CONTROL,0.6191,0.0075,1.0866,-15.93,2.30,-2.02,"dont go with state every thursday",85.71,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,techno,techno2,-20,SP2,CONTROL,0.4743,-0.0008,1.1240,-15.95,2.57,-1.84,"the bill was paid every thursday",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,jazz,jazz1,0,SP1,CONTROL,0.8218,-0.0342,1.4523,-12.52,0.11,0.72,"the bill was paid every third week",0.00,100.00,"did bill was paid every third",28.57,71.43
+Inside,jazz,jazz1,0,SP2,CONTROL,0.6544,-0.0237,1.4410,-12.81,-0.38,1.14,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,jazz,jazz2,0,SP1,CONTROL,0.7470,-0.0258,1.2954,-12.61,0.22,0.55,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,jazz,jazz2,0,SP2,CONTROL,0.6224,-0.0280,1.3677,-12.58,0.18,1.18,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,rock,rock1,0,SP1,CONTROL,0.7906,-0.0172,1.4715,-12.25,0.28,0.52,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,rock,rock1,0,SP2,CONTROL,0.6493,-0.0225,1.5612,-12.31,0.19,1.28,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,rock,rock2,0,SP1,CONTROL,0.7898,-0.0290,1.3200,-12.39,-0.16,0.87,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,rock,rock2,0,SP2,CONTROL,0.6579,-0.0048,1.3509,-10.90,0.12,0.50,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,techno,techno1,0,SP1,CONTROL,0.7957,-0.0152,1.4664,-11.71,0.24,0.66,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Inside,techno,techno1,0,SP2,CONTROL,0.7012,-0.0138,1.6740,-10.95,0.85,0.69,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Inside,techno,techno2,0,SP1,CONTROL,0.8392,-0.0229,1.5391,-12.10,0.09,0.71,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,techno,techno2,0,SP2,CONTROL,0.7093,-0.0203,1.7368,-12.06,-0.68,1.47,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,jazz,jazz1,-10,SP1,MIXED,0.6901,0.0105,1.0890,-10.70,5.19,-4.83,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,jazz,jazz1,-10,SP2,MIXED,0.5289,0.0003,1.0587,-13.11,3.36,-2.90,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,jazz,jazz2,-10,SP1,MIXED,0.5898,0.0089,1.0698,-10.87,6.82,-6.33,"the bill always paid everything",57.14,42.86,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,jazz,jazz2,-10,SP2,MIXED,0.5162,-0.0179,1.0541,-12.63,5.66,-5.17,"the bill was paid every saturday",28.57,71.43,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,rock,rock1,-10,SP1,MIXED,0.6027,-0.0250,1.0642,-12.70,2.95,-2.82,"the bill was paid every third week",0.00,100.00,"builders paid every third",57.14,42.86
+Inside,rock,rock1,-10,SP2,MIXED,0.5438,-0.0206,1.0545,-11.43,5.45,-5.23,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,rock,rock2,-10,SP1,MIXED,0.6352,-0.0203,1.0670,-10.61,5.49,-5.26,"the bill was paid every thursday",28.57,71.43,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,rock,rock2,-10,SP2,MIXED,0.5546,0.0244,1.0624,-13.43,3.53,-3.38,"the film is paid every third week",28.57,71.43,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,techno,techno1,-10,SP1,MIXED,0.6467,-0.0190,1.0356,-9.17,5.46,-5.04,"the bill was paid every thursday",28.57,71.43,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,techno,techno1,-10,SP2,MIXED,0.5552,-0.0438,1.0453,-7.98,6.49,-5.79,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,techno,techno2,-10,SP1,MIXED,0.6631,-0.1028,1.0361,-11.69,1.71,-1.18,"the bill was paid every sunday",28.57,71.43,"the film was paid every third",28.57,71.43
+Inside,techno,techno2,-10,SP2,MIXED,0.5418,-0.0739,1.0457,-11.60,1.36,-1.45,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,jazz,jazz1,-15,SP1,MIXED,0.6151,0.0482,1.0684,-13.38,5.83,-5.71,"bill was paid every thursday",42.86,57.14,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,jazz,jazz1,-15,SP2,MIXED,0.4892,0.0410,1.0523,-14.03,6.25,-5.67,"the bill was made every third week",14.29,85.71,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,jazz,jazz2,-15,SP1,MIXED,0.5158,0.0117,1.0404,-14.26,7.47,-7.13,"we always paint everything",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,jazz,jazz2,-15,SP2,MIXED,0.4509,-0.0094,1.0486,-13.33,9.29,-8.97,"the film is spinning every time",71.43,28.57,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,rock,rock1,-15,SP1,MIXED,0.5664,0.0379,1.0474,-16.25,2.80,-2.64,"the bill was made every three weeks",42.86,57.14,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,rock,rock1,-15,SP2,MIXED,0.5000,0.0052,1.0547,-14.71,6.23,-5.97,"the bill was made every third",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,rock,rock2,-15,SP1,MIXED,0.5722,0.0114,1.0499,-13.25,6.65,-6.58,"that will escape at a certain point",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,rock,rock2,-15,SP2,MIXED,0.5127,0.0675,1.0661,-17.17,3.84,-3.49,"the film is playing every time",71.43,28.57,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,techno,techno1,-15,SP1,MIXED,0.5984,0.0271,1.0292,-11.96,5.51,-4.99,"the bill was paid every time",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,techno,techno1,-15,SP2,MIXED,0.5105,-0.0043,1.0408,-13.38,4.33,-3.38,"the bill will take every third week",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,techno,techno2,-15,SP1,MIXED,0.6506,-0.0477,1.0292,-11.79,3.27,-3.02,"the bill was paid every time",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,techno,techno2,-15,SP2,MIXED,0.4813,-0.0677,1.0402,-11.78,3.23,-3.80,"the family and every third",57.14,42.86,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,jazz,jazz1,-20,SP1,MIXED,0.5210,0.0371,1.0523,-18.46,5.22,-4.99,"[NO_SPEECH_DETECTED]",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,jazz,jazz1,-20,SP2,MIXED,0.4126,0.0409,1.0474,-16.04,8.97,-8.84,"that goes every third week",57.14,42.86,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,jazz,jazz2,-20,SP1,MIXED,0.4407,-0.0014,1.0431,-17.26,9.03,-8.73,"[NO_SPEECH_DETECTED]",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,jazz,jazz2,-20,SP2,MIXED,0.3979,-0.0039,1.0462,-20.82,6.53,-5.90,"[NO_SPEECH_DETECTED]",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,rock,rock1,-20,SP1,MIXED,0.5010,0.0690,1.0377,-17.44,6.13,-6.08,"weve always made everything",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,rock,rock1,-20,SP2,MIXED,0.4558,0.0356,1.0764,-18.23,7.24,-7.21,"to go with me every day",85.71,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,rock,rock2,-20,SP1,MIXED,0.5157,0.0257,1.3659,-14.71,9.61,-9.54,"[NO_SPEECH_DETECTED]",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,rock,rock2,-20,SP2,MIXED,0.4441,0.0716,1.0660,-19.26,6.70,-6.44,"[NO_SPEECH_DETECTED]",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,techno,techno1,-20,SP1,MIXED,0.5343,0.0583,1.0265,-14.34,7.16,-7.14,"no state effort measures",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,techno,techno1,-20,SP2,MIXED,0.4644,0.0248,1.0374,-14.95,6.96,-6.39,"the bill will pay every thursday",57.14,42.86,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,techno,techno2,-20,SP1,MIXED,0.6118,0.0002,1.0263,-14.62,3.61,-3.80,"i hope we can thank every one of you",114.29,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,techno,techno2,-20,SP2,MIXED,0.4896,0.0144,1.0397,-12.53,6.00,-6.21,"the family and every third of the team",85.71,42.86,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,jazz,jazz1,0,SP1,MIXED,0.7456,-0.1103,1.1195,-8.98,3.66,-3.58,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,jazz,jazz1,0,SP2,MIXED,0.5607,-0.1173,1.0761,-9.01,3.42,-3.87,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,jazz,jazz2,0,SP1,MIXED,0.6952,-0.0776,1.0900,-7.83,5.00,-4.50,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,jazz,jazz2,0,SP2,MIXED,0.5740,-0.0764,1.0880,-8.38,4.38,-4.11,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,rock,rock1,0,SP1,MIXED,0.6980,-0.1098,1.0849,-8.88,3.66,-3.39,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,rock,rock1,0,SP2,MIXED,0.5745,-0.0973,1.0700,-7.58,4.92,-4.82,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,rock,rock2,0,SP1,MIXED,0.6984,-0.1204,1.1036,-8.71,3.51,-3.28,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,rock,rock2,0,SP2,MIXED,0.5844,-0.0784,1.0700,-8.13,2.89,-3.30,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,techno,techno1,0,SP1,MIXED,0.6929,-0.1180,1.0567,-7.30,4.65,-4.41,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,techno,techno1,0,SP2,MIXED,0.5928,-0.1222,1.0600,-7.22,4.58,-4.62,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,techno,techno2,0,SP1,MIXED,0.6778,-0.1843,1.0798,-8.48,3.71,-3.48,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,techno,techno2,0,SP2,MIXED,0.5897,-0.1399,1.0735,-7.34,4.05,-4.58,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,jazz,jazz1,-10,SP1,OPTIMAL,0.6701,-0.0095,1.0846,-13.28,2.62,-1.91,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,jazz,jazz1,-10,SP2,OPTIMAL,0.5170,-0.0116,1.0716,-13.06,3.40,-1.89,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,jazz,jazz2,-10,SP1,OPTIMAL,0.5993,0.0184,1.0503,-11.45,6.25,-5.81,"the bill always paid everything",57.14,42.86,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,jazz,jazz2,-10,SP2,OPTIMAL,0.5177,-0.0164,1.0604,-12.03,6.26,-5.06,"the bill was paid every thursday",28.57,71.43,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,rock,rock1,-10,SP1,OPTIMAL,0.6600,0.0323,1.0766,-14.92,0.73,-0.04,"the bill was paid every third week",0.00,100.00,"builders paid every third",57.14,42.86
+Inside,rock,rock1,-10,SP2,OPTIMAL,0.5798,0.0154,1.0858,-13.59,3.30,-2.73,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,rock,rock2,-10,SP1,OPTIMAL,0.6523,-0.0032,1.0830,-12.69,3.40,-2.26,"we always paid every third week",42.86,57.14,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,rock,rock2,-10,SP2,OPTIMAL,0.5799,0.0497,1.0833,-15.98,0.98,0.52,"the bill was paid every third week",0.00,100.00,"the girl was paid every third week",14.29,85.71
+Inside,techno,techno1,-10,SP1,OPTIMAL,0.6862,0.0205,1.0600,-12.68,1.95,-0.58,"the bill was paid every thursday",28.57,71.43,"if youre always paid every third",57.14,42.86
+Inside,techno,techno1,-10,SP2,OPTIMAL,0.5521,-0.0469,1.0703,-8.88,5.59,-4.42,"the bill was paid every third week",0.00,100.00,"the girl was paid every third week",14.29,85.71
+Inside,techno,techno2,-10,SP1,OPTIMAL,0.7616,-0.0043,1.0840,-13.54,-0.14,1.07,"the bill was paid every third week the bill was paid every third week",100.00,100.00,"the bill was paid every third",14.29,85.71
+Inside,techno,techno2,-10,SP2,OPTIMAL,0.5936,-0.0221,1.1181,-12.24,0.72,0.67,"the bill was paid every third week",0.00,100.00,"the girl was paid every third week",14.29,85.71
+Inside,jazz,jazz1,-15,SP1,OPTIMAL,0.5995,0.0326,1.0730,-16.95,2.26,-1.87,"bill is paid every third week",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,jazz,jazz1,-15,SP2,OPTIMAL,0.4579,0.0097,1.0618,-16.98,3.30,-2.40,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,jazz,jazz2,-15,SP1,OPTIMAL,0.5111,0.0070,1.0541,-14.90,6.84,-6.42,"you always paint everything",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,jazz,jazz2,-15,SP2,OPTIMAL,0.4541,-0.0063,1.0478,-15.20,7.41,-6.79,"the film is spinning every time",71.43,28.57,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,rock,rock1,-15,SP1,OPTIMAL,0.5365,0.0080,1.0531,-16.34,2.72,-2.56,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,rock,rock1,-15,SP2,OPTIMAL,0.5104,0.0156,1.0731,-17.56,3.39,-3.04,"the bill was made every third",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,rock,rock2,-15,SP1,OPTIMAL,0.5745,0.0137,1.0583,-15.23,4.67,-3.98,"we always pay definitely 30000",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,rock,rock2,-15,SP2,OPTIMAL,0.5077,0.0625,1.0683,-14.20,6.81,-6.42,"the film shows everything",85.71,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,techno,techno1,-15,SP1,OPTIMAL,0.6118,0.0406,1.0322,-13.02,4.45,-3.27,"the bill was paid every time",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,techno,techno1,-15,SP2,OPTIMAL,0.5204,0.0056,1.0529,-13.80,3.92,-1.80,"the bill was made every thursday",42.86,57.14,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,techno,techno2,-15,SP1,OPTIMAL,0.7049,0.0066,1.0472,-12.24,2.82,-2.38,"the bill was paid every thursday",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,techno,techno2,-15,SP2,OPTIMAL,0.5719,0.0229,1.0730,-14.03,0.99,0.12,"the bill is paid every thursday the bill is paid every thursday",114.29,57.14,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,jazz,jazz1,-20,SP1,OPTIMAL,0.5011,0.0172,1.0536,-20.67,3.02,-2.34,"thank you for watching",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,jazz,jazz1,-20,SP2,OPTIMAL,0.4028,0.0312,1.0548,-19.86,5.15,-4.48,"every third of the week",85.71,57.14,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,jazz,jazz2,-20,SP1,OPTIMAL,0.4387,-0.0034,1.2098,-19.98,6.31,-5.95,"[NO_SPEECH_DETECTED]",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,jazz,jazz2,-20,SP2,OPTIMAL,0.3982,-0.0036,1.0441,-20.24,7.11,-6.56,"[NO_SPEECH_DETECTED]",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,rock,rock1,-20,SP1,OPTIMAL,0.4638,0.0318,1.0558,-15.27,8.30,-8.98,"and blow the shade every day",85.71,28.57,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,rock,rock1,-20,SP2,OPTIMAL,0.4531,0.0329,1.0643,-20.15,5.32,-4.87,"to go with me every day",85.71,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,rock,rock2,-20,SP1,OPTIMAL,0.5152,0.0251,1.0544,-19.65,4.67,-4.43,"[NO_SPEECH_DETECTED]",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,rock,rock2,-20,SP2,OPTIMAL,0.4313,0.0588,1.0690,-20.26,5.70,-5.43,"[NO_SPEECH_DETECTED]",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,techno,techno1,-20,SP1,OPTIMAL,0.5377,0.0617,1.0293,-16.49,5.02,-5.04,"no state effort measures",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,techno,techno1,-20,SP2,OPTIMAL,0.4400,0.0004,1.0383,-14.72,7.19,-7.44,"the girl was playing every thursday",57.14,42.86,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,techno,techno2,-20,SP1,OPTIMAL,0.6270,0.0155,1.0294,-20.02,-1.79,1.22,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,techno,techno2,-20,SP2,OPTIMAL,0.4803,0.0051,1.0497,-14.83,3.70,-3.84,"i have the power to pay every third fee",85.71,42.86,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,jazz,jazz1,0,SP1,OPTIMAL,0.8219,-0.0340,1.2200,-11.34,1.29,-0.21,"the bill was paid every third week",0.00,100.00,"did bill was paid every third",28.57,71.43
+Inside,jazz,jazz1,0,SP2,OPTIMAL,0.5749,-0.1031,1.1862,-11.61,0.82,-0.95,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,jazz,jazz2,0,SP1,OPTIMAL,0.7654,-0.0073,1.1532,-12.33,0.50,1.51,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,jazz,jazz2,0,SP2,OPTIMAL,0.6208,-0.0295,1.1527,-12.00,0.75,1.49,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,rock,rock1,0,SP1,OPTIMAL,0.7329,-0.0749,1.1394,-14.10,-1.56,2.74,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,rock,rock1,0,SP2,OPTIMAL,0.6583,-0.0135,1.1861,-12.06,0.44,1.62,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Inside,rock,rock2,0,SP1,OPTIMAL,0.8206,0.0018,1.2000,-11.81,0.41,0.70,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,rock,rock2,0,SP2,OPTIMAL,0.6635,0.0008,1.1801,-11.03,-0.01,1.68,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,techno,techno1,0,SP1,OPTIMAL,0.7932,-0.0177,1.1598,-12.29,-0.34,1.53,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Inside,techno,techno1,0,SP2,OPTIMAL,0.6713,-0.0437,1.1746,-10.77,1.04,0.33,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,techno,techno2,0,SP1,OPTIMAL,0.8151,-0.0470,1.2369,-12.12,0.07,0.70,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Inside,techno,techno2,0,SP2,OPTIMAL,0.7158,-0.0138,1.3034,-12.82,-1.43,1.79,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Inside,jazz,jazz1,-10,SP1,PASSTHROUGH,0.6796,0.0000,1.0876,-15.90,0.00,0.00,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,jazz,jazz1,-10,SP2,PASSTHROUGH,0.5286,0.0000,1.0641,-16.47,0.00,0.00,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Inside,jazz,jazz2,-10,SP1,PASSTHROUGH,0.5809,0.0000,1.0443,-17.70,0.00,0.00,"the bill was paid every day",28.57,71.43,"who was paid every third",42.86,57.14
+Inside,jazz,jazz2,-10,SP2,PASSTHROUGH,0.5341,0.0000,1.0555,-18.29,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the girl was paid every third week",14.29,85.71
+Inside,rock,rock1,-10,SP1,PASSTHROUGH,0.6277,0.0000,1.0470,-15.66,0.00,0.00,"the bill was paid every third week",0.00,100.00,"bill was paid every third",28.57,71.43
+Inside,rock,rock1,-10,SP2,PASSTHROUGH,0.5645,0.0000,1.0583,-16.89,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Inside,rock,rock2,-10,SP1,PASSTHROUGH,0.6555,0.0000,1.0498,-16.10,0.00,0.00,"the role is paid every day",57.14,42.86,"joe was paid every third",42.86,57.14
+Inside,rock,rock2,-10,SP2,PASSTHROUGH,0.5302,0.0000,1.0309,-16.96,0.00,0.00,"the bill was paid every thursday",28.57,71.43,"the girl was paid every third week",14.29,85.71
+Inside,techno,techno1,-10,SP1,PASSTHROUGH,0.6657,0.0000,1.0447,-14.63,0.00,0.00,"the bill was paid every thursday",28.57,71.43,"michelle was paid every third",42.86,57.14
+Inside,techno,techno1,-10,SP2,PASSTHROUGH,0.5990,0.0000,1.0429,-14.47,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill with paid every third week",14.29,85.71
+Inside,techno,techno2,-10,SP1,PASSTHROUGH,0.7659,0.0000,1.0504,-13.40,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Inside,techno,techno2,-10,SP2,PASSTHROUGH,0.6157,0.0000,1.0583,-12.96,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the girl was paid every third week",14.29,85.71
+Inside,jazz,jazz1,-15,SP1,PASSTHROUGH,0.5669,0.0000,1.2172,-19.21,0.00,0.00,"we always make every third rule",71.43,28.57,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,jazz,jazz1,-15,SP2,PASSTHROUGH,0.4482,0.0000,1.0445,-20.28,0.00,0.00,"the bill was written every third week",14.29,85.71,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,jazz,jazz2,-15,SP1,PASSTHROUGH,0.5041,0.0000,1.0911,-21.73,0.00,0.00,"we always paint every day",85.71,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,jazz,jazz2,-15,SP2,PASSTHROUGH,0.4603,0.0000,1.0405,-22.62,0.00,0.00,"the film is playing every time",71.43,28.57,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,rock,rock1,-15,SP1,PASSTHROUGH,0.5285,0.0000,1.0332,-19.06,0.00,0.00,"we always fade every thursday",85.71,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,rock,rock1,-15,SP2,PASSTHROUGH,0.4948,0.0000,1.0393,-20.94,0.00,0.00,"its a bill with money every third of the way",100.00,57.14,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,rock,rock2,-15,SP1,PASSTHROUGH,0.5608,0.0000,1.0340,-19.90,0.00,0.00,"[NO_SPEECH_DETECTED]",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,rock,rock2,-15,SP2,PASSTHROUGH,0.4451,0.0000,1.0268,-21.00,0.00,0.00,"i love you i love you i love you",128.57,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,techno,techno1,-15,SP1,PASSTHROUGH,0.5712,0.0000,1.0284,-17.47,0.00,0.00,"no one paid every purchase",71.43,28.57,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,techno,techno1,-15,SP2,PASSTHROUGH,0.5148,0.0000,1.0301,-17.72,0.00,0.00,"the bill will pay every 30000",57.14,42.86,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,techno,techno2,-15,SP1,PASSTHROUGH,0.6983,0.0000,1.0301,-15.06,0.00,0.00,"to go with fate every third week",57.14,42.86,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,techno,techno2,-15,SP2,PASSTHROUGH,0.5490,0.0000,1.0310,-15.02,0.00,0.00,"the bill would pay every 30",57.14,42.86,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,jazz,jazz1,-20,SP1,PASSTHROUGH,0.4840,0.0000,1.1951,-23.68,0.00,0.00,"[NO_SPEECH_DETECTED]",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,jazz,jazz1,-20,SP2,PASSTHROUGH,0.3716,0.0000,1.0414,-25.01,0.00,0.00,"[NO_SPEECH_DETECTED]",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,jazz,jazz2,-20,SP1,PASSTHROUGH,0.4421,0.0000,3.8220,-26.29,0.00,0.00,"you",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,jazz,jazz2,-20,SP2,PASSTHROUGH,0.4018,0.0000,1.4126,-27.35,0.00,0.00,"you",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,rock,rock1,-20,SP1,PASSTHROUGH,0.4320,0.0000,1.0278,-23.57,0.00,0.00,"i have my everything",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,rock,rock1,-20,SP2,PASSTHROUGH,0.4202,0.0000,1.0360,-25.47,0.00,0.00,"im not with you every day mom",85.71,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,rock,rock2,-20,SP1,PASSTHROUGH,0.4901,0.0000,1.0492,-24.32,0.00,0.00,"you",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,rock,rock2,-20,SP2,PASSTHROUGH,0.3725,0.0000,1.0550,-25.96,0.00,0.00,"[NO_SPEECH_DETECTED]",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,techno,techno1,-20,SP1,PASSTHROUGH,0.4760,0.0000,1.0231,-21.51,0.00,0.00,"do you know what made everything official",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,techno,techno1,-20,SP2,PASSTHROUGH,0.4396,0.0000,1.0274,-21.91,0.00,0.00,"and well with her and her family",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,techno,techno2,-20,SP1,PASSTHROUGH,0.6115,0.0000,1.0230,-18.23,0.00,0.00,"go and pay everything",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,techno,techno2,-20,SP2,PASSTHROUGH,0.4752,0.0000,1.0239,-18.53,0.00,0.00,"appeal with me every third of the day",100.00,42.86,"[OMITTED_LOW_SNR]",N/A,N/A
+Inside,jazz,jazz1,0,SP1,PASSTHROUGH,0.8559,0.0000,1.3016,-12.64,0.00,0.00,"the bill was paid every third week",0.00,100.00,"did bill was paid every third",28.57,71.43
+Inside,jazz,jazz1,0,SP2,PASSTHROUGH,0.6780,0.0000,1.1896,-12.43,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Inside,jazz,jazz2,0,SP1,PASSTHROUGH,0.7728,0.0000,1.1837,-12.83,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Inside,jazz,jazz2,0,SP2,PASSTHROUGH,0.6504,0.0000,1.1687,-12.75,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Inside,rock,rock1,0,SP1,PASSTHROUGH,0.8078,0.0000,1.1911,-12.54,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Inside,rock,rock1,0,SP2,PASSTHROUGH,0.6718,0.0000,1.1782,-12.50,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Inside,rock,rock2,0,SP1,PASSTHROUGH,0.8188,0.0000,1.1459,-12.22,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the girl was paid every third",28.57,71.43
+Inside,rock,rock2,0,SP2,PASSTHROUGH,0.6627,0.0000,1.0797,-11.02,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Inside,techno,techno1,0,SP1,PASSTHROUGH,0.8109,0.0000,1.1697,-11.95,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Inside,techno,techno1,0,SP2,PASSTHROUGH,0.7150,0.0000,1.1468,-11.80,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Inside,techno,techno2,0,SP1,PASSTHROUGH,0.8621,0.0000,1.1939,-12.19,0.00,0.00,"the bill was paid every third week",0.00,100.00,"did bill was paid every third",28.57,71.43
+Inside,techno,techno2,0,SP2,PASSTHROUGH,0.7296,0.0000,1.2075,-11.38,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Outside,jazz,jazz1,-10,SP1,CONTROL,0.6713,-0.0215,1.1532,-15.89,-0.05,0.47,"the bill will fade every thursday",57.14,42.86,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,jazz,jazz1,-10,SP2,CONTROL,0.5393,-0.0131,1.1302,-16.58,5.56,-3.80,"the bill would pay every third week",28.57,71.43,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,jazz,jazz2,-10,SP1,CONTROL,0.6053,-0.0387,1.1029,-14.97,0.87,-0.47,"the bill was paid every month",28.57,71.43,"burwood paid every third",57.14,42.86
+Outside,jazz,jazz2,-10,SP2,CONTROL,0.5449,-0.0254,1.1187,-15.61,2.55,-1.13,"the bill will save every thursday",57.14,42.86,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,rock,rock1,-10,SP1,CONTROL,0.6440,-0.0148,1.1936,-13.41,1.92,-1.32,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,rock,rock1,-10,SP2,CONTROL,0.5475,-0.0120,1.2304,-14.69,3.36,-2.26,"the bill would save every third week",28.57,71.43,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,rock,rock2,-10,SP1,CONTROL,0.6572,-0.0243,1.1452,-14.43,0.60,-0.50,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,rock,rock2,-10,SP2,CONTROL,0.5764,-0.0034,1.1553,-15.47,0.32,0.20,"the bill was paid every thursday",28.57,71.43,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,techno,techno1,-10,SP1,CONTROL,0.6592,0.0002,1.1804,-12.41,2.50,-1.26,"the bill was paid every thursday",28.57,71.43,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,techno,techno1,-10,SP2,CONTROL,0.6178,-0.0073,1.2957,-12.61,1.39,1.11,"the bill was paid every third week",0.00,100.00,"the girl was paid every third week",14.29,85.71
+Outside,techno,techno2,-10,SP1,CONTROL,0.7687,-0.0183,1.2105,-12.10,3.04,-1.42,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,techno,techno2,-10,SP2,CONTROL,0.6493,-0.0120,1.4417,-12.27,3.65,-0.01,"the bill would pay every third fee",42.86,57.14,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,jazz,jazz1,-15,SP1,CONTROL,0.5695,0.0065,1.1573,-19.81,-0.38,0.85,"no more pain every third day",71.43,28.57,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,jazz,jazz1,-15,SP2,CONTROL,0.4605,0.0027,1.3765,-20.96,-0.28,0.69,"in the middle of may every thursday",85.71,28.57,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,jazz,jazz2,-15,SP1,CONTROL,0.5363,-0.0156,1.0701,-18.05,1.38,-1.27,"youll one day every day",85.71,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,jazz,jazz2,-15,SP2,CONTROL,0.4619,-0.0220,1.0796,-19.00,1.26,-0.89,"[NO_SPEECH_DETECTED]",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,rock,rock1,-15,SP1,CONTROL,0.5447,-0.0113,1.0720,-15.86,2.34,-1.75,"the bill was paid every thursday",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,rock,rock1,-15,SP2,CONTROL,0.4718,-0.0175,1.1422,-18.34,1.32,-0.39,"the bill would save every third",42.86,57.14,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,rock,rock2,-15,SP1,CONTROL,0.5586,0.0007,1.0813,-17.89,-1.01,1.06,"i will always say that we can do it",128.57,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,rock,rock2,-15,SP2,CONTROL,0.3046,-0.1693,1.1040,-18.17,0.04,-0.40,"you",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,techno,techno1,-15,SP1,CONTROL,0.3099,-0.2256,1.0370,-24.03,-9.16,11.03,"um",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,techno,techno1,-15,SP2,CONTROL,0.3604,-0.1727,1.0388,-24.17,-8.98,10.45,"um i dont know what to do",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,techno,techno2,-15,SP1,CONTROL,0.4169,-0.2888,1.0392,-28.11,-10.89,12.06,"thanks for watching",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,techno,techno2,-15,SP2,CONTROL,0.2817,-0.3035,1.1062,-28.72,-11.19,11.93,"thank you very much",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,jazz,jazz1,-20,SP1,CONTROL,0.4588,-0.0181,1.0758,-24.53,-0.49,0.63,"[NO_SPEECH_DETECTED]",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,jazz,jazz1,-20,SP2,CONTROL,0.3763,0.0018,1.0750,-25.80,-0.67,0.59,"[NO_SPEECH_DETECTED]",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,jazz,jazz2,-20,SP1,CONTROL,0.4606,-0.0051,1.1295,-23.09,0.75,-0.51,"you",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,jazz,jazz2,-20,SP2,CONTROL,0.3924,-0.0042,1.0687,-23.79,3.33,-2.97,"you",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,rock,rock1,-20,SP1,CONTROL,0.4552,-0.0120,1.0513,-20.05,7.08,-5.38,"i dont want no money i dont want no money",142.86,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,rock,rock1,-20,SP2,CONTROL,0.4094,-0.0055,1.0959,-22.56,5.01,-3.14,"i dont want everything wrong",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,rock,rock2,-20,SP1,CONTROL,0.4510,-0.0151,1.0875,-22.95,6.63,-6.31,"[NO_SPEECH_DETECTED]",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,rock,rock2,-20,SP2,CONTROL,0.3689,-0.0052,1.0950,-24.17,4.98,-5.02,"i love you",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,techno,techno1,-20,SP1,CONTROL,0.4351,0.0064,1.0505,-16.75,9.01,-7.63,"we dont say anything",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,techno,techno1,-20,SP2,CONTROL,0.4452,0.0054,1.0965,-17.08,8.76,-6.68,"the girl was so happy to have you here",100.00,28.57,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,techno,techno2,-20,SP1,CONTROL,0.6095,0.0029,1.0770,-15.67,9.80,-8.53,"to grow and save everything",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,techno,techno2,-20,SP2,CONTROL,0.4865,-0.0003,1.1269,-16.33,9.45,-7.79,"the drill is here every third you see",71.43,42.86,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,jazz,jazz1,0,SP1,CONTROL,0.8272,-0.0286,1.4457,-12.24,-0.02,1.44,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,jazz,jazz1,0,SP2,CONTROL,0.6818,-0.0139,1.4430,-12.61,-0.95,1.28,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,jazz,jazz2,0,SP1,CONTROL,0.7693,-0.0396,1.3364,-11.90,0.17,0.71,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,jazz,jazz2,0,SP2,CONTROL,0.6685,-0.0325,1.4448,-11.67,-0.34,1.41,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,rock,rock1,0,SP1,CONTROL,0.8126,-0.0173,1.5320,-11.49,-0.34,1.38,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,rock,rock1,0,SP2,CONTROL,0.6631,-0.0191,1.6701,-11.64,-0.27,1.11,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,rock,rock2,0,SP1,CONTROL,0.8179,-0.0280,1.3696,-11.33,-0.13,0.50,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,rock,rock2,0,SP2,CONTROL,0.6876,-0.0136,1.4111,-10.55,-0.45,0.55,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,techno,techno1,0,SP1,CONTROL,0.8075,-0.0302,1.4973,-10.88,-0.26,1.24,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Outside,techno,techno1,0,SP2,CONTROL,0.7260,-0.0237,1.7543,-10.21,0.30,0.96,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,techno,techno2,0,SP1,CONTROL,0.8538,-0.0294,1.6351,-11.34,-0.22,1.58,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,techno,techno2,0,SP2,CONTROL,0.7437,-0.0267,1.9506,-10.97,-0.03,0.91,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,jazz,jazz1,-10,SP1,MIXED,0.6964,0.0037,1.0565,-9.98,5.86,-5.60,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,jazz,jazz1,-10,SP2,MIXED,0.5085,-0.0439,1.0741,-9.72,12.42,-10.72,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,jazz,jazz2,-10,SP1,MIXED,0.7090,0.0651,1.0928,-11.09,4.75,-3.72,"the bill was paid every third week",0.00,100.00,"did bill was paid every third",28.57,71.43
+Outside,jazz,jazz2,-10,SP2,MIXED,0.5811,0.0108,1.0918,-10.17,7.99,-5.87,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,rock,rock1,-10,SP1,MIXED,0.6396,-0.0191,1.0757,-7.24,8.10,-7.60,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,rock,rock1,-10,SP2,MIXED,0.5856,0.0261,1.0685,-10.24,7.82,-7.20,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,rock,rock2,-10,SP1,MIXED,0.6973,0.0158,1.0937,-11.59,3.44,-2.94,"no ones paid every thursday",71.43,28.57,"who was paid every third",42.86,57.14
+Outside,rock,rock2,-10,SP2,MIXED,0.5751,-0.0048,1.0705,-10.86,4.94,-4.78,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,techno,techno1,-10,SP1,MIXED,0.6119,-0.0471,1.0378,-8.84,6.07,-5.21,"the bill is paid every thursday",42.86,57.14,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,techno,techno1,-10,SP2,MIXED,0.5850,-0.0401,1.0604,-8.44,5.56,-3.79,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,techno,techno2,-10,SP1,MIXED,0.7113,-0.0758,1.0382,-7.65,7.49,-6.47,"you dont pay every third week",57.14,42.86,"the film was paid every third",28.57,71.43
+Outside,techno,techno2,-10,SP2,MIXED,0.5388,-0.1225,1.0684,-7.12,8.80,-7.81,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,jazz,jazz1,-15,SP1,MIXED,0.6563,0.0933,1.0668,-15.60,3.84,-2.91,"we always paint every thursday",85.71,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,jazz,jazz1,-15,SP2,MIXED,0.5142,0.0563,1.0547,-18.49,2.20,-0.88,"the bill was saved every third week",14.29,85.71,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,jazz,jazz2,-15,SP1,MIXED,0.6124,0.0604,1.0629,-11.84,7.59,-7.34,"we always paid everything",85.71,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,jazz,jazz2,-15,SP2,MIXED,0.5260,0.0421,1.0749,-15.80,4.46,-3.91,"the bill will save every 30 years",57.14,42.86,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,rock,rock1,-15,SP1,MIXED,0.6045,0.0485,1.0531,-16.43,1.77,-1.34,"the bill was paid every third of the week",28.57,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,rock,rock1,-15,SP2,MIXED,0.5333,0.0440,1.0713,-12.97,6.69,-6.60,"the bill was made every third week",14.29,85.71,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,rock,rock2,-15,SP1,MIXED,0.6045,0.0466,1.0805,-14.89,1.99,-1.57,"we only pay every third of the week",85.71,57.14,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,rock,rock2,-15,SP2,MIXED,0.5231,0.0492,1.0737,-14.28,3.93,-3.67,"the bill will pay every third of the week",57.14,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,techno,techno1,-15,SP1,MIXED,0.5913,0.0558,1.0282,-13.36,1.51,-1.30,"no one paid every time",71.43,28.57,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,techno,techno1,-15,SP2,MIXED,0.5497,0.0166,1.0524,-14.11,1.08,-0.40,"lets go and pay every 30",85.71,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,techno,techno2,-15,SP1,MIXED,0.6532,-0.0526,1.0305,-11.96,5.26,-4.38,"is no one paid every third week",42.86,57.14,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,techno,techno2,-15,SP2,MIXED,0.5786,-0.0065,1.0502,-11.28,6.25,-5.12,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,jazz,jazz1,-20,SP1,MIXED,0.5277,0.0508,1.0405,-14.21,9.82,-9.59,"well remain every 30",85.71,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,jazz,jazz1,-20,SP2,MIXED,0.4048,0.0304,1.0437,-20.86,4.28,-4.31,"the bill will take every third of it",57.14,57.14,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,jazz,jazz2,-20,SP1,MIXED,0.5358,0.0701,1.0448,-17.10,6.74,-6.28,"its always paid every day",71.43,28.57,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,jazz,jazz2,-20,SP2,MIXED,0.4510,0.0544,1.0694,-19.00,8.12,-7.33,"of those things every year",85.71,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,rock,rock1,-20,SP1,MIXED,0.5193,0.0522,1.0702,-16.60,10.53,-10.02,"slow and pay everything",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,rock,rock1,-20,SP2,MIXED,0.4697,0.0548,1.0630,-17.21,10.36,-9.52,"so no one made every third",71.43,28.57,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,rock,rock2,-20,SP1,MIXED,0.5441,0.0780,1.0571,-17.06,12.52,-11.90,"i can only contain every time i see it",114.29,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,rock,rock2,-20,SP2,MIXED,0.4404,0.0664,1.0675,-17.80,11.35,-11.20,"im a real pain at this point in my life",142.86,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,techno,techno1,-20,SP1,MIXED,0.5304,0.1017,1.0264,-14.75,11.01,-9.79,"no one stays every single day",85.71,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,techno,techno1,-20,SP2,MIXED,0.4726,0.0328,1.0365,-23.19,2.66,-1.87,"the girl we play every night",71.43,28.57,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,techno,techno2,-20,SP1,MIXED,0.6268,0.0203,1.0207,-17.21,8.26,-6.38,"to go and take every word",85.71,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,techno,techno2,-20,SP2,MIXED,0.4975,0.0108,1.0402,-14.73,11.05,-10.29,"the bill will take every 30 minutes",57.14,42.86,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,jazz,jazz1,0,SP1,MIXED,0.7779,-0.0779,1.1447,-6.66,5.56,-4.03,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,jazz,jazz1,0,SP2,MIXED,0.6215,-0.0743,1.1350,-8.55,3.12,-2.82,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,jazz,jazz2,0,SP1,MIXED,0.7625,-0.0464,1.1221,-6.26,5.80,-5.38,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,jazz,jazz2,0,SP2,MIXED,0.6154,-0.0855,1.1325,-6.21,5.12,-5.14,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,rock,rock1,0,SP1,MIXED,0.7296,-0.1002,1.1255,-6.29,4.86,-4.95,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,rock,rock1,0,SP2,MIXED,0.5346,-0.1476,1.0900,-6.84,4.54,-4.82,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,rock,rock2,0,SP1,MIXED,0.7289,-0.1170,1.1260,-6.51,4.69,-4.40,"the bill is paid every third week",14.29,85.71,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,rock,rock2,0,SP2,MIXED,0.6059,-0.0953,1.0958,-6.26,3.84,-4.17,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,techno,techno1,0,SP1,MIXED,0.7092,-0.1285,1.0650,-5.41,5.20,-5.10,"the bill is paid every third week",14.29,85.71,"the bill was paid every third",14.29,85.71
+Outside,techno,techno1,0,SP2,MIXED,0.5925,-0.1572,1.0889,-4.34,6.17,-6.46,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,techno,techno2,0,SP1,MIXED,0.7343,-0.1488,1.0862,-5.58,5.53,-5.05,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,techno,techno2,0,SP2,MIXED,0.6246,-0.1457,1.1200,-6.16,4.77,-5.50,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,jazz,jazz1,-10,SP1,OPTIMAL,0.2797,-0.4131,1.0691,-18.29,-2.45,2.62,"thanks for watching",100.00,0.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,jazz,jazz1,-10,SP2,OPTIMAL,0.5857,0.0333,1.0885,-11.77,10.38,-8.27,"and the bill was paid every third week",14.29,100.00,"the bill was paid every third week",0.00,100.00
+Outside,jazz,jazz2,-10,SP1,OPTIMAL,0.7028,0.0589,1.0782,-15.96,-0.13,0.96,"the bill was paid every month",28.57,71.43,"the bill was paid everything",42.86,57.14
+Outside,jazz,jazz2,-10,SP2,OPTIMAL,0.5768,0.0065,1.1147,-14.62,3.53,-2.27,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,rock,rock1,-10,SP1,OPTIMAL,0.7061,0.0474,1.0725,-13.40,1.94,-0.78,"the bill was paid every third week",0.00,100.00,"bill was paid every third",28.57,71.43
+Outside,rock,rock1,-10,SP2,OPTIMAL,0.5996,0.0401,1.1091,-12.34,5.71,-3.52,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,rock,rock2,-10,SP1,OPTIMAL,0.7416,0.0601,1.1782,-12.97,2.06,-1.14,"the bill was paid every sunday",28.57,71.43,"youre always paid every third",57.14,42.86
+Outside,rock,rock2,-10,SP2,OPTIMAL,0.6147,0.0349,1.1382,-12.83,2.96,-1.35,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Outside,techno,techno1,-10,SP1,OPTIMAL,0.6435,-0.0155,1.0459,-13.54,1.38,-0.69,"the bill is paid every thursday",42.86,57.14,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,techno,techno1,-10,SP2,OPTIMAL,0.6525,0.0273,1.1214,-12.07,1.93,-0.67,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Outside,techno,techno2,-10,SP1,OPTIMAL,0.7017,-0.0853,1.0353,-10.30,4.84,-2.00,"the bill was paid every third week",0.00,100.00,"did bill was paid every third",28.57,71.43
+Outside,techno,techno2,-10,SP2,OPTIMAL,0.6636,0.0024,1.0592,-16.36,-0.44,2.55,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Outside,jazz,jazz1,-15,SP1,OPTIMAL,0.6363,0.0733,1.0690,-14.56,4.87,-3.85,"dont lose pain every third of the week",85.71,57.14,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,jazz,jazz1,-15,SP2,OPTIMAL,0.4890,0.0312,1.0401,-18.45,2.23,0.39,"and the bill was waived every third week",28.57,85.71,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,jazz,jazz2,-15,SP1,OPTIMAL,0.6170,0.0650,1.0503,-19.52,-0.09,3.73,"youre always paid every night",71.43,28.57,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,jazz,jazz2,-15,SP2,OPTIMAL,0.5084,0.0245,1.0405,-19.51,0.75,0.19,"the bill will take every 13 years",57.14,42.86,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,rock,rock1,-15,SP1,OPTIMAL,0.5480,-0.0079,1.0553,-13.07,5.13,-4.68,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,rock,rock1,-15,SP2,OPTIMAL,0.5300,0.0407,1.0670,-12.65,7.01,-6.09,"the bill would pay every third",42.86,57.14,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,rock,rock2,-15,SP1,OPTIMAL,0.6581,0.1002,1.1027,-15.34,1.54,-0.55,"no one stayed every country",85.71,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,rock,rock2,-15,SP2,OPTIMAL,0.5115,0.0377,1.0832,-13.95,4.26,-3.57,"the bill is paid every thursday",42.86,57.14,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,techno,techno1,-15,SP1,OPTIMAL,0.6261,0.0907,1.0353,-12.23,2.64,-1.88,"the bill was paid every thursday",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,techno,techno1,-15,SP2,OPTIMAL,0.5866,0.0535,1.0497,-14.32,0.87,0.60,"the bill would take every third week",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,techno,techno2,-15,SP1,OPTIMAL,0.7189,0.0132,1.0339,-13.59,3.63,-2.81,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,techno,techno2,-15,SP2,OPTIMAL,0.5974,0.0123,1.0426,-17.45,0.08,-0.38,"the bill would pay every third week",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,jazz,jazz1,-20,SP1,OPTIMAL,0.4862,0.0093,1.0360,-23.42,0.62,-0.16,"go to the bank every thursday",85.71,28.57,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,jazz,jazz1,-20,SP2,OPTIMAL,0.4207,0.0462,1.0574,-20.92,4.22,-4.12,"and the bill will take every third week",42.86,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,jazz,jazz2,-20,SP1,OPTIMAL,0.5319,0.0662,1.0430,-16.57,7.27,-6.95,"youre always paid everyone",85.71,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,jazz,jazz2,-20,SP2,OPTIMAL,0.4371,0.0405,1.0420,-24.68,2.43,-2.29,"of building things every day",85.71,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,rock,rock1,-20,SP1,OPTIMAL,0.5027,0.0356,1.0378,-27.80,-0.67,0.27,"no ones gay every day",85.71,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,rock,rock1,-20,SP2,OPTIMAL,0.4356,0.0206,1.0562,-26.47,1.10,-0.84,"no one made every third",71.43,28.57,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,rock,rock2,-20,SP1,OPTIMAL,0.5311,0.0650,1.0417,-25.48,4.11,-3.66,"[NO_SPEECH_DETECTED]",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,rock,rock2,-20,SP2,OPTIMAL,0.4175,0.0435,1.0629,-21.99,7.17,-6.78,"i feel the pain that youre feeling",100.00,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,techno,techno1,-20,SP1,OPTIMAL,0.4976,0.0689,1.0213,-27.34,-1.58,1.21,"no one stays everywhere",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,techno,techno1,-20,SP2,OPTIMAL,0.2673,-0.1726,1.0341,-29.11,-3.26,2.73,"go and play every thursday",85.71,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,techno,techno2,-20,SP1,OPTIMAL,0.6666,0.0600,1.0287,-17.07,8.40,-7.31,"to grow with and tade every third week",71.43,42.86,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,techno,techno2,-20,SP2,OPTIMAL,0.4934,0.0066,1.0183,-18.61,7.17,-6.76,"the bill will pay every 30",57.14,42.86,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,jazz,jazz1,0,SP1,OPTIMAL,0.8756,0.0198,1.4383,-11.18,1.04,0.97,"the bill was paid every third week",0.00,100.00,"did bill was paid every third",28.57,71.43
+Outside,jazz,jazz1,0,SP2,OPTIMAL,0.7046,0.0088,1.4471,-13.10,-1.43,1.38,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Outside,jazz,jazz2,0,SP1,OPTIMAL,0.8286,0.0197,1.2469,-11.97,0.10,2.14,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Outside,jazz,jazz2,0,SP2,OPTIMAL,0.2234,-0.4776,1.4689,-11.82,-0.49,0.73,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Outside,rock,rock1,0,SP1,OPTIMAL,0.8308,0.0010,1.3574,-12.41,-1.27,2.01,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Outside,rock,rock1,0,SP2,OPTIMAL,0.6537,-0.0285,1.3317,-12.08,-0.70,1.48,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,rock,rock2,0,SP1,OPTIMAL,0.8491,0.0032,1.3835,-10.48,0.72,0.63,"the bill was paid every third week",0.00,100.00,"bill was paid every third",28.57,71.43
+Outside,rock,rock2,0,SP2,OPTIMAL,0.6905,-0.0108,1.3285,-11.25,-1.16,1.60,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Outside,techno,techno1,0,SP1,OPTIMAL,0.7655,-0.0722,1.1940,-7.93,2.68,-4.40,"the bill was paid every third week",0.00,100.00,"did bill was paid every third",28.57,71.43
+Outside,techno,techno1,0,SP2,OPTIMAL,0.7188,-0.0309,1.3052,-11.19,-0.68,1.28,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Outside,techno,techno2,0,SP1,OPTIMAL,0.7736,-0.1095,1.2000,-9.10,2.01,-1.66,"the bill was paid every third week",0.00,100.00,"did bill was paid every third",28.57,71.43
+Outside,techno,techno2,0,SP2,OPTIMAL,0.7134,-0.0569,1.2606,-11.03,-0.09,-0.86,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Outside,jazz,jazz1,-10,SP1,PASSTHROUGH,0.6928,0.0000,1.0945,-15.84,0.00,0.00,"the bill was paid every third week",0.00,100.00,"bill was paid every third",28.57,71.43
+Outside,jazz,jazz1,-10,SP2,PASSTHROUGH,0.5524,0.0000,1.0729,-22.14,0.00,0.00,"and the bill was paid every third week",14.29,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,jazz,jazz2,-10,SP1,PASSTHROUGH,0.6439,0.0000,1.0635,-15.84,0.00,0.00,"the bill was paid every thursday",28.57,71.43,"bill was paid every third",28.57,71.43
+Outside,jazz,jazz2,-10,SP2,PASSTHROUGH,0.5703,0.0000,1.0852,-18.15,0.00,0.00,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,rock,rock1,-10,SP1,PASSTHROUGH,0.6587,0.0000,1.0483,-15.33,0.00,0.00,"the bill was paid every third of the week",28.57,100.00,"bill was paid every third",28.57,71.43
+Outside,rock,rock1,-10,SP2,PASSTHROUGH,0.5595,0.0000,1.0588,-18.05,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Outside,rock,rock2,-10,SP1,PASSTHROUGH,0.6815,0.0000,1.0714,-15.03,0.00,0.00,"no ones paid everything",85.71,14.29,"bill was paid every third",28.57,71.43
+Outside,rock,rock2,-10,SP2,PASSTHROUGH,0.5798,0.0000,1.0721,-15.79,0.00,0.00,"the bill was paid every thursday",28.57,71.43,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,techno,techno1,-10,SP1,PASSTHROUGH,0.6590,0.0000,1.0394,-14.92,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Outside,techno,techno1,-10,SP2,PASSTHROUGH,0.6252,0.0000,1.0685,-14.00,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Outside,techno,techno2,-10,SP1,PASSTHROUGH,0.7870,0.0000,1.0443,-15.14,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Outside,techno,techno2,-10,SP2,PASSTHROUGH,0.6613,0.0000,1.0709,-15.92,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Outside,jazz,jazz1,-15,SP1,PASSTHROUGH,0.5630,0.0000,1.1021,-19.44,0.00,0.00,"no ones paid every third day",57.14,42.86,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,jazz,jazz1,-15,SP2,PASSTHROUGH,0.4578,0.0000,1.2888,-20.68,0.00,0.00,"and the mill was ready every third week",42.86,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,jazz,jazz2,-15,SP1,PASSTHROUGH,0.5520,0.0000,1.0372,-19.43,0.00,0.00,"we always made every move",85.71,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,jazz,jazz2,-15,SP2,PASSTHROUGH,0.4839,0.0000,1.0564,-20.26,0.00,0.00,"i feel like doing everything i know",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,rock,rock1,-15,SP1,PASSTHROUGH,0.5560,0.0000,1.0303,-18.20,0.00,0.00,"no ones paid every third of the week",71.43,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,rock,rock1,-15,SP2,PASSTHROUGH,0.4893,0.0000,1.0399,-19.66,0.00,0.00,"the bill was made every third",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,rock,rock2,-15,SP1,PASSTHROUGH,0.5579,0.0000,1.0832,-16.88,0.00,0.00,"byebye",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,rock,rock2,-15,SP2,PASSTHROUGH,0.4738,0.0000,1.0548,-18.21,0.00,0.00,"we always made everything we wanted",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,techno,techno1,-15,SP1,PASSTHROUGH,0.5355,0.0000,1.0265,-14.87,0.00,0.00,"dont take every burden",85.71,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,techno,techno1,-15,SP2,PASSTHROUGH,0.5331,0.0000,1.0406,-15.18,0.00,0.00,"the bill was made every thursday",42.86,57.14,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,techno,techno2,-15,SP1,PASSTHROUGH,0.7058,0.0000,1.0292,-17.22,0.00,0.00,"the bill was paid every third week",0.00,100.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,techno,techno2,-15,SP2,PASSTHROUGH,0.5851,0.0000,1.0388,-17.53,0.00,0.00,"the bill would pay every third week",28.57,71.43,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,jazz,jazz1,-20,SP1,PASSTHROUGH,0.4769,0.0000,1.0482,-24.04,0.00,0.00,"[NO_SPEECH_DETECTED]",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,jazz,jazz1,-20,SP2,PASSTHROUGH,0.3745,0.0000,1.3519,-25.13,0.00,0.00,"[NO_SPEECH_DETECTED]",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,jazz,jazz2,-20,SP1,PASSTHROUGH,0.4657,0.0000,1.0456,-23.84,0.00,0.00,"you",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,jazz,jazz2,-20,SP2,PASSTHROUGH,0.3966,0.0000,1.0547,-27.12,0.00,0.00,"[NO_SPEECH_DETECTED]",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,rock,rock1,-20,SP1,PASSTHROUGH,0.4672,0.0000,1.0279,-27.13,0.00,0.00,"its like im lying its like",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,rock,rock1,-20,SP2,PASSTHROUGH,0.4150,0.0000,1.0620,-27.57,0.00,0.00,"so i know what youre gonna do every day",128.57,14.29,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,rock,rock2,-20,SP1,PASSTHROUGH,0.4661,0.0000,1.0808,-29.58,0.00,0.00,"[NO_SPEECH_DETECTED]",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,rock,rock2,-20,SP2,PASSTHROUGH,0.3740,0.0000,1.0838,-29.15,0.00,0.00,"[NO_SPEECH_DETECTED]",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,techno,techno1,-20,SP1,PASSTHROUGH,0.4287,0.0000,1.0211,-25.76,0.00,0.00,"we all hate everything",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,techno,techno1,-20,SP2,PASSTHROUGH,0.4398,0.0000,1.0305,-25.85,0.00,0.00,"the girl with her every third of the week",71.43,57.14,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,techno,techno2,-20,SP1,PASSTHROUGH,0.6065,0.0000,1.0227,-25.47,0.00,0.00,"im going to fade everything",100.00,0.00,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,techno,techno2,-20,SP2,PASSTHROUGH,0.4868,0.0000,1.0284,-25.78,0.00,0.00,"the deal with him every thursday",71.43,28.57,"[OMITTED_LOW_SNR]",N/A,N/A
+Outside,jazz,jazz1,0,SP1,PASSTHROUGH,0.8558,0.0000,1.3174,-12.22,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Outside,jazz,jazz1,0,SP2,PASSTHROUGH,0.6958,0.0000,1.2431,-11.66,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Outside,jazz,jazz2,0,SP1,PASSTHROUGH,0.8089,0.0000,1.2607,-12.07,0.00,0.00,"the bill was paid every third week",0.00,100.00,"did bill was paid every third",28.57,71.43
+Outside,jazz,jazz2,0,SP2,PASSTHROUGH,0.7009,0.0000,1.2884,-11.33,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Outside,rock,rock1,0,SP1,PASSTHROUGH,0.8298,0.0000,1.1990,-11.15,0.00,0.00,"the bill was paid every third week",0.00,100.00,"did bill was paid every third",28.57,71.43
+Outside,rock,rock1,0,SP2,PASSTHROUGH,0.6822,0.0000,1.2407,-11.38,0.00,0.00,"the bill was paid every third week",0.00,100.00,"is the bill was paid every third week",14.29,100.00
+Outside,rock,rock2,0,SP1,PASSTHROUGH,0.8459,0.0000,1.2090,-11.20,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Outside,rock,rock2,0,SP2,PASSTHROUGH,0.7013,0.0000,1.2021,-10.10,0.00,0.00,"the bill was paid every third week",0.00,100.00,"[NO_SPEECH_DETECTED]",100.00,0.00
+Outside,techno,techno1,0,SP1,PASSTHROUGH,0.8377,0.0000,1.1839,-10.61,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third",14.29,85.71
+Outside,techno,techno1,0,SP2,PASSTHROUGH,0.7497,0.0000,1.2514,-10.51,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00
+Outside,techno,techno2,0,SP1,PASSTHROUGH,0.8831,0.0000,1.2063,-11.12,0.00,0.00,"the bill was paid every third week",0.00,100.00,"did bill was paid every third",28.57,71.43
+Outside,techno,techno2,0,SP2,PASSTHROUGH,0.7703,0.0000,1.3004,-10.93,0.00,0.00,"the bill was paid every third week",0.00,100.00,"the bill was paid every third week",0.00,100.00

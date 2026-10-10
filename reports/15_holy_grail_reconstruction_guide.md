@@ -28,14 +28,14 @@ flowchart TD
         --> Sim_Convolve["Convolve Speech + Music with 12 dB Head Shadowing"]
         Sim_Convolve --> Sim_DSP["Execute DSP Filters (Unprocessed, BP, Mixed, Optimal)"]
         Sim_DSP --> Sim_Grid["room_experiment_results.csv (2,400 Rows DSP Grid)"]
-        Sim_DSP --> Sim_WAVs["samples_multi_sentence/ (279 Audition WAVs)"]
-        Sim_WAVs --> Sim_ASR["Evaluate Whisper & Google STT on Simulated WAVs"]
-        Sim_ASR --> Sim_ASR_CSV["asr_comparison_google_vs_whisper.csv (279 Rows)"]
+        Sim_DSP --> Sim_WAVs["sim_trials_audio/ (288 Synthesized Audition WAVs)"]
+        Sim_WAVs --> Sim_ASR["Evaluate Whisper on All 288 Simulated Audio Outputs"]
+        Sim_ASR --> Sim_FW_CSV["holy_grail_results.csv (288 Conditions Evaluated)"]
     end
 
     RW_CSV --> MergeEngine["Relational Harmonization & Merge Engine"]
     Sim_Grid --> MergeEngine
-    Sim_ASR_CSV --> MergeEngine
+    Sim_FW_CSV --> MergeEngine
 
     MergeEngine --> HG_Res["holy_grail_results.csv (288 Rows, Setup-Level)"]
     MergeEngine --> HG_Tri["holy_grail_trials.csv (576 Rows, Trial-Level)"]
@@ -58,31 +58,26 @@ flowchart TD
 | Path | Format | Description / Contents |
 | :--- | :---: | :--- |
 | `NLMS/tests/run_concert_venue_room_experiment.m` | MATLAB script | Generates room impulse responses using ISM and simulates the complete 2,400-trial room acoustic grid across 5 RT60 conditions. |
-| `NLMS/tests/generate_multi_sentence_stt_samples.m` | MATLAB script | Synthesizes multi-sentence audition audio files for speech recognition benchmarking in club room acoustics ($RT_{60} = 0.70\text{ s}$). |
 | `dataset/metadata/venue_rirs.mat` | MATLAB `.mat` | Precomputed Image Source Method impulse responses for `freefield`, `damped`, `club`, `arena`, and `stadium`. |
 | `dataset/metadata/filter_comparison_workspace.mat` | MATLAB `.mat` | Precomputed coefficient taps for FIR bandpass genre filters and multi-peak notch filter biquads. |
-| `NLMS/output_audio/room_experiment/samples_multi_sentence/` | Directory of WAVs | **279 simulated output audio files** evaluated across genres, SNRs, and filter topologies. |
 | `NLMS/output_audio/room_experiment/room_experiment_results.csv` | CSV (2,400 rows) | **Authoritative simulation DSP results**. Contains STOI, PESQ, ViSQOL, Delta SNR, and Delta ASL across 5 venues, 3 genres, 4 SNRs, 2 speakers, and 8 filter topologies. |
+| `NLMS/output_audio/sim_trials_audio/` | Directory of WAVs | **288 simulated audio outputs** generated across all 3 venues, 3 genres, 4 SNRs, 2 speakers, and 4 filter topologies. |
 
-### 2.3 Simulation Speech Recognition (ASR) Datasets
-
-| Path | Format | Description / Contents |
-| :--- | :---: | :--- |
-| `NLMS/output_audio/room_experiment/asr_comparison_google_vs_whisper.csv` | CSV (279 rows) | **Joint trial-level ASR evaluation**. Contains side-by-side Whisper WER/Recall and Google STT WER/Recall, status, logprob, confidence, and actual response strings for every file in `samples_multi_sentence/`. |
-| `NLMS/output_audio/room_experiment/faster_whisper_multi_sentence_results.csv` | CSV (279 rows) | Individual Faster-Whisper trial metrics on simulated audio. |
-| `NLMS/output_audio/room_experiment/faster_whisper_multi_sentence_summary.csv` | CSV (93 rows) | Aggregated mean WER and word recall per condition (Genre $\times$ SNR $\times$ Filter Stage) across all Harvard sentences. |
-| `NLMS/output_audio/room_experiment/google_stt_multi_sentence_summary.csv` | CSV (93 rows) | Aggregated mean Google Cloud STT WER and recall per condition. |
-
-### 2.4 Speech Corpus & Musical Stems
+### 2.3 Speech Corpus & Musical Stems
 
 | Path | Format | Description / Contents |
 | :--- | :---: | :--- |
-| `dataset/speech_corpus/male/male_01_IUS-M00201.wav` | Audio (16 kHz mono) | Male talker corpus (`SP1` / Harvard sentence 1). |
-| `dataset/speech_corpus/female/female_01_IUS-F00202.wav` | Audio (16 kHz mono) | Female talker corpus (`SP2` / Harvard sentence 1: *"The bill was paid every third week"*). |
-| `dataset/speech_corpus/male/male_02_IUS-M02201.wav` | Audio (16 kHz mono) | Male talker corpus (`SP1` / Harvard sentence 2: *"Glue the sheet to the dark blue background"*). |
+| `dataset/speech_corpus/male/male_01_IUS-M00201.wav` | Audio (16 kHz mono) | Male talker corpus (`SP1`): *"The bill was paid every third week"*. |
+| `dataset/speech_corpus/female/female_01_IUS-F00202.wav` | Audio (16 kHz mono) | Female talker corpus (`SP2`): *"The bill was paid every third week"*. |
 | `dataset/wav_16k/jazz/` | Directory of WAVs | Clean uncompressed 16 kHz jazz tracks (`jazz_01`, `jazz_02`). |
 | `dataset/wav_16k/rock/` | Directory of WAVs | Clean uncompressed 16 kHz rock tracks (`rock_01`, `rock_02`). |
 | `dataset/wav_16k/techno/` | Directory of WAVs | Clean uncompressed 16 kHz techno tracks (`techno_01`, `techno_02`). |
+
+> [!IMPORTANT]
+> **Ground Truth Invariant**:
+> In BOTH the real-world hardware experiment and the theoretical acoustic simulation, **BOTH talkers (`SP1` male and `SP2` female) speak the identical Harvard sentence**:
+> $$\mathbf{\text{"The bill was paid every third week"}}$$
+> Any exploratory multi-sentence scripts (such as `generate_multi_sentence_stt_samples.m` which used `male_02` *"Glue the sheet..."*) were separate studies and are **not** part of the primary real-world benchmark.
 
 ---
 
@@ -132,13 +127,14 @@ Example: `Outside_Pos1_PASSTHROUGH_PreConvON_SNR0_rock2_SP1.wav`
    * **Faster-Whisper**: Model `small.en`, compute type `int8`, beam size $5$, temperature $0.0$, VAD filter enabled.
    * **Google Cloud STT**: Speech-to-Text API v1, language `en-US`, encoding `LINEAR16`, sample rate $16000$.
 2. **Text Normalization**:
+   * Ground truth: `"The bill was paid every third week"`.
    * Lowercase string, strip all punctuation (`.,?!'"`), normalize whitespace.
 3. **Word Error Rate (WER %)**:
    * Computed via word-level Levenshtein edit distance:
      $$\text{WER} = \frac{S + D + I}{N_{\text{ref}}} \times 100\%$$
-     Where $S$ is substitutions, $D$ is deletions, $I$ is insertions, and $N_{\text{ref}}$ is total reference words.
+     Where $S$ is substitutions, $D$ is deletions, $I$ is insertions, and $N_{\text{ref}} = 7$ reference words.
 4. **Word Recall (%)**:
-   $$\text{Recall} = \frac{N_{\text{ref}} - S - D}{N_{\text{ref}}} \times 100\% = \frac{\text{Correct Words}}{N_{\text{ref}}} \times 100\%$$
+   $$\text{Recall} = \frac{N_{\text{ref}} - S - D}{N_{\text{ref}}} \times 100\% = \frac{\text{Correct Words}}{7} \times 100\%$$
 
 > [!WARNING]
 > **The $-20\text{ dB}$ Whisper Hallucination Trap**:
@@ -160,18 +156,18 @@ To combine simulation and real-world results, use the following exact mappings:
 *(Note: Simulation venues `arena` and `stadium` do not have physical hardware counterparts and must be excluded from the Holy Grail join).*
 
 ### 4.2 Speech Corpus Mapping
-| Simulation File / Sentence ID | Real-World Code | Holy Grail Key (`Speech_Corpus`) | Talker & Text |
+| Simulation File (`room_experiment_results.csv`) | Real-World Code | Holy Grail Key (`Speech_Corpus`) | Talker & Text |
 | :--- | :--- | :--- | :--- |
-| `male_01_IUS-M00201.wav` / `sent02` | `SP1` | **`SP1`** | Male talker (*"Glue the sheet to the dark blue background"*) |
-| `female_01_IUS-F00202.wav` / `sent01`| `SP2` | **`SP2`** | Female talker (*"The bill was paid every third week"*) |
+| `male_01_IUS-M00201.wav` | `SP1` | **`SP1`** | Male talker (*"The bill was paid every third week"*) |
+| `female_01_IUS-F00202.wav` | `SP2` | **`SP2`** | Female talker (*"The bill was paid every third week"*) |
 
 ### 4.3 Filter Topology Mapping
-| Simulation Label (`Filter`) | Simulation Stage (`Filter_Stage`) | Real-World Label | Holy Grail Key (`Filter`) | Architecture Description |
-| :--- | :--- | :--- | :--- | :--- |
-| `Unprocessed` | `primary_noisy` | `PASSTHROUGH` | **`PASSTHROUGH`** | Raw microphone signal |
-| `FIR_BP` | `fir_bp` | `CONTROL` | **`CONTROL`** | Fixed genre bandpass filter ($60 - 300\text{ Hz}$) |
-| `Cascade_Notch_NLMS` | `cascade_notch_nlms` | `MIXED` | **`MIXED`** | Multi-peak notch + Leaky NLMS |
-| `Cascade_Hybrid_Optimal` | `hybrid_optimal` | `OPTIMAL` | **`OPTIMAL`** | Multi-peak notch + Soft VAD + Leaky NLMS |
+| Simulation Label (`Filter`) | Real-World Label | Holy Grail Key (`Filter`) | Architecture Description |
+| :--- | :--- | :--- | :--- |
+| `Unprocessed` | `PASSTHROUGH` | **`PASSTHROUGH`** | Raw microphone signal |
+| `FIR_BP` | `CONTROL` | **`CONTROL`** | Fixed genre bandpass filter ($60 - 300\text{ Hz}$) |
+| `Cascade_Notch_NLMS` | `MIXED` | **`MIXED`** | Multi-peak notch + Leaky NLMS |
+| `Cascade_Hybrid_Optimal` | `OPTIMAL` | **`OPTIMAL`** | Multi-peak notch + Soft VAD + Leaky NLMS |
 
 ---
 
@@ -181,7 +177,7 @@ To combine simulation and real-world results, use the following exact mappings:
 
 1. **Filter Simulation DSP Data**:
    * Load `room_experiment_results.csv`.
-   * Filter where `Venue` in `['freefield', 'damped', 'club']`, `File` in `['male_01...', 'female_01...']`, `SNR_dB` in `[-20, -15, -10, 0]`, and `Filter` in `['Unprocessed', 'FIR_BP', 'Cascade_Notch_NLMS', 'Cascade_Hybrid_Optimal']`.
+   * Filter where `Venue` in `['freefield', 'damped', 'club']`, `File` in `['male_01_IUS-M00201.wav', 'female_01_IUS-F00202.wav']`, `SNR_dB` in `[-20, -15, -10, 0]`, and `Filter` in `['Unprocessed', 'FIR_BP', 'Cascade_Notch_NLMS', 'Cascade_Hybrid_Optimal']`.
    * Map `Venue`, `File` $\rightarrow$ `Speech_Corpus`, and `Filter` using Section 4 mappings.
    * Compute `Sim_Delta_STOI` by subtracting each setup's `Sim_STOI` from its matching `PASSTHROUGH` `Sim_STOI`.
    * Rename columns: `STOI` $\rightarrow$ `Sim_STOI`, `PESQ` $\rightarrow$ `Sim_PESQ`, `ViSQOL` $\rightarrow$ `Sim_ViSQOL`, `dSNR_dB` $\rightarrow$ `Sim_Delta_SNR_dB`, `dASL_dB` $\rightarrow$ `Sim_Delta_ASL_dB`.
@@ -193,25 +189,14 @@ To combine simulation and real-world results, use the following exact mappings:
      `STOI`, `Delta_STOI`, `PESQ`, `Delta_SNR_dB`, `Delta_ASL_dB`, `Whisper_WER`, `Whisper_Recall`, `Google_WER`, `Google_Recall`.
    * Rename `Speaker` $\rightarrow$ `Speech_Corpus`, `Filter_Name` $\rightarrow$ `Filter`, prefixing real metrics with `Real_`.
 
-3. **Extract Exact Simulation ASR Trials**:
-   * Load `asr_comparison_google_vs_whisper.csv`.
-   * Filter where `Sentence_ID` in `['sent01', 'sent02']`.
-   * Map `sent01` $\rightarrow$ `SP2`, `sent02` $\rightarrow$ `SP1`.
-   * Map `Filter_Stage` to standard `Filter` labels.
-   * Set `Venue = 'Inside'`.
-   * Extract: `Sim_Whisper_WER_Pct`, `Sim_Whisper_Recall_Pct`, `Sim_Whisper_Transcript`, `Sim_Google_WER_Pct`, `Sim_Google_Recall_Pct`, `Sim_Google_Transcript`.
+3. **Incorporate Full Simulation Faster-Whisper ASR (288 Conditions)**:
+   * Evaluate Faster-Whisper on all 288 files in `NLMS/output_audio/sim_trials_audio/` against ground truth `"The bill was paid every third week"`.
+   * Extract: `Sim_Whisper_WER_Pct`, `Sim_Whisper_Recall_Pct`, `Sim_Whisper_Transcript`.
 
-4. **Extract Simulation Condition ASR Aggregates**:
-   * Load `faster_whisper_multi_sentence_summary.csv`.
-   * Map `Filter_Stage` to standard `Filter` labels.
-   * Extract `Sim_Condition_Mean_WER_Pct` and `Sim_Condition_Mean_Recall_Pct` keyed on `['Genre', 'SNR_dB', 'Filter']`.
-
-5. **Merge Datasets**:
-   * Execute an **Inner Join** between Aggregated Real Data and Filtered Simulation DSP Data on:
+4. **Merge Datasets**:
+   * Execute an **Inner Join** between Aggregated Real Data, Filtered Simulation DSP Data, and Simulation Faster-Whisper Data on:
      `['Venue', 'Genre', 'SNR_dB', 'Speech_Corpus', 'Filter']`.
-     *(Result: Exactly 288 rows)*.
-   * Left Join exact simulation ASR trials on the 5 setup keys.
-   * Left Join condition-level simulation ASR summaries on `['Genre', 'SNR_dB', 'Filter']`.
+     *(Result: Exactly 288 rows, with 0 missing values for core DSP and Whisper metrics)*.
    * Export to [`holy_grail_results.csv`](file:///Users/macairm1/Documents/antigravity/blissful-bose/NLMS/output_audio/holy_grail_results.csv).
 
 ---
@@ -219,15 +204,14 @@ To combine simulation and real-world results, use the following exact mappings:
 ### 5.2 Reconstructing the Trial-Level Table (`holy_grail_trials.csv` - 576 Rows)
 
 1. Load `real_world_results.csv` without grouping, retaining individual track stems (`Song` = `rock1`, `rock2`, etc.) and transcripts (`Real_Whisper_Transcript`, `Real_Google_Transcript`).
-2. Inner Join simulation DSP baseline metrics on `['Venue', 'Genre', 'SNR_dB', 'Speech_Corpus', 'Filter']`.
-3. Left Join exact simulation ASR metrics and condition aggregates.
-4. Export to [`holy_grail_trials.csv`](file:///Users/macairm1/Documents/antigravity/blissful-bose/NLMS/output_audio/holy_grail_trials.csv) (576 rows).
+2. Inner Join simulation DSP baseline metrics and Faster-Whisper simulation results on `['Venue', 'Genre', 'SNR_dB', 'Speech_Corpus', 'Filter']`.
+3. Export to [`holy_grail_trials.csv`](file:///Users/macairm1/Documents/antigravity/blissful-bose/NLMS/output_audio/holy_grail_trials.csv) (576 rows).
 
 ---
 
 ## 6. Target Schema Definitions
 
-### 6.1 `holy_grail_results.csv` Schema (288 Rows $\times$ 28 Columns)
+### 6.1 `holy_grail_results.csv` Schema (288 Rows $\times$ 23 Columns)
 
 | Column Name | Type | Range / Example | Nullability | Description |
 | :--- | :---: | :---: | :---: | :--- |
@@ -248,17 +232,12 @@ To combine simulation and real-world results, use the following exact mappings:
 | `Real_Delta_ASL_dB` | float | $[-8.0, +4.0]$ | Non-null | Real Active Speech Level attenuation |
 | `Sim_Delta_ASL_dB` | float | $[-6.0, +3.0]$ | Non-null | Sim Active Speech Level attenuation |
 | `Real_Whisper_WER_Pct`| float | $[0.0, 100.0]$ | Non-null | Real Faster-Whisper Word Error Rate % |
-| `Sim_Whisper_WER_Pct` | float | $[0.0, 300.0]$ | Null for non-club | Simulated Faster-Whisper WER % |
+| `Sim_Whisper_WER_Pct` | float | $[0.0, 271.4]$ | Non-null | Simulated Faster-Whisper WER % (100% complete) |
 | `Real_Whisper_Recall_Pct`| float | $[0.0, 100.0]$ | Non-null | Real Faster-Whisper Word Recall % |
-| `Sim_Whisper_Recall_Pct` | float | $[0.0, 100.0]$ | Null for non-club | Simulated Faster-Whisper Recall % |
+| `Sim_Whisper_Recall_Pct` | float | $[0.0, 100.0]$ | Non-null | Simulated Faster-Whisper Recall % (100% complete) |
 | `Real_Google_WER_Pct` | float | $[0.0, 100.0]$ | Null for $\le -15\text{ dB}$ | Real Google Cloud STT WER % |
-| `Sim_Google_WER_Pct`  | float | $[0.0, 100.0]$ | Null for non-club | Simulated Google Cloud STT WER % |
 | `Real_Google_Recall_Pct`| float | $[0.0, 100.0]$ | Null for $\le -15\text{ dB}$ | Real Google Cloud STT Recall % |
-| `Sim_Google_Recall_Pct` | float | $[0.0, 100.0]$ | Null for non-club | Simulated Google Cloud STT Recall % |
-| `Sim_Whisper_Transcript`| string| Text string | Null for non-club | Exact Whisper response on sim audio |
-| `Sim_Google_Transcript` | string| Text string | Null for non-club | Exact Google STT response on sim audio |
-| `Sim_Condition_Mean_WER_Pct`| float | $[0.0, 250.0]$ | Non-null (except $-20\text{ dB}$ mixed/opt)| Average sim WER across all sentences |
-| `Sim_Condition_Mean_Recall_Pct`| float | $[0.0, 100.0]$ | Non-null (except $-20\text{ dB}$ mixed/opt)| Average sim recall across sentences |
+| `Sim_Whisper_Transcript`| string| Text string | Non-null | Exact Whisper response on sim audio (100% complete) |
 
 ---
 
@@ -269,13 +248,12 @@ Before declaring the reconstructed dataset valid, run the following automated as
 1. **Row Count Check**:
    * Setup-level table MUST contain exactly **288 rows**.
    * Trial-level table MUST contain exactly **576 rows**.
-2. **Completeness of Core DSP Metrics**:
-   * `Real_STOI`, `Sim_STOI`, `Real_Delta_STOI`, `Sim_Delta_STOI`, `Real_Delta_SNR_dB`, and `Sim_Delta_SNR_dB` MUST have **0 null values**.
+2. **Completeness of Core Metrics**:
+   * `Real_STOI`, `Sim_STOI`, `Real_Delta_STOI`, `Sim_Delta_STOI`, `Real_Delta_SNR_dB`, `Sim_Delta_SNR_dB`, `Sim_Whisper_WER_Pct`, and `Sim_Whisper_Transcript` MUST have **0 null values**.
 3. **0 dB SNR Sanity Invariants**:
    * For `Inside`, `techno`, `SNR_dB = 0`, `Filter = MIXED`:
      * `Real_Whisper_WER_Pct == 0.0%`
      * `Sim_Whisper_WER_Pct == 0.0%`
-     * `Sim_Whisper_Transcript == "the bill was paid every third week"` (for `SP2`)
-     * `Sim_Whisper_Transcript == "glue the sheet to the dark blue background"` (for `SP1`)
+     * `Sim_Whisper_Transcript == "the bill was paid every third week"` (for BOTH `SP1` and `SP2`)
 4. **Intelligibility Invariant**:
    * `CONTROL` (fixed bandpass) must exhibit inferior WER compared to `OPTIMAL` across both environments due to high-frequency consonant clipping above $300\text{ Hz}$.
